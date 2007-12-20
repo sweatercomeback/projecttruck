@@ -1,0 +1,13 @@
+<h1>New Vehicle Listing</h1>
+
+<%= start_form_tag :action => 'create' %>
+
+    <%= render(:partial => "form", :object => @vehicle) %>
+    
+    <%= submit_tag "Save Changes" %>
+
+<%= end_form_tag %>
+
+<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :action => "update_models" }) %>
+
+<%= link_to 'Back to Garage', {:action => 'list'} %>

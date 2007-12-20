@@ -1,0 +1,292 @@
+body
+{
+	margin: 0 auto;	
+	background-color:#333333;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	padding-top:15px;
+	
+}
+h1
+{
+	font-size:24px;
+	color:#006699;
+	margin-bottom:5px;	
+}
+h2
+{
+	font-size:20px;
+	color:#000;
+	margin-bottom:5px;
+	font-weight:normal;	
+}
+h3
+{
+	font-size:16px;
+	color:#222;
+	margin:0;	
+}
+label
+{
+	display:block;
+	margin: 10px 0 0 0;
+}
+li
+{
+	list-style: none;
+}
+input[type="text"], input[type="password"], input[type="file"], select, textarea
+{
+	font-family: "Helvetica";
+	font-size: 14pt;
+	color: #333;
+	height:auto;
+	width:300px;
+	border: solid 1px #999;
+}
+input .short
+{
+	width:100px;
+}
+textarea
+{
+	height:auto;
+}
+
+a, a:hover, a:visited
+{
+	text-decoration:none;
+	color:#b44953;
+} 
+a:hover
+{
+	text-decoration:underline;
+}
+
+/* General Classes */
+.err
+{
+	font-family: "Helvetica";
+	font-size: 8pt;
+	color: #ff0000;
+}
+.clear
+{
+	clear: both;
+}
+/* END General Classes */
+
+/* Layout Containers */
+#wrapper
+{
+	margin: 0 auto;
+	text-align:center;
+	width:90%;
+}
+#wrapperFull
+{
+	margin: 0 auto;
+	text-align:center;
+	width:98%;
+}
+#container-top
+{
+	margin: 0 32px 0 32px;
+	height:18px;
+	background-image: url('/images/bg_top.jpg');
+	background-repeat:repeat-x;
+	
+}
+#container-top-left
+{
+	width:100%;
+	height:18px;
+	background-image: url('/images/bg_top_left.jpg');
+	background-repeat:no-repeat;
+	background-position: left;
+}
+#container-top-right	
+{
+	width:100%;
+	height:18px;
+	background-image: url('/images/bg_top_right.jpg');
+	background-repeat:no-repeat;
+	background-position: right;
+}
+#container-bottom
+{
+	margin: 0 31px 0 32px;
+	height:23px;
+	background-image: url('/images/bg_bottom.jpg');
+	background-repeat:repeat-x;
+}
+#container-bottom-left
+{
+	height:23px;
+	background-image: url('/images/bg_bottom_left.jpg');
+	background-repeat:no-repeat;
+	background-position: left;
+}
+#container-bottom-right	
+{
+	
+	height:23px;
+	background-image: url('/images/bg_bottom_right.jpg');
+	background-repeat:no-repeat;
+	background-position: right;
+}
+#container-left
+{
+	height:100%;
+	background-image: url('/images/bg_left.jpg');
+	background-repeat:repeat-y;
+	background-color:white;
+	
+
+}
+#container-right
+{
+	height:100%;
+	background-image: url('/images/bg_right.jpg');
+	background-repeat:repeat-y;
+	background-position: right;
+
+}
+#container
+{
+	height:100%;
+	margin: 0 4px 0 4px;
+	text-align:left;
+	padding-bottom:20px; 
+
+}
+#container #top
+{
+	margin-left:20px;
+	margin-bottom:10px;
+}
+#popupContainer
+{
+	margin:0 20px;
+}
+/* END Layout Containers */
+
+#subcontainer-top
+{
+  background-image: url('/images/subcontainer_top.jpg');
+  background-repeat:no-repeat;
+  height:31px;
+  width:371px;
+  margin:0;
+  padding:0;
+}
+#subcontainer-bottom
+{
+  background-image: url('/images/subcontainer_bottom.jpg');
+  background-repeat:no-repeat;
+  height:33px;
+  width:371px;
+  margin:0;
+  padding:0;
+}
+#subcontainer
+{
+  width:371px;
+  margin:0;
+  padding: 0 20px 50px 10px ;
+}
+#subcontainer p
+{
+  width:350px;
+}
+#subcontainer p strong
+{
+	font-weight:bold;
+	color:#C84949;
+}
+#center
+{
+	text-align:center;
+}
+#left
+{
+	float:left;
+	width:120px;
+	text-align:center;
+	
+}
+#left a, #left a:hover, #left a:visited
+{
+	font-weight:bold;
+	font-size:15px;
+	color:#999;
+	text-decoration:none;
+}
+#oneColumn
+{
+	margin-left:25%;
+}
+#right
+{
+	float:left;
+	width:70%;
+	
+}
+#right p
+{
+	margin:0;
+}
+#right ul
+{
+	margin: 0 0 0 20px;		
+}
+#psstContainer h1
+{
+	font-size:16px;
+	color:#003366;
+	font-weight:bold;
+	margin-top:15px;
+	margin-bottom:5px;
+}
+#submit_center
+{
+	text-align:left;
+	margin-left:100px;
+	font-weight:bold;
+	color:#C84949;
+}
+
+/* Vehicle Page */
+div #info
+{
+	float:left;
+	margin-bottom:20px;
+}
+div #info p
+{
+	margin-left: 20px;
+}
+div #info h3
+{
+	margin-left:5px;	
+}
+div #checkList
+{
+	float:left;
+	margin: 10px;
+	padding: 10px;
+	border: dashed 1px #989898;
+}
+#checkList ul
+{
+	margin:0;
+	padding:0;
+}
+#vehicleFooter
+{
+	
+	font-size:smaller;
+	clear:both;
+}
+/* END Vehicle Page */

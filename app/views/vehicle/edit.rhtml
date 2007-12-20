@@ -1,0 +1,16 @@
+<h1>Editing Vehicle: <%= @vehicle.title %></h1>
+
+<%= start_form_tag :action => 'update', :id => @vehicle %>
+
+<%= render(:partial => "form", :object => @vehicle) %>
+    
+<%= submit_tag "Save Changes" %>
+
+<%= end_form_tag %>
+
+<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :action => "update_models" }) %>
+
+<br/>
+<%= link_to "Edit Photos", {:controller => 'vehicle_photo', :action => "index", :vehicle_id => @vehicle.id }, :popup => ['vehicle_photos', 'height=500,width=600'] %>
+<br/>
+<%= link_to 'Back to Garage', {:action => 'list'} %>

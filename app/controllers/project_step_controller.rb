@@ -1,0 +1,65 @@
+class ProjectStepController < ApplicationController
+layout 'login'
+
+  def show
+    
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def delete
+  end
+
+  def new
+    
+  end
+
+  def create
+    @project = Project.find(session[:project_id])
+    @project_step = ProjectStep.new
+    @project_step.project_id = session[:project_id]
+    @project_step.text = params[:step_text]
+    @project_step.project_photo_id = params[:photos]
+    if @project_step.save
+      render :partial => 'step_added'
+    else
+      render :nothing => true, :status => 500
+    end
+  end
+  
+  def edit_step
+    @project_step = ProjectStep.find(params[:ps_id])
+    
+    
+    if @project_step.text.nil?
+      html = "<textarea name='pstext'></textarea><select id='photos' name='photos'>"
+      ProjectPhoto.find(:all, :conditions => ['project_id = ?', session[:project_id]]).each do |pp|
+        html += "<option value='#{pp.id}'>#{pp.filename}</option>"
+      end
+    else
+      html = "<textarea name='pstext'>" + @project_step.text + "</textarea><select id='photos' name='photos'>"
+      ProjectPhoto.find(:all, :conditions => ['project_id = ?', session[:project_id]]).each do |pp|
+        html += "<option value='#{pp.id}'>#{pp.filename}</option>"
+      end
+    end
+    html += "</select>"
+    render_text html
+  end
+  
+  def cancel_step
+    @project_step = ProjectStep.find(params[:ps_id])
+    render_text @project_step.text
+  end
+  
+  def save_step
+    @project_step = ProjectStep.find(params[:ps_id])
+    @project_step.text = params[:pstext]
+    @project_step.project_photo_id = params[:photos]
+    @project_step.save
+    render_text "<img src='#{@project_step.project_photo.public_filename}' />" + @project_step.text
+  end
+end

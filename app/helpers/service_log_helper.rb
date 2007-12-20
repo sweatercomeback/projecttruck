@@ -1,0 +1,2 @@
+module ServiceLogHelper
+end
