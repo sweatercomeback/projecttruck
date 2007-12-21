@@ -35,9 +35,10 @@
 <% end %>
 </div>
 <br/>
-<p><label for="text">Step Text</label><br />
+<p><label for="step_text">Step Text</label><br />
 <%= text_area_tag 'step_text', nil, :size => "40x5" %>
 <br />
+<label for="photos">Step Photos</label>
 <select id="photos" name="photos"><%= options_for_select(@project_photos.sort) %></select>
 <br />
 <%= submit_to_remote 'add_step', 'Add Step', :url => { :controller => 'project_step', :action => 'create' }, :failure => "alert('Unable to add step.');", :update => 'add_step_confirm', :complete => "document.getElementById('step_text').value = '';" %>
