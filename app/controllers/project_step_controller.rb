@@ -60,6 +60,11 @@ layout 'login'
     @project_step.text = params[:pstext]
     @project_step.project_photo_id = params[:photos]
     @project_step.save
-    render_text "<img src='#{@project_step.project_photo.public_filename}' />" + @project_step.text
+    if @project_step.project_photo.nil?
+      render_text @project_step.text      
+    else
+      render_text "<img src='#{@project_step.project_photo.public_filename}' />" + @project_step.text
+    end
+    
   end
 end
