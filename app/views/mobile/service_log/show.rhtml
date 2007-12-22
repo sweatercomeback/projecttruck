@@ -1,0 +1,8 @@
+<h1><%= @service_log.service_log_type.name %></h1>
+
+<p><strong>Vehicle:</strong> <%= @service_log.vehicle.title %></p>
+<p><strong>Comments:</strong> <%= @service_log.comments %></p>
+<p><strong>Created:</strong> <%= @service_log.created_at %></p>
+<p><strong>Last Updated:</strong> <%= @service_log.updated_at %></p>
+
+<%= link_to 'Back to Garage', {:controller => 'garage'} %>

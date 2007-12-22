@@ -1,0 +1,48 @@
+<h1>New Project</h1>
+
+<%= start_form_tag :action => 'update', :id => @project %>
+
+<%= render(:partial => "form", :object => @project) %>
+
+<%= submit_tag "Update" %>
+
+<br/>
+<h2>Project Steps</h2>
+<div id="add_step_confirm">
+  <% if @project.project_steps.length == 0 %>
+    <p>There are no steps for this project</p>
+<% else %>
+    <ul>
+        <% @project.project_steps.each do |@ps| %>
+        
+            <li>
+              <div id="stepEdit<%= @ps.id %>">
+                <%= render :partial => 'project_step/ps' %>
+              </div>
+                <%= link_to_remote "Edit",
+                  :update => "stepEdit" + @ps.id.to_s ,
+                  :url =>{ :controller => :project_step, :action => :edit_step, :ps_id => @ps.id } %>
+                <%= link_to_remote "Cancel",
+                  :update => "stepEdit" + @ps.id.to_s ,
+                  :url =>{ :controller => :project_step, :action => :cancel_step, :ps_id => @ps.id } %>
+                <%= submit_to_remote "stepEditButton" + @ps.id.to_s, "Save",
+                  :update => "stepEdit" + @ps.id.to_s ,
+                  :url =>{ :controller => :project_step, :action => :save_step, :ps_id => @ps.id } %>
+              
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+</div>
+<br/>
+<p><label for="step_text">Step Text</label><br />
+<%= text_area_tag 'step_text', nil, :size => "40x5" %>
+<br />
+<label for="photos">Step Photos</label>
+<select id="photos" name="photos"><%= options_for_select(@project_photos.sort) %></select>
+<br />
+<%= submit_to_remote 'add_step', 'Add Step', :url => { :controller => 'project_step', :action => 'create' }, :failure => "alert('Unable to add step.');", :update => 'add_step_confirm', :complete => "document.getElementById('step_text').value = '';" %>
+
+<%= end_form_tag %>
+<br/>
+<%= link_to "Edit Photos", {:controller => 'project_photo', :action => "index", :project_id => @project.id }, :popup => ['project_photos', 'height=500,width=600'] %>

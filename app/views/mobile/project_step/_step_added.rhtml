@@ -1,0 +1,11 @@
+<% if @project.project_steps.length == 0 %>
+    <p>There are no steps for this project</p>
+<% else %>
+    <ul>
+        <% @project.project_steps.each do |@ps| %>
+            <li>
+                <%= render :partial => 'ps' %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
