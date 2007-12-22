@@ -6,6 +6,7 @@ layout 'login'
   end
 
   def edit
+    
   end
 
   def update
@@ -15,19 +16,20 @@ layout 'login'
   end
 
   def new
-    
+    session[:project_id] = params[:project_id]
+    @project = Project.find(params[:project_id])
   end
 
   def create
-    @project = Project.find(session[:project_id])
-    @project_step = ProjectStep.new
+    
+    @project_step = ProjectStep.new(params[:project_step])
     @project_step.project_id = session[:project_id]
-    @project_step.text = params[:step_text]
+    #@project_step.text = params[:text]
     @project_step.project_photo_id = params[:photos]
     if @project_step.save
-      render :partial => 'step_added'
+      redirect_to :controller => 'project', :action => 'edit', :id => session[:project_id]
     else
-      render :nothing => true, :status => 500
+      
     end
   end
   

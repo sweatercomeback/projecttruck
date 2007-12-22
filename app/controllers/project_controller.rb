@@ -6,6 +6,7 @@ layout 'standard'
   end
 
   def edit
+    @step_count = 1
     @currUserID = session[:user].id
     @project = Project.find(params[:id])
     session[:project_id] = params[:id]
