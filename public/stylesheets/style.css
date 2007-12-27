@@ -88,21 +88,21 @@ a:hover
 	font-size: 8pt;
 	background-color: #fff1a8;
 	text-align: center;
-	width: 50%;
+	width: 95%;
 	font-weight: bold;
-	margin: 20px 0 20px 150px;
+	margin: 20px 0 20px 50%;
 	padding: 5px 0 5px 0;
 }
 .error
 {
 	font-family: "Helvetica";
 	font-size: 8pt;
-	color: #ffffff;
-	background-color: #ff0000;
+	color: #ff0000;
+	background-color: #fff1a8;
 	text-align: center;
-	width: 50%;
+	width: 95%;
 	font-weight: bold;
-	margin: 20px 0 20px 150px;
+	margin: 20px 0 20px 0;
 	padding: 5px 0 5px 0;
 	
 }
@@ -371,13 +371,17 @@ div #checkList
 	text-align: right;
 	margin: 0 5px 0 0;
 }
+.message_header_text
+{
+	margin: 0 0 5px 0;
+}
 #message_header_label_to
 {
 	margin: 4px 5px 0 0;
 }
 #message_header_label_subject
 {
-	margin: 12px 5px 0 0;
+	margin: 18px 5px 0 0;
 }
 #message_header_label_body
 {
@@ -391,7 +395,7 @@ div #checkList
 }
 #message_submit
 {
-	width: 100%;
+	width: 560px;
 	text-align: right;
 	margin: 5px 0 0 0;
 }
