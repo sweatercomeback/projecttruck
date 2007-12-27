@@ -5,7 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.column :body, :text
       t.column :user_id, :integer
       t.column :from_user_id, :integer
-      t.column :unread, :boolean
+      t.column :unread, :boolean, :default => 1
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
     end
