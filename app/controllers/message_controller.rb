@@ -16,7 +16,16 @@ before_filter :login_required
 
   def send_message
     if request.post?
-      params[:message][:user_id] = User.find(:first, :conditions => ['login = ?', params[:to_login]]).id
+      toUser = User.find(:first, :conditions => ['login = ?', params[:to_login]])
+      if toUser.nil?
+        flash[:error] = "Recipient doesn't exist"
+        redirect_to :action => 'new'
+        return
+      end
+      params[:message][:user_id] = toUser.id
+      if params[:message][:subject].blank?
+        params[:message][:subject] = "(no subject)"
+      end
       @message = Message.new(params[:message])
       @message.from_user_id = session[:user].id
       if @message.save

@@ -90,7 +90,21 @@ a:hover
 	text-align: center;
 	width: 50%;
 	font-weight: bold;
-	margin: 20px 0 20px 150px
+	margin: 20px 0 20px 150px;
+	padding: 5px 0 5px 0;
+}
+.error
+{
+	font-family: "Helvetica";
+	font-size: 8pt;
+	color: #ffffff;
+	background-color: #ff0000;
+	text-align: center;
+	width: 50%;
+	font-weight: bold;
+	margin: 20px 0 20px 150px;
+	padding: 5px 0 5px 0;
+	
 }
 /* END General Classes */
 

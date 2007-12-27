@@ -1,4 +1,10 @@
 <h1>Compose Message</h1>
+<% if flash[:notice] != nil %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:error] != nil %>
+<div class="error"><%= flash[:error] %></div>
+<% end %>
 <% form_tag :action => 'send_message', :id => @message do %>
 <div id="compose_message">
   <div id="message_header_label_container">

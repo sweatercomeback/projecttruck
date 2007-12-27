@@ -2,6 +2,9 @@
 <% if flash[:notice] != nil %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+<% if flash[:error] != nil %>
+<div class="error"><%= flash[:error] %></div>
+<% end %>
 <% if @messages.blank? %>
     <p>No messages</p>
 <% else %>
