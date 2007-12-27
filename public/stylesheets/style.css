@@ -315,3 +315,32 @@ div #checkList
 	border-bottom: solid 1px black;
 }
 /* END Home Page */
+
+/* START Messaging */
+#message_header
+{
+	margin: 0;
+	padding: 5px 5px 5px 15px;
+	background-color: #EDECEB;
+}
+#message_body
+{
+	margin: 0;
+	padding: 0 0 0 5px;
+	background-color: #ffffff;
+}
+#message_header_label_container
+{
+	float: left;
+}
+#message_header_text_container
+{
+	
+}
+.message_header_label
+{
+	font-weight: bold;
+	text-align: right;
+	margin: 0 5px 0 0;
+}
+/* END Messaging */

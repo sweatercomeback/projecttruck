@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   has_many :vehicles
+  has_many :messages
   acts_as_mappable
 
   attr_protected :id, :salt
