@@ -1,5 +1,5 @@
 class NewsItemController < ApplicationController
-layout 'standard'
+layout 'home'
 
 def list
     @news_items = NewsItem.find(:all)

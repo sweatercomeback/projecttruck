@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-layout 'login'
+layout 'home'
 
   include GeoKit::Geocoders
   before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
@@ -26,7 +26,7 @@ layout 'login'
         flash[:message]  = "Login successful"
         redirect_to_stored
       else
-        flash[:warning] = "Login unsuccessful"
+        flash[:Error ] = ": User name or password invalid.  Try again."
       end
     end
   end
