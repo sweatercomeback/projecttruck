@@ -6,13 +6,19 @@ layout 'login'
   end
 
   def edit
-    
+    @project_step = ProjectStep.find(params[:id])
   end
 
   def update
+    @project_step = ProjectStep.find(params[:id])
+    @project_step.project_photo_id = params[:photos]
+    @project_step.update_attributes(params[:project_step])
+    redirect_to :controller => 'project', :action => 'edit', :id => @project_step.project.id 
   end
 
   def delete
+    ProjectStep.find(params[:id]).destroy
+    redirect_to :controller => 'project', :action => 'edit', :id => session[:project_id]    
   end
 
   def new
@@ -31,6 +37,12 @@ layout 'login'
     else
       
     end
+  end
+  
+  def show_photo
+    pp = ProjectPhoto.find(params[:project_photo_id])
+    render_text "<img src='#{pp.public_filename}' />"
+    #render_text "<pre>#{params[:project_photo_id]}</pre>"
   end
   
   def edit_step
