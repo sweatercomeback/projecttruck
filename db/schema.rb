@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 25) do
     t.column "body",         :text
     t.column "user_id",      :integer
     t.column "from_user_id", :integer
-    t.column "unread",       :boolean
+    t.column "unread",       :boolean,  :default => true
     t.column "created_at",   :datetime
     t.column "updated_at",   :datetime
   end

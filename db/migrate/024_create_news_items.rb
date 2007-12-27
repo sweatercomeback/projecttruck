@@ -4,7 +4,7 @@ class CreateNewsItems < ActiveRecord::Migration
       t.column :title, :string
       t.column :summary, :string
       t.column :article, :text
-      t.column :active, :boolean
+      t.column :active, :boolean, :default => 1
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
     end
