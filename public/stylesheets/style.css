@@ -82,6 +82,16 @@ a:hover
 {
 	clear: both;
 }
+.notice
+{
+	font-family: "Helvetica";
+	font-size: 8pt;
+	background-color: #fff1a8;
+	text-align: center;
+	width: 50%;
+	font-weight: bold;
+	margin: 20px 0 20px 150px
+}
 /* END General Classes */
 
 /* Layout Containers */
@@ -322,11 +332,15 @@ div #checkList
 	margin: 0;
 	padding: 5px 5px 5px 15px;
 	background-color: #EDECEB;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #c6c6c6;
+	border-left: 1px solid #c6c6c6;
+	border-right: 1px solid #c6c6c6;
 }
 #message_body
 {
 	margin: 0;
-	padding: 0 0 0 5px;
+	padding: 5px 0 0 5px;
 	background-color: #ffffff;
 }
 #message_header_label_container
@@ -342,5 +356,33 @@ div #checkList
 	font-weight: bold;
 	text-align: right;
 	margin: 0 5px 0 0;
+}
+#message_header_label_to
+{
+	margin: 4px 5px 0 0;
+}
+#message_header_label_subject
+{
+	margin: 12px 5px 0 0;
+}
+#message_header_label_body
+{
+	margin: 10px 0 0 0;
+}
+#message_body
+{
+	margin: 20px 0 0 0;
+	width: 500px;
+	height: 200px;
+}
+#message_submit
+{
+	width: 100%;
+	text-align: right;
+	margin: 5px 0 0 0;
+}
+.message_cell
+{
+	padding: 0 0 0 15px;
 }
 /* END Messaging */

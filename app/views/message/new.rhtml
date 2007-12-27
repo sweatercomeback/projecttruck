@@ -1,2 +1,16 @@
-<h1>Message#new</h1>
-<p>Find me in app/views/message/new.rhtml</p>
+<h1>Compose Message</h1>
+<% form_tag :action => 'send_message', :id => @message do %>
+<div id="compose_message">
+  <div id="message_header_label_container">
+    <div id="message_header_label_to" class="message_header_label">To:</div>
+    <div id="message_header_label_subject" class="message_header_label">Subject:</div>
+    <div id="message_header_label_body" class="message_header_label">&nbsp;</div>
+  </div>
+  <div id="message_header_text_container">
+    <div><%= text_field_tag 'to_login' %></div>
+    <div><%= text_field 'message', 'subject' %></div>
+    <%= text_area 'message', 'body' %>
+  </div>
+  <div id="message_submit"><%= submit_tag "Send" %></div>
+</div>
+<% end %>
