@@ -11,7 +11,7 @@ layout 'home'
       @user.lat = geoloc.lat
       @user.lng = geoloc.lng
       if @user.save
-        session[:user] = User.authenticate(@user.login, @user.password)
+        session[:user_id] = User.authenticate(@user.login, @user.password)
         flash[:message] = "Signup successful"
         redirect_to :action => "welcome"          
       else
@@ -22,7 +22,7 @@ layout 'home'
 
   def login
     if request.post?
-      if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
+      if session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
         flash[:message]  = "Login successful"
         redirect_to_stored
       else
@@ -32,7 +32,7 @@ layout 'home'
   end
 
   def logout
-    session[:user] = nil
+    session[:user_id] = nil
     flash[:message] = 'Logged out'
     redirect_to :action => 'login'
   end
@@ -50,7 +50,7 @@ layout 'home'
   end
   
   def change_password
-    @user=session[:user]
+    @user=User.find(session[:user_id])
     if request.post?
       @user.update_attributes(:password=>params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
       if @user.save

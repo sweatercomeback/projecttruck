@@ -1,7 +1,7 @@
 module BasicAuth
 
   def login_required
-    if session[:user]
+    if session[:user_id]
       return true
     end
     flash[:warning]='Please login to continue'
@@ -11,7 +11,7 @@ module BasicAuth
   end
 
   def current_user
-    session[:user]
+    session[:user_id]
   end
   
   def redirect_to_stored

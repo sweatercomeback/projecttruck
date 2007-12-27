@@ -7,7 +7,7 @@ layout 'standard'
 
   def edit
     @step_count = 1
-    @currUserID = session[:user].id
+    @currUserID = session[:user_id]
     @project = Project.find(params[:id])
     session[:project_id] = params[:id]
     @project_photos = {}
@@ -29,7 +29,7 @@ layout 'standard'
   end
 
   def new
-    @currUserID = session[:user].id
+    @currUserID = session[:user_id]
   end
 
   def create

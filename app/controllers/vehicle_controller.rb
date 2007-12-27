@@ -5,7 +5,7 @@ before_filter :login_required, :only=>['list', 'show', 'new', 'create', 'edit', 
 include GeoKit::Geocoders
 
   def list
-    @currUserID = session[:user].id
+    @currUserID = session[:user_id]
     @vehicles = Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID])
     @service_logs = ServiceLog.find_by_sql(['select service_logs.* from service_logs inner join vehicles on vehicles.id = service_logs.vehicle_id and vehicles.user_id = ?', @currUserID])
     @projects = Project.find_by_sql(['select projects.* from projects inner join vehicles on vehicles.id = projects.vehicle_id and vehicles.user_id = ?', @currUserID])
@@ -26,14 +26,14 @@ include GeoKit::Geocoders
   def create
     @vehicle = Vehicle.new(params[:vehicle])
     if params[:vehicle][:zipcode].blank?
-      @vehicle.lat = session[:user].lat
-      @vehicle.lng = session[:user].lng      
+      @vehicle.lat = @vehicle.user.lat
+      @vehicle.lng = @vehicle.user.lng      
     else
       geoloc = MultiGeocoder.geocode(params[:vehicle][:zipcode])
       @vehicle.lat = geoloc.lat
       @vehicle.lng = geoloc.lng
     end
-    @vehicle.user_id = session[:user].id
+    @vehicle.user_id = session[:user_id]
     if @vehicle.save
         redirect_to :action => 'list'
     else
@@ -52,8 +52,8 @@ include GeoKit::Geocoders
   def update
     @vehicle = Vehicle.find(params[:id])
     if params[:vehicle][:zipcode].blank?
-      @vehicle.lat = session[:user].lat
-      @vehicle.lng = session[:user].lng      
+      @vehicle.lat = @vehicle.user.lat
+      @vehicle.lng = @vehicle.user.lng      
     else
       geoloc = MultiGeocoder.geocode(params[:vehicle][:zipcode])
       @vehicle.lat = geoloc.lat

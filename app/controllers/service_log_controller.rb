@@ -16,7 +16,7 @@ before_filter :login_required
   end
 
   def new
-    @currUserID = session[:user].id
+    @currUserID = session[:user_id]
     @service_log = ServiceLog.new
     @my_trucks = Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID])
   end

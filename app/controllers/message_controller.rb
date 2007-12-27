@@ -3,7 +3,7 @@ layout 'standard'
 before_filter :login_required
 
   def list
-    @messages = Message.find(:all, :conditions => ['user_id = ?', session[:user].id])
+    @messages = Message.find(:all, :conditions => ['user_id = ?', session[:user_id]])
   end
 
   def show
@@ -27,7 +27,7 @@ before_filter :login_required
         params[:message][:subject] = "(no subject)"
       end
       @message = Message.new(params[:message])
-      @message.from_user_id = session[:user].id
+      @message.from_user_id = session[:user_id]
       if @message.save
         flash[:notice] = "Message sent"
         redirect_to :action => 'list'
