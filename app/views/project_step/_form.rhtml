@@ -1,2 +1,14 @@
-<p><label for="text">Text</label><br />
-<%= text_area 'project_step', 'text', 'cols' => 40, 'rows' => 10 %></p>
+<div>
+  <label for="photos">Step Photo</label>
+  <%= collection_select("project_step",
+                        "project_photo_id",
+                        ProjectPhoto.find(:all, :conditions => ['project_id = ?', @project_step.project_id]),
+                        "id", "filename") %>
+  <%= link_to_remote ("Preview Photo",
+                      :update => "photo_preview",
+                      :url => { :action => "show_photo"},
+                      :with => "'project_photo_id=' + document.getElementById('project_step_project_photo_id').options[document.getElementById('project_step_project_photo_id').selectedIndex].value") %>
+  <div id="photo_preview"><img src="<%= @project_step.project_photo.public_filename %>" alt="Project Step Photo" /></div>
+  <label for="text">Step Text</label>
+  <%= text_area 'project_step', 'text', 'cols' => 40, 'rows' => 10 %>
+</div>

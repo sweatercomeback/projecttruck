@@ -1,12 +1,12 @@
 <h1>Editing Vehicle: <%= @vehicle.title %></h1>
 
-<%= start_form_tag :action => 'update', :id => @vehicle %>
+<% form_tag :action => 'update', :id => @vehicle do %>
 
 <%= render(:partial => "form", :object => @vehicle) %>
     
 <%= submit_tag "Save Changes" %>
 
-<%= end_form_tag %>
+<% end %>
 
 <%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :action => "update_models" }) %>
 

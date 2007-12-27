@@ -1,2 +1,11 @@
-<h1>ProjectStep#edit</h1>
-<p>Find me in app/views/project_step/edit.rhtml</p>
+<h1>Edit Step for <%= @project_step.project.title %></h1>
+
+<%= form_tag :action => 'update', :id => @project_step do %>
+
+<%= render(:partial => "form", :object => @project_step) %>
+
+<%= submit_tag "Save" %>
+
+<% end %>
+
+<%= link_to 'Back', {:controller => 'project', :action => 'show', :id => @project_step.project.id} %>

@@ -2,21 +2,21 @@
 	<label for="title">Give This Truck a Name</label>
 	<%= text_field 'vehicle', 'title' %>
 
-<p><label for="for_sale">For Sale</label><br />
-<%= check_box 'vehicle', 'for_sale' %></p>
+<label for="for_sale">For Sale</label>
+<%= check_box 'vehicle', 'for_sale' %>
 
-<p><label for="price">Price</label><br />
-$<%= text_field 'vehicle', 'price' %></p>
+<label for="price">Price</label>
+$<%= text_field 'vehicle', 'price' %>
 
-<p><label for="make">Make</label><br />
+<label for="make">Make</label>
 <% if @vehicle.model != nil -%>
 <select id="makes" name="makes"><%= options_for_select(@makes.sort, @vehicle.model.make_id) %></select>
 <% else -%>
 <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
 <% end -%>
-</p>
+<%= link_to
 
-<p><label for="make">Model</label><br />
+label for="make">Model</label>
 <div id="div_model">
 <% if @models != nil -%>
     <%= collection_select("vehicle", "model_id" , @models, "id", "name") %>

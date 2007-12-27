@@ -1,12 +1,12 @@
 <h1>Editing News: <%= @news_item.title %></h1>
 
-<%= start_form_tag :action => 'update', :id => @news_item %>
+<% form_tag :action => 'update', :id => @news_item do %>
 
 <%= render(:partial => "form", :object => @news_item) %>
     
 <%= submit_tag "Save Changes" %>
 
-<%= end_form_tag %>
+<% end %>
 
 <br/>
 

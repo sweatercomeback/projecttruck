@@ -1,12 +1,12 @@
 <h1>New Project</h1>
 
-<%= start_form_tag :action => 'update', :id => @project %>
+<% form_tag :action => 'update', :id => @project do %>
 
 <%= render(:partial => "form", :object => @project) %>
 <br/>
 <%= submit_tag "Save" %>
 
-<%= end_form_tag %>
+<% end %>
 
 <h2>Project Steps</h2>
   <% if @project.project_steps.length == 0 %>
@@ -18,7 +18,8 @@
               <% if @ps.project_photo != nil %><%= image_tag @ps.project_photo.public_filename, :size => @ps.project_photo.image_size %><% end %>
               <%= "#{@step_count}. #{@ps.text}" %>
               <% @step_count = @step_count + 1 %>
-            <%= link_to "Edit Step", {:controller => 'project_step', :action => "edit", :id => @ps.id }%>
+            <%= link_to "Edit", {:controller => 'project_step', :action => "edit", :id => @ps.id }%>
+            <%= link_to 'Delete', {:controller => "project_step", :action => "delete", :id => @ps.id}, :confirm => "Are you sure you want to delete this project step?" %>
           <br/>
           <% end %>
     </div>

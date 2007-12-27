@@ -22,13 +22,12 @@
 
 <div id="checkList">
 <ul>
-	<li><%= link_to "Edit Photos", {:controller => 'vehicle_photo', :action => "index", :vehicle_id => @vehicle.id }, :popup => ['vehicle_photos', 'height=500,width=600'] %></li>
-	<li><%= link_to 'Back to Garage', {:action => 'list'} %></li>
-	<li><%= link_to 'Edit', {:action => "edit", :id => @vehicle.id} %></li>
-	<li><%= link_to 'Delete', {:action => "delete", :id => @vehicle.id}, :confirm => "Are you sure you want to delete this truck?" %></li>
-</ul>
+  <li><%= link_to "Edit Photos", {:controller => 'vehicle_photo', :action => "index", :vehicle_id => @vehicle.id }, :popup => ['vehicle_photos', 'height=500,width=600'] %></li>
+  <li><%= link_to 'Back to Garage', {:action => 'list'} %></li>
+  <li><%= link_to 'Edit', {:action => "edit", :id => @vehicle.id} %></li>
+  <li><%= link_to 'Delete', {:action => "delete", :id => @vehicle.id}, :confirm => "Are you sure you want to delete this truck?" %></li>
+  </ul>
 </div>
-
 <div id="vehicleFooter">
 Created: <%= @vehicle.created_at %> / Last Updated: <%= @vehicle.updated_at %>
 </div>
