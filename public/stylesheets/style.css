@@ -323,11 +323,15 @@ div #checkList
 /* END Vehicle Page */
 
 /* START Home Page */
-#news, #login, #information
+#news, #login, #information, #welcome
 {
 	margin: 4px 0;
 	padding:10px;
 	border: solid 1px black;
+}
+#welcome h3
+{
+	font-size: small;
 }
 #news ul
 {

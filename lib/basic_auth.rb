@@ -21,6 +21,6 @@ module BasicAuth
     else
       redirect_to :controller=>'user', :action=>'welcome'
     end
-  end  
+  end
 
 end
