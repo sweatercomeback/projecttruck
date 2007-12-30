@@ -1,8 +1,9 @@
 class UserController < ApplicationController
 layout 'home'
-
+  
   include GeoKit::Geocoders
   before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
+  after_filter :update_user_activity, :only => :login
 
   def signup
     @user = User.new(params[:user])
@@ -22,7 +23,8 @@ layout 'home'
 
   def login
     if request.post?
-      if session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
+      session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
+      if session[:user_id] != -1
         flash[:message]  = "Login successful"
         redirect_to_stored
       else
@@ -63,5 +65,9 @@ layout 'home'
       redirect_to :controller => 'vehicle', :action => 'list'
   end
   def hidden
+  end
+  
+  def online
+    @users = User.find(:all, :conditions => ['last_activity_date > ?', Time.now - 20.minutes])
   end
 end
