@@ -4,6 +4,7 @@
 # you don't control web/app server and can't set it the proper way
 # ENV['RAILS_ENV'] ||= 'production'
 
+RAILS_GEM_VERSION = '2.0.2'
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '1.2.3' unless defined? RAILS_GEM_VERSION
 
@@ -29,6 +30,8 @@ Rails::Initializer.run do |config|
   # Use the database for sessions instead of the file system
   # (create the session table with 'rake db:sessions:create')
   # config.action_controller.session_store = :active_record_store
+  # Use a client cookie instead of the filesystem (new in rails 2.0)
+  config.action_controller.session = { :session_key => "_pt_session_id", :secret => "0d5851084955c327ee1dc9cbd631aa5f" }
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper, 
