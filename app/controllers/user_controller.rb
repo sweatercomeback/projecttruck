@@ -70,4 +70,8 @@ layout 'home'
   def online
     @users = User.find(:all, :conditions => ['last_activity_date > ?', Time.now - 20.minutes])
   end
+  
+  def home
+    @user=User.find(session[:user_id])
+  end
 end
