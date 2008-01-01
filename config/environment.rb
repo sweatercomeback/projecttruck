@@ -30,9 +30,13 @@ Rails::Initializer.run do |config|
   # Use the database for sessions instead of the file system
   # (create the session table with 'rake db:sessions:create')
   # config.action_controller.session_store = :active_record_store
-  # Use a client cookie instead of the filesystem (new in rails 2.0)
-  config.action_controller.session = { :session_key => "_pt_session_id", :secret => "0d5851084955c327ee1dc9cbd631aa5f" }
-
+  
+  # Use a client cookie instead of the filesystem (rails 2.0 default)
+  # will check if using rails 2.x until all developers have upgraded
+  if RAILS_GEM_VERSION.index('2') == 0
+    config.action_controller.session = { :session_key => "_pt_session_id", :secret => "0d5851084955c327ee1dc9cbd631aa5f" }
+  end
+  
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper, 
   # like if you have constraints or database-specific column types
