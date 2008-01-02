@@ -17,7 +17,7 @@ module BasicAuth
   def redirect_to_stored
     if return_to = session[:return_to]
       session[:return_to]=nil
-      redirect_to_url(return_to)
+      redirect_to :url => return_to
     else
       redirect_to :controller=>'user', :action=>'welcome'
     end
