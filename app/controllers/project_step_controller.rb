@@ -1,5 +1,5 @@
 class ProjectStepController < ApplicationController
-layout 'login'
+layout 'standard'
 
   def show
     
@@ -23,6 +23,8 @@ layout 'login'
 
   def new
     session[:project_id] = params[:project_id]
+    @project_step = ProjectStep.new()
+    @project_step.project_id = params[:project_id]
     @project = Project.find(params[:project_id])
   end
 
@@ -30,18 +32,16 @@ layout 'login'
     
     @project_step = ProjectStep.new(params[:project_step])
     @project_step.project_id = session[:project_id]
-    #@project_step.text = params[:text]
-    @project_step.project_photo_id = params[:photos]
     if @project_step.save
       redirect_to :controller => 'project', :action => 'edit', :id => session[:project_id]
     else
-      
+      redirect_to :action => 'new', :id => session[:project_id]  
     end
   end
   
   def show_photo
     pp = ProjectPhoto.find(params[:project_photo_id])
-    render_text "<img src='#{pp.public_filename}' />"
+    render :text => "<img src='#{pp.thumbnails[0].public_filename}' />"
     #render_text "<pre>#{params[:project_photo_id]}</pre>"
   end
   

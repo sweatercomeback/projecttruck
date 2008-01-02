@@ -1,5 +1,5 @@
 <h1>Service Log</h1>
-<% form_for :service_log, :url => { :action => 'create' } do |f| -%>
+<% form_for :service_log, :url => { :action => 'update', :id => @service_log } do |f| -%>
   <%= render(:partial => "form", :object => @service_log) %>
-  <p><%= submit_tag :Create %></p>
+  <p><%= submit_tag :Save %></p>
 <% end -%>

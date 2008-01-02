@@ -13,9 +13,8 @@
     <div>There are no steps for this project</div>
 <% else %>
     <div>
-          
           <% @project.project_steps.each do |@ps| %>
-              <% if @ps.project_photo != nil %><%= image_tag @ps.project_photo.public_filename, :size => @ps.project_photo.image_size %><% end %>
+              <% if @ps.project_photo != nil %><%= image_tag @ps.project_photo.public_filename, :size => @ps.project_photo.image_size %><br /><% end %>
               <%= "#{@step_count}. #{@ps.text}" %>
               <% @step_count = @step_count + 1 %>
             <%= link_to "Edit", {:controller => 'project_step', :action => "edit", :id => @ps.id }%>

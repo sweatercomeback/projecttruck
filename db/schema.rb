@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 27) do
+ActiveRecord::Schema.define(:version => 28) do
 
   create_table "coming_soons", :force => true do |t|
     t.string   "email"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 27) do
     t.string   "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mileage"
   end
 
   create_table "transmissions", :force => true do |t|

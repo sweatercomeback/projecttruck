@@ -10,9 +10,18 @@ before_filter :login_required
   end
 
   def edit
+    @currUserID = session[:user_id]
+    @service_log = ServiceLog.find(params[:id])
+    @my_trucks = Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID])
   end
 
   def update
+    @service_log = ServiceLog.find(params[:id])
+    if @service_log.update_attributes(params[:service_log])
+        redirect_to :controller => 'garage'
+    else
+        render :action => 'edit'
+    end      
   end
 
   def new
@@ -31,5 +40,7 @@ before_filter :login_required
   end
 
   def delete
+    @service_log = ServiceLog.find(params[:id]).destroy
+    redirect_to :controller => 'garage'
   end
 end

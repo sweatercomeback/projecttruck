@@ -14,7 +14,11 @@ class ProjectPhotoController < ApplicationController
   end
 
   def create
-    @project_photo = ProjectPhoto.create! params[:project_photo]
+    #@project_photo = ProjectPhoto.create! params[:project_photo]
+    @project_photo = ProjectPhoto.new(params[:project_photo])
+    @project_photo.parent_id = nil
+    @project_photo.save
+    
     redirect_to :action => 'show', :id => @project_photo
   rescue ActiveRecord::RecordInvalid
     render :action => 'new'
