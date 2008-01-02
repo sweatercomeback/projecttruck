@@ -8,11 +8,12 @@
                       :update => "photo_preview",
                       :url => { :action => "show_photo"},
                       :with => "'project_photo_id=' + document.getElementById('project_step_project_photo_id').options[document.getElementById('project_step_project_photo_id').selectedIndex].value") %>
-  <div id="photo_preview">
+  <span id="photo_preview"></span>
+  <div class="project_step_image">
     <% if @project_step.project_photo != nil %>
     <img src="<%= @project_step.project_photo.public_filename %>" alt="Project Step Photo" />
     <% end%>
   </div>
   <label for="text">Step Text</label>
-  <%= text_area 'project_step', 'text', 'cols' => 40, 'rows' => 10 %>
+  <%= text_area 'project_step', 'text' %>
 </div>

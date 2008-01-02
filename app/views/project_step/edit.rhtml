@@ -1,6 +1,6 @@
 <h1>Edit Step for <%= @project_step.project.title %></h1>
 
-<%= form_tag :action => 'update', :id => @project_step do %>
+<% form_tag :action => 'update', :id => @project_step do %>
 
 <%= render(:partial => "form", :object => @project_step) %>
 

@@ -408,3 +408,28 @@ div #checkList
 	padding: 0 0 0 15px;
 }
 /* END Messaging */
+
+/* START projects */
+div .project_step
+{
+	border: 1px solid #000000;
+	margin: 5px 0 5px 0;
+	padding: 0 5px 0 5px;
+}
+div .project_step_image
+{
+	margin: 5px 0 5px 0;
+}
+div .project_step_text
+{
+	margin: 5px 0 5px 0;
+}
+#project_step_text
+{
+	width: 500px;
+}
+#photo_preview
+{
+	vertical-align: bottom;
+}
+/* END projects */
