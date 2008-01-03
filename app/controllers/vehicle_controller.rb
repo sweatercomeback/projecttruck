@@ -15,6 +15,12 @@ include GeoKit::Geocoders
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.js
+      format.xml { render :xml => @vehicle.to_xml }
+    end
   end
 
   def new
