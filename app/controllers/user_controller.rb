@@ -72,6 +72,16 @@ layout 'home'
   end
   
   def home
-    @user=User.find(session[:user_id])
+    if params[:id].nil? && session[:user_id].nil?
+      redirect_to :controller => 'home'
+    elsif !params[:id].nil?
+      @user=User.find(params[:id])
+    else
+      @user=User.find(session[:user_id])
+    end
+    
+    rescue ActiveRecord::RecordNotFound
+      redirect_to :controller => 'home'
+      
   end
 end

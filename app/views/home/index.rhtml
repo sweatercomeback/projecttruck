@@ -16,13 +16,6 @@
 <% end %>
 </div>
 
-<% if session[:user_id] != nil && session[:user_id] != -1 %>
-<div id="welcome">
-    <h2>Welcome</h2>
-    Add crap to be displayed to a logged in user
-    <h3><%= link_to 'Logout', :controller=> 'user', :action => 'logout' %></h3>
-</div>
-<% else %>
 <div id="login">
 <% form_for :user, :url=> {:controller=> "user", :action=> "login"} do |form| %>
     <h2>Login</h2>  
@@ -37,7 +30,6 @@
 	
     
     <%= link_to 'Forgot my password', :controller=> "user", :action => 'forgot_password' %>
-<% end %>
 </div>
 <% end %>
 

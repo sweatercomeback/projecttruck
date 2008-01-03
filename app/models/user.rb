@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
     
   def self.authenticate(login, pass)
     u=find(:first, :conditions=>["login = ?", login])
-    return -1 if u.nil?
+    return nil if u.nil?
     if User.encrypt(pass, u.salt)==u.hashed_password
       return u.id
     else
-      return -1
+      return nil
     end
   end  
 
