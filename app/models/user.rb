@@ -52,4 +52,13 @@ class User < ActiveRecord::Base
     return newpass
   end
   
+  def self.find_recent(minutes_offset=20)
+    filter_date = Time.now - minutes_offset.minutes
+    return self.find(:all, :conditions => ['last_activity_date > ?', filter_date])
+  end
+  
+    def self.find_by_login(user_login)
+    return self.find(:first, :conditions => ['login = ?', user_login])
+  end
+  
 end

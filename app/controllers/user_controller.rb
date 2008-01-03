@@ -24,9 +24,9 @@ layout 'home'
   def login
     if request.post?
       session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
-      if session[:user_id] != -1
+      if !session[:user_id].nil?
         flash[:message]  = "Login successful"
-        redirect_to_stored
+        redirect_to :controller => 'user', :action => 'home'
       else
         flash[:Error ] = ": User name or password invalid.  Try again."
       end
@@ -68,10 +68,15 @@ layout 'home'
   end
   
   def online
-    @users = User.find(:all, :conditions => ['last_activity_date > ?', Time.now - 20.minutes])
+    @users = User.find_recent
   end
   
   def home
+    #check to see if a username wass passed in or an id
+    if params[:id].to_i == 0
+      params[:id] = User.find_by_login(params[:id]).id
+    end
+    breakpoint
     if params[:id].nil? && session[:user_id].nil?
       redirect_to :controller => 'home'
     elsif !params[:id].nil?
