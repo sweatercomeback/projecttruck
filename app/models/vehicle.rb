@@ -6,7 +6,7 @@ class Vehicle < ActiveRecord::Base
     belongs_to :vehicle_condition
     belongs_to :user
     has_many :service_logs
-    has_many :vehicle_photos
+    has_and_belongs_to_many :photos
     has_many :projects
     acts_as_mappable
 end

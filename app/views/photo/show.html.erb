@@ -1,0 +1,5 @@
+<p><%= @photo.filename %></p>
+<%= image_tag @photo.public_filename, :size => @photo.image_size %>
+<br/>
+<p><%= link_to 'Show Photos', :action => 'index' %></p>
+<a href="#" onclick="javascript:window.close();">Close</a>

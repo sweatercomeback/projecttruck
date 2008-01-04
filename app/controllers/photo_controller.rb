@@ -1,23 +1,21 @@
-class VehiclePhotoController < ApplicationController
+class PhotoController < ApplicationController
   layout 'popup'
   def index
-    @vehicle = Vehicle.find(params[:vehicle_id])
+    @user = User.find(session[:user_id])
   end
 
   def new
-    @vehicle = Vehicle.find(params[:vehicle_id])
-    session[:vehicle_id] = params[:vehicle_id]
+    
   end
 
   def show
-    @vehicle_photo = Photo.find params[:id]
+    @photo = Photo.find params[:id]
   end
 
   def create
-    @vehicle = Vehicle.find(session[:vehicle_id])
     @photo = Photo.new(params[:photo])
+    @photo.user_id = session[:user_id]
     @photo.save
-    @vehicle.photos << @photo
     
     redirect_to :action => 'show', :id => @photo
   end

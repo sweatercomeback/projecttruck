@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   has_many :vehicles
   has_many :messages
+  has_many :photos
   acts_as_mappable
 
   attr_protected :id, :salt
@@ -37,6 +38,11 @@ class User < ActiveRecord::Base
     self.save
     Notifications.deliver_forgot_password(self.email, self.login, new_pass)
   end
+  
+  alias photos_all :photos
+  def photos
+    return Photo.find(:all, :conditions => ['user_id = ? and parent_id is null', self.id])
+  end
 
   protected
 
@@ -57,8 +63,6 @@ class User < ActiveRecord::Base
     return self.find(:all, :conditions => ['last_activity_date > ?', filter_date])
   end
   
-    def self.find_by_login(user_login)
-    return self.find(:first, :conditions => ['login = ?', user_login])
-  end
+
   
 end

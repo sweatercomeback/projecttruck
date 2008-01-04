@@ -72,14 +72,13 @@ layout 'home'
   end
   
   def home
-    #check to see if a username wass passed in or an id
-    if params[:id].to_i == 0
-      params[:id] = User.find_by_login(params[:id]).id
-    end
-    breakpoint
     if params[:id].nil? && session[:user_id].nil?
       redirect_to :controller => 'home'
     elsif !params[:id].nil?
+      #check to see if a username wass passed in or an id
+      if params[:id].to_i == 0
+        params[:id] = User.find_by_login(params[:id]).id
+      end
       @user=User.find(params[:id])
     else
       @user=User.find(session[:user_id])
