@@ -106,6 +106,19 @@ a:hover
 	padding: 5px 0 5px 0;
 	
 }
+.small_link a
+{
+	font-size: smaller;
+	color: #000000;
+	text-decoration: none;
+}
+.small_link a:hover
+{
+	font-size: smaller;
+	color:#b44953;
+	text-decoration: underline;
+}
+
 /* END General Classes */
 
 /* Layout Containers */
@@ -433,3 +446,15 @@ div .project_step_text
 	vertical-align: bottom;
 }
 /* END projects */
+/* START photos */
+#photo_list .photo_item
+{
+	margin: 15px 5px 5px 15px;
+	float: left;
+}
+#photo_links div
+{
+	clear: both;
+	padding: 10px 0 0 0;
+}
+/* END photos */

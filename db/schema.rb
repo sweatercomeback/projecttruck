@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 28) do
+ActiveRecord::Schema.define(:version => 31) do
 
   create_table "coming_soons", :force => true do |t|
     t.string   "email"
@@ -72,24 +72,23 @@ ActiveRecord::Schema.define(:version => 28) do
     t.integer "width"
     t.integer "height"
     t.integer "db_file_id"
+    t.integer "user_id"
   end
 
-  create_table "project_photos", :force => true do |t|
-    t.string  "content_type"
-    t.string  "filename"
-    t.integer "size"
-    t.integer "parent_id"
-    t.string  "thumbnail"
-    t.integer "width"
-    t.integer "height"
-    t.integer "db_file_id"
+  create_table "photos_projects", :force => true do |t|
+    t.integer "photo_id"
     t.integer "project_id"
+  end
+
+  create_table "photos_vehicles", :force => true do |t|
+    t.integer "photo_id"
+    t.integer "vehicle_id"
   end
 
   create_table "project_steps", :force => true do |t|
     t.integer "project_id"
     t.string  "text"
-    t.integer "project_photo_id"
+    t.integer "photo_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -130,18 +129,6 @@ ActiveRecord::Schema.define(:version => 28) do
 
   create_table "vehicle_conditions", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "vehicle_photos", :force => true do |t|
-    t.string  "content_type"
-    t.string  "filename"
-    t.integer "size"
-    t.integer "parent_id"
-    t.string  "thumbnail"
-    t.integer "width"
-    t.integer "height"
-    t.integer "db_file_id"
-    t.integer "vehicle_id"
   end
 
   create_table "vehicles", :force => true do |t|
