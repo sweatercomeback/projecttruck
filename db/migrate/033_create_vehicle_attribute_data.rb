@@ -371,6 +371,14 @@ class CreateVehicleAttributeData < ActiveRecord::Migration
     @vehicle_condition.name = "tow job"
     @vehicle_condition.save
     
+    #drop old tables
+    drop_table :makes
+    drop_table :models
+    drop_table :engines
+    drop_table :drives
+    drop_table :transmissions
+    drop_table :vehicle_conditions
+    
   end
 
   def self.down
