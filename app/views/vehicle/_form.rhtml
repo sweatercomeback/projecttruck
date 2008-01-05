@@ -10,7 +10,7 @@ $<%= text_field 'vehicle', 'price' %></p>
 
 <p><label for="make">Make</label><br />
 <% if @vehicle.model != nil -%>
-<select id="makes" name="makes"><%= options_for_select(@makes.sort, @vehicle.model.make_id) %></select>
+<select id="makes" name="makes"><%= options_for_select(@makes.sort, @vehicle.model.parent_id) %></select>
 <% else -%>
 <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
 <% end -%>

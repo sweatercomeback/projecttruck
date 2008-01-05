@@ -1,3 +1,3 @@
-class Transmission < ActiveRecord::Base
+class Transmission < VehicleAttribute
     has_many :vehicles
 end

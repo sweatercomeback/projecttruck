@@ -1,3 +1,3 @@
-class Make < ActiveRecord::Base
-    has_many :models
+class Make < VehicleAttribute
+    has_many :models, :foreign_key => :parent_id
 end

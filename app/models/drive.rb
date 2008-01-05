@@ -1,3 +1,3 @@
-class Drive < ActiveRecord::Base
+class Drive < VehicleAttribute
     has_many :vehicles
 end

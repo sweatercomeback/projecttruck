@@ -1,3 +1,3 @@
-class VehicleCondition < ActiveRecord::Base
+class VehicleCondition < VehicleAttribute
     has_many :vehicles
 end

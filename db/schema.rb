@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 31) do
+ActiveRecord::Schema.define(:version => 33) do
 
   create_table "coming_soons", :force => true do |t|
     t.string   "email"
@@ -125,6 +125,14 @@ ActiveRecord::Schema.define(:version => 31) do
     t.float    "lat"
     t.float    "lng"
     t.datetime "last_activity_date"
+  end
+
+  create_table "vehicle_attributes", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vehicle_conditions", :force => true do |t|

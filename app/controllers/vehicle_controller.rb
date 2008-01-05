@@ -53,7 +53,7 @@ include GeoKit::Geocoders
     @makes = {}
     Make.find(:all, :order => "name").collect { |m| @makes[m.name] = m.id }
     @makes.store("<Select Make>",-1)
-    @models = Model.find(:all, :conditions => ['make_id = ?', @vehicle.model.make_id], :order => "name")
+    @models = Model.find(:all, :conditions => ['parent_id = ?', @vehicle.model.parent_id], :order => "name")
   end
 
   def update
@@ -80,7 +80,7 @@ include GeoKit::Geocoders
   
   def update_models
     make_id = request.raw_post.chop.to_i
-    models = Model.find(:all, :conditions => ['make_id = ?', make_id],:order => "name")
+    models = Model.find(:all, :conditions => ['parent_id = ?', make_id],:order => "name")
     select_html = "<select id='vehicle_model_id' name='vehicle[model_id]'>"
     models.each do |m|
       select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
