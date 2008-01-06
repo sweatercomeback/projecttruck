@@ -1,6 +1,6 @@
 <% form_for :user, :url=> {:action=> "login"} do |form| %>
     <h3>Login</h3>  
-	<span class="err"><%= flash %></span>
+	<span class="err"><%= flash[:error] %></span>
   	<label for="user_login">Username:</label>
   	<%= form.text_field "login", :size => 20 %><br/>
 	
