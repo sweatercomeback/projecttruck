@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 33) do
     t.string   "title"
     t.string   "summary"
     t.text     "article"
-    t.boolean  "active",     :default => true
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
