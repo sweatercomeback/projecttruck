@@ -160,6 +160,7 @@ a:hover
 }
 #container-bottom
 {
+	
 	margin: 0 31px 0 32px;
 	height:23px;
 	background-image: url('/images/bg_bottom.jpg');
@@ -167,6 +168,7 @@ a:hover
 }
 #container-bottom-left
 {
+	
 	height:23px;
 	background-image: url('/images/bg_bottom_left.jpg');
 	background-repeat:no-repeat;
@@ -174,7 +176,7 @@ a:hover
 }
 #container-bottom-right	
 {
-	
+
 	height:23px;
 	background-image: url('/images/bg_bottom_right.jpg');
 	background-repeat:no-repeat;
@@ -446,6 +448,7 @@ div .project_step_text
 	vertical-align: bottom;
 }
 /* END projects */
+
 /* START photos */
 #photo_list .photo_item
 {
@@ -458,3 +461,48 @@ div .project_step_text
 	padding: 10px 0 0 0;
 }
 /* END photos */
+/* BEGIN tabs */
+#tabs{
+        margin-left: 4px;
+        padding: 0;
+        background: transparent;
+        voice-family: "\"}\"";
+        voice-family: inherit;
+        padding-left: 5px;
+    }
+    #tabs ul{
+        font: bold 11px Arial, Verdana, sans-serif;
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    #tabs li{
+        display:inline;
+        margin:0 2px 0 0;
+        padding:0;
+        text-transform:uppercase;
+    }
+    #tabs a{
+        float:left;
+        background:#A3BBE6 url(images/tabs_left.gif) no-repeat left top;
+        margin:0 2px 0 0;
+        padding:0 0 1px 3px;
+        text-decoration:none;
+    }
+    #tabs a span{
+        float:left;
+        display:block;
+        background: transparent url(images/tabs_right.gif) no-repeat right top;
+        padding:4px 9px 2px 6px;
+    }
+    #tabs a span{float:none;}
+    #tabs a:hover{background-color: #7E94B9;color: white;}
+    #tabs a:hover span{background-color: #7E94B9;}
+    #tabHeaderActive span, #tabHeaderActive a { background-color: #42577B; color:#fff;}
+    .tabContent {
+        clear:both;
+        border:2px solid #42577B;
+        padding-top:2px;
+        background-color:#FFF;
+    }
+/* END tabs */
