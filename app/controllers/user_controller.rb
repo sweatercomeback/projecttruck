@@ -28,7 +28,7 @@ layout 'home'
         flash[:message]  = "Login successful"
         redirect_to :controller => 'user', :action => 'home'
       else
-        flash[:Error ] = ": User name or password invalid.  Try again."
+        flash[:error ] = "User name or password invalid.  Try again."
       end
     end
   end
