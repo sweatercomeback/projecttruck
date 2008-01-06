@@ -1,6 +1,42 @@
 <h1><%= @user.login %>'s Home</h1>
-<div id="user_profile">profile goes here</div>
-<div id="user_trucks">trucks go here</div>
-<div id="user_service">service logs go here</div>
-<div id="user_projects">projects go here</div>
+<div id="user_profile">
+    profile goes here<br />
+    (not shown to logged in user)<br /><br />
+</div>
+
+<div id="user_trucks">
+    trucks go here<br /><br />
+</div>
+
+<div id="user_projects">
+    top/newest projects go here<br />
+    (all projects are shown to non-logged in user, maybe to logged in user too.  i dunno.)
+    <br /><br />
+</div>
+
+<div id="user_actions">
+    <h3>Things for the User to Do:</h3>
+    <ul>
+        <li><strong>Truck Shit</strong></li>
+            <ul>
+                <li>add/edit truck</li>
+                <li>update service logs</li>
+                <li>add/edit project</li>
+                <li>search trucks/projects</li>
+                <li>saved searches</li>
+            </ul>
+        <li><strong>User Admin</strong></li>
+            <ul>
+                <li>edit profile</li>
+                <li>view public profile</li>
+                <li>update email address</li>
+                <li>change password</li>
+            </ul>
+        <li><strong>User Services</strong></li>
+            <ul>
+                <li>Messaging</li>
+            </ul>
+    </ul>
+    <br />
+</div>
 
