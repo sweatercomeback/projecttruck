@@ -1,6 +1,11 @@
 module UserHelper
-    def GetOwnerLinks(controller_name)
-        return "links"
+    
+    def is_owner(user_id)
+        if session[:user_id] == user_id
+            return true
+        else
+            return false
+        end
     end
     
 end

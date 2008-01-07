@@ -84,8 +84,11 @@ layout 'home'
       @user=User.find(session[:user_id])
     end
     
-    rescue ActiveRecord::RecordNotFound
-      redirect_to :controller => 'home'
+#    rescue ActiveRecord::RecordNotFound
+#      redirect_to :controller => 'home'
+      
+    @top_projects = Project.find_top_by_user_id(@user.id, 5)
+    @top_logs = ServiceLog.find_top_by_user_id(@user.id, 5)
       
   end
 end

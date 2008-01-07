@@ -1,17 +1,43 @@
 <h1><%= @user.login %>'s Home</h1>
+<% if !is_owner(@user.id) %>
 <div id="user_profile">
-    profile goes here<br />
-    (not shown to logged in user)<br /><br />
+    public profile. snooches.<br /><br />
 </div>
-
+<% end %>
 <div id="user_trucks">
-    trucks go here<br /><br />
+    <h3>Trucks</h3>
+    <% if @user.vehicles.blank? %>
+    <div>No trucks.</div>
+    <% else %>
+    <% @user.vehicles.each do |v| %>
+    <div><%= h v.title %></div>
+    <% end %>
+    <% end %>
+    <br />
 </div>
 
 <div id="user_projects">
-    top/newest projects go here<br />
-    (all projects are shown to non-logged in user, maybe to logged in user too.  i dunno.)
-    <br /><br />
+    <h3>Projects</h3>
+    <% if @top_projects.blank? %>
+    <div>No projects.</div>
+    <% else %>
+    <% @top_projects.each do |p| %>
+    <div><%= h p.title %></div>
+    <% end %>
+    <% end %>
+    <br />
+</div>
+
+<div id="user_logs">
+    <h3>Service Logs</h3>
+    <% if @top_logs.blank? %>
+    <div>No service logs.</div>
+    <% else %>
+    <% @top_logs.each do |l| %>
+    <div><%= h l.service_log_type.name %> (<%= h l.created_at %>)</div>
+    <% end %>
+    <% end %>
+    <br />
 </div>
 
 <div id="user_actions">
