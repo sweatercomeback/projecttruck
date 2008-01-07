@@ -10,6 +10,6 @@ layout 'home'
 	    redirect_to :controller => 'user', :action => 'home'
 	end
     end
-    
+   
     
 end

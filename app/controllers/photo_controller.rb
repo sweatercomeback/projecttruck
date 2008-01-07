@@ -1,5 +1,8 @@
 class PhotoController < ApplicationController
   layout 'popup'
+  
+  before_filter :login_required
+
   def index
     @user = User.find(session[:user_id])
   end
