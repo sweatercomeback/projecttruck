@@ -7,7 +7,7 @@ layout 'home'
 	if session[:user_id].nil?
 	    @news_items = NewsItem.find(:all)
 	else
-	    redirect_to :controller => 'user', :action => 'home'
+	    @news_items = NewsItem.find(:all)
 	end
     end
    

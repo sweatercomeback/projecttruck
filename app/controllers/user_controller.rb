@@ -26,7 +26,7 @@ layout 'home'
       session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
       if !session[:user_id].nil?
         flash[:message]  = "Login successful"
-        redirect_to :controller => 'user', :action => 'home'
+        redirect_to :controller => 'home'
       else
         flash[:error ] = "User name or password invalid.  Try again."
       end

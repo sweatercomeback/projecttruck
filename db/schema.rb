@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 33) do
+ActiveRecord::Schema.define(:version => 35) do
 
   create_table "coming_soons", :force => true do |t|
     t.string   "email"
@@ -41,7 +41,16 @@ ActiveRecord::Schema.define(:version => 33) do
     t.string   "title"
     t.string   "summary"
     t.text     "article"
-    t.boolean  "active"
+    t.boolean  "active",       :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "news_type_id"
+    t.boolean  "public"
+  end
+
+  create_table "news_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

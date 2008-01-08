@@ -1,8 +1,8 @@
 <div>
   <label for="photos">Step Photo</label>
   <%= collection_select("project_step",
-                        "project_photo_id",
-                        ProjectPhoto.find(:all, :conditions => ['project_id = ?', @project_step.project_id]),
+                        "photo_id",
+                        @project_step.project.photos,
                         "id", "filename") %>
   <%= link_to_remote ("Preview Photo",
                       :update => "photo_preview",
@@ -10,8 +10,8 @@
                       :with => "'project_photo_id=' + document.getElementById('project_step_project_photo_id').options[document.getElementById('project_step_project_photo_id').selectedIndex].value") %>
   <span id="photo_preview"></span>
   <div class="project_step_image">
-    <% if @project_step.project_photo != nil %>
-    <img src="<%= @project_step.project_photo.public_filename %>" alt="Project Step Photo" />
+    <% if @project_step.photo != nil %>
+    <img src="<%= @project_step.photo.public_filename %>" alt="Project Step Photo" />
     <% end%>
   </div>
   <label for="text">Step Text</label>

@@ -16,6 +16,7 @@
 <% end %>
 </div>
 
+<% if session[:user_id].nil? %>
 <div id="login">
 <% form_for :user, :url=> {:controller=> "user", :action=> "login"} do |form| %>
     <h2>Login</h2>  
@@ -32,9 +33,10 @@
     <%= link_to 'Forgot my password', :controller=> "user", :action => 'forgot_password' %>
 </div>
 <% end %>
-
-
 <div id="information">
 <h2><%= link_to 'Get an Account', :controller => 'user', :action => 'signup' %></h2>   
 This is where the sign up sales pitch goes.
 </div>
+<% end %>
+
+

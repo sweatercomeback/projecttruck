@@ -11,7 +11,7 @@ layout 'standard'
     @project = Project.find(params[:id])
     session[:project_id] = params[:id]
     @project_photos = {}
-    @project.project_photos.collect { |pp| @project_photos[pp.filename] = pp.id }
+    @project.photos.collect { |pp| @project_photos[pp.filename] = pp.id }
   end
 
   def update

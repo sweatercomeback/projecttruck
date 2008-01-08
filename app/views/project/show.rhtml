@@ -12,7 +12,8 @@
     <ul>
         <% @project.project_steps.each do |@ps| %>
             <li>
-              <%= render :partial => 'project_step/ps' %>
+              <% if @ps.photo != nil %><%= image_tag @ps.photo.public_filename, :size => @ps.photo.image_size %><% end %>
+              <%= @ps.text %>
             </li>
         <% end %>
     </ul>

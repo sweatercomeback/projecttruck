@@ -15,8 +15,8 @@
     <div>
           <% @project.project_steps.each do |@ps| %>
             <div class="project_step">  
-              <% if @ps.project_photo != nil %>
-              <div class="project_step_image"><%= image_tag @ps.project_photo.public_filename, :size => @ps.project_photo.image_size %></div>
+              <% if @ps.photo != nil %>
+              <div class="project_step_image"><%= image_tag @ps.photo.public_filename, :size => @ps.photo.image_size %></div>
               <% end %>
               <div class="project_step_text">
                 <%= "#{@step_count}. #{@ps.text}" %>
