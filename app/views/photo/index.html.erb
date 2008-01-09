@@ -2,7 +2,7 @@
 <div id="photo_list">
     <% @user.photos.each do |p| -%>
       <div class="photo_item">
-        <%= link_to "<img src='#{p.thumbnails[0].public_filename}' alt='#{p.filename}' />", {:action => "show", :id => p.id}, :title => p.filename  %>
+        <%= link_to "<img src='#{p.public_filename(:thumb)}' alt='#{p.filename}' />", {:action => "show", :id => p.id}, :title => p.filename  %>
         <span class="small_link"><%= link_to "<img src='images/x.gif' alt='Delete Image' />", {:action => "delete", :id => p.id}, :confirm => "Are you sure you want to delete this photo?", :title => "Delete Photo" %></span>
       </div>
     <% end -%>
