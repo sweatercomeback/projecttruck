@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-layout 'home'
+layout 'nustandard'
 
     after_filter :update_user_activity
 

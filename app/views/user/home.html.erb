@@ -1,15 +1,11 @@
 <h1><%= @user.login %>'s Home</h1>
 <% if !is_owner(@user.id) %>
-<div id="user_profile">
-    
+   <h3>Public Profile</h3>
+   <p>
     public profile. snooches.<br /><br />
     profile goes here for public/newsfeed for user<br /><br />
-</div>
+</p>
 <% else %>
-<div id="menu">
-<%= link_to 'Logout', :action => 'logout' %>
-<br /><br />
-</div>
 
 <div id="user_messages">
     <h3>New Messages</h3>

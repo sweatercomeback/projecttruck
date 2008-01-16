@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-layout 'home'
+layout 'nustandard'
   
   include GeoKit::Geocoders
   before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']

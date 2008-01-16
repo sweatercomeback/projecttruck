@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   # -- just remember to delete public/index.html.
   map.connect '', :controller => 'home', :action => 'index'
   map.connect 'mobile', :controller => 'mobile/vehicle', :action => 'list'
-  map.connect 'garage', :controller => 'vehicle', :action => 'list'
+  map.connect 'garage', :controller => 'user', :action => 'home'
   map.connect 'garage/show/:id', :controller => 'vehicle', :action => 'show'
   #mobile routes
   map.connect 'mobile', :controller => 'mobile/vehicle', :action => 'list'
