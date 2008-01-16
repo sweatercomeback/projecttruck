@@ -8,8 +8,9 @@ before_filter :login_required
 
   def show
     @message = Message.find(params[:id])
-    @message.unread = 0
-    @message.save
+    if @message.unread
+      @message.update_attribute(:unread, false)
+    end 
   end
 
   def new
