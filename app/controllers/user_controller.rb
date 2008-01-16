@@ -89,7 +89,7 @@ layout 'nustandard'
       
     @top_projects = Project.find_top_by_user_id(@user.id, 5)
     @top_logs = ServiceLog.find_top_by_user_id(@user.id, 5)
-    @new_messages = Message.find(:all, :conditions =>{:unread => 1, :user_id => @user.id})
+    @new_messages = Message.find_unread(@user.id)
     @news_items = NewsItem.find(:all)
   end
 end
