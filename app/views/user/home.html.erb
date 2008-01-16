@@ -29,15 +29,14 @@
 <% if @news_items.blank? %>
     <p>nothing to report</p>
 <% else %>
-    <ul>
         <% @news_items.each do |n| %>
-            <li>
+            
                 <h3><%= n.title %></h3>
+                <p>
                 <%= n.summary %><br />
                 <%= link_to 'read on...', {:controller=>"news_item", :action => "show", :id => n.id} %> 
-            </li>
+                </p>
         <% end %>
-    </ul>
 <% end %>
 <br />
 </div>
