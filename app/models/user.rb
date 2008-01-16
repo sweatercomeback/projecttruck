@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     u=find(:first, :conditions=>["login = ?", login])
     return nil if u.nil?
     if User.encrypt(pass, u.salt)==u.hashed_password
-      return u
+      return u.id
     else
       return nil
     end
