@@ -12,35 +12,41 @@
 <body>
   <div id="container">
     <div id="header">
-     <a href="/"><img src="/images/logo.jpg" alt="Project Truck Logo"/></a>
+        <span class="right">
+     <% if is_loggedIn %>
+     hello <%= session[:user_login] %> | <%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
+    <% end %>
+    </span>
+     <a href="/"><img src="/images/.jpg" alt="Project Truck Logo"/></a>
+     
      <br />
       <hr />
     </div><!-- end header -->
 
     <div id="left">
+    <% if is_loggedIn %>
       <h3>Menu Items</h3>
 
-    <% if is_loggedIn %>
-        <p><%= link_to 'User Home', :controller => 'user', :action =>'home'%></p>
-        <p><%= link_to 'Inbox', :controller => 'message', :action =>'list'%></p>
+   
+        <p><%= link_to 'User Home', :controller => 'user', :action =>'home'%><br />
+        <%= link_to 'Inbox', :controller => 'message', :action =>'list'%></p>
     <% end %>
 
     </div><!-- end left division -->
 
     <div id="main">
-      <%= yield -%> 
+        <%= yield -%> 
     </div>
 
     <div id="footer">
       <hr />
 
-      <p class="left">| <a href=
-      "http://jigsaw.w3.org/css-validator/">CSS</a> | <a href=
-      "http://validator.w3.org/check?uri=referer">XHTML 1.1</a>
+      <p class="left"><a href=
+      "#">sitemap</a> | <a href=
+      "#">corporate</a>
       |</p>
 
-      <p class="right">Some rights reserved <a href=
-      "mailto:support@syndicateme.net">syndicateme.net</a> 2007</p>
+      <p class="right">&copy; Project Truck</p>
 
       <p>&nbsp;</p>
     </div><!-- end footer -->

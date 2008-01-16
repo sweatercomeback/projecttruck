@@ -25,7 +25,7 @@ img {
 }
 #header {
 	width:100%;
-	padding-top:15px;
+	padding-top:5px;
 }
 .spacer {
 	width:100%;
@@ -71,7 +71,7 @@ h3 {
 
 #main {
 	margin					: 5px 5px 5px 160px;
-	padding					: 15px;
+	padding					: 0 15px 15px 15px;
 	border-left				: 1px solid silver;
 }
 p {
@@ -81,12 +81,12 @@ p {
 	padding:5px;
 }
 a {
-	color:blue;
+	color:#008F8F;
 	background-color:#FFFFFF;
 	text-decoration:none;
 }
 a:hover {
-	color:#cc0000;
+	color:#8F0000;
 	background-color:#FFFFFF;
 	text-decoration:underline;
 }
