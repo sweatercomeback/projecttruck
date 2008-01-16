@@ -1,14 +1,14 @@
 <h1><%= @vehicle.title %> </h1>
 <div id="info">
 <h2><%= @vehicle.year %> <%= @vehicle.model.make.name %> <%= @vehicle.model.name %> <%= @vehicle.model_other %></h2>
-<p><strong>Condition:</strong> <%= @vehicle.vehicle_condition.name %> <%= @vehicle.vehicle_condition_comments %></p>
-<p><strong>Mileage:</strong> <%= @vehicle.mileage %></p>
-<p><strong>Engine:</strong> <%= @vehicle.engine.name %> <%= @vehicle.engine_comments %></p>
-<p><strong>Drive:</strong> <%= @vehicle.drive.name %> <%= @vehicle.drive_comments %></p>
-<p><strong>Transmission:</strong> <%= @vehicle.transmission.name %> <%= @vehicle.transmission_comments %></p>
-<p><strong>Number of Doors:</strong> <%= @vehicle.doors %></p>
-<p><strong>Exterior Color:</strong> <%= @vehicle.ext_color_comments %></p>
-<p><strong>Interior Color:</strong> <%= @vehicle.int_color_comments %></p>
+<p><strong>Condition:</strong> <%= @vehicle.vehicle_condition.name %> <%= @vehicle.vehicle_condition_comments %><br />
+<strong>Mileage:</strong> <%= @vehicle.mileage %><br />
+<strong>Engine:</strong> <%= @vehicle.engine.name %> <%= @vehicle.engine_comments %><br />
+<strong>Drive:</strong> <%= @vehicle.drive.name %> <%= @vehicle.drive_comments %><br />
+<strong>Transmission:</strong> <%= @vehicle.transmission.name %> <%= @vehicle.transmission_comments %><br />
+<strong>Number of Doors:</strong> <%= @vehicle.doors %><br />
+<strong>Exterior Color:</strong> <%= @vehicle.ext_color_comments %><br />
+<strong>Interior Color:</strong> <%= @vehicle.int_color_comments %><br />
 <p><%= @vehicle.additional_comments %></p>
 <br />
 <div id="projects">
