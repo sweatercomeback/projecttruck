@@ -26,7 +26,7 @@ layout 'home'
       session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
       if !session[:user_id].nil?
         flash[:message]  = "Login successful"
-        redirect_to :controller => 'home'
+        redirect_to :action => "home"
       else
         flash[:error ] = "User name or password invalid.  Try again."
       end
@@ -75,7 +75,7 @@ layout 'home'
     if params[:id].nil? && session[:user_id].nil?
       redirect_to :controller => 'home'
     elsif !params[:id].nil?
-      #check to see if a username wass passed in or an id
+      #check to see if a username was passed in or an id
       if params[:id].to_i == 0
         params[:id] = User.find_by_login(params[:id]).id
       end
@@ -89,6 +89,7 @@ layout 'home'
       
     @top_projects = Project.find_top_by_user_id(@user.id, 5)
     @top_logs = ServiceLog.find_top_by_user_id(@user.id, 5)
-      
+    @new_messages = Message.find(:all, :conditions =>{:unread => 1, :user_id => @user.id})
+    @news_items = NewsItem.find(:all)
   end
 end

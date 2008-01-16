@@ -17,18 +17,6 @@ ActiveRecord::Schema.define(:version => 35) do
     t.datetime "updated_at"
   end
 
-  create_table "drives", :force => true do |t|
-    t.string "name"
-  end
-
-  create_table "engines", :force => true do |t|
-    t.string "name"
-  end
-
-  create_table "makes", :force => true do |t|
-    t.string "name"
-  end
-
   create_table "messages", :force => true do |t|
     t.string   "subject"
     t.text     "body"
@@ -37,11 +25,6 @@ ActiveRecord::Schema.define(:version => 35) do
     t.boolean  "unread",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "models", :force => true do |t|
-    t.integer "make_id"
-    t.string  "name"
   end
 
   create_table "nav_links", :force => true do |t|
@@ -58,7 +41,7 @@ ActiveRecord::Schema.define(:version => 35) do
     t.string   "title"
     t.string   "summary"
     t.text     "article"
-    t.boolean  "active",       :default => true
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -121,10 +104,6 @@ ActiveRecord::Schema.define(:version => 35) do
     t.integer  "mileage"
   end
 
-  create_table "transmissions", :force => true do |t|
-    t.string "name"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "hashed_password"
@@ -136,8 +115,12 @@ ActiveRecord::Schema.define(:version => 35) do
     t.datetime "last_activity_date"
   end
 
-  create_table "vehicle_conditions", :force => true do |t|
-    t.string "name"
+  create_table "vehicle_attributes", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vehicles", :force => true do |t|

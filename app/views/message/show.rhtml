@@ -1,15 +1,15 @@
 <div id="message_header">
   <div id="message_header_label_container">
-    <div class="message_header_label">Subject:</div>
-    <div class="message_header_label">From:</div>
     <div class="message_header_label">Date:</div>
     <div class="message_header_label">To:</div>
+    <div class="message_header_label">From:</div>
+    <div class="message_header_label">Subject:</div>
   </div>
   <div id="message_header_text_container">
-    <div class="message_header_text"><%= @message.subject %></div>
-    <div class="message_header_text"><%= GetFromUserName(@message.from_user_id) %></div>
     <div class="message_header_text"><%= @message.created_at %></div>
     <div class="message_header_text"><%= @message.user.login %></div>
+    <div class="message_header_text"><%= GetFromUserName(@message.from_user_id) %></div>
+    <div class="message_header_text"><%= @message.subject %></div>
   </div>
 </div>
 <div id="message_body">

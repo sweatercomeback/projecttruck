@@ -1,46 +1,76 @@
 <h1><%= @user.login %>'s Home</h1>
 <% if !is_owner(@user.id) %>
 <div id="user_profile">
+    
     public profile. snooches.<br /><br />
     profile goes here for public/newsfeed for user<br /><br />
 </div>
+<% else %>
+<div id="menu">
+<%= link_to 'Logout', :action => 'logout' %>
+<br /><br />
+</div>
+
+<div id="user_messages">
+    <h3>New Messages</h3>
+    <%= link_to 'Mailbox', {:controller=>'message', :action => 'list'} %>
+    <% if @new_messages.blank? %>
+        <p>No new messages.<br />
+        <%= link_to 'Send one, maybe?', :controller => 'message', :action => 'new' %>
+        </p>
+    <% else %>
+        <ol>
+        <% @new_messages.each do |m| %>
+            <li><%= link_to m.subject, {:controller=>'message', :action => "show", :id => m.id} %></li>
+        <% end %>
+        </ol>
+    <% end %>
+    <br />
+</div>
+
+<div id="news">
+    <h2>News</h2>
+<% if @news_items.blank? %>
+    <p>nothing to report</p>
+<% else %>
+    <ul>
+        <% @news_items.each do |n| %>
+            <li>
+                <h3><%= n.title %></h3>
+                <%= n.summary %><br />
+                <%= link_to 'read on...', {:controller=>"news_item", :action => "show", :id => n.id} %> 
+            </li>
+        <% end %>
+    </ul>
 <% end %>
-<div id="user_trucks">
+</div>
+
+<div id="user_trucks">   
     <h3>Trucks</h3>
     <% if @user.vehicles.blank? %>
-    <div>No trucks.</div>
+    <p>No trucks.</p>
+    <p>So <%= link_to 'add one', :controller => 'vehicle', :action => 'new' %> already.
+    
     <% else %>
-    <% @user.vehicles.each do |v| %>
-    <div><%= h v.title %></div>
-    <% end %>
+        
+        <% @user.vehicles.each do |v| %>
+        <p><strong><%= h v.title %></strong> <%= link_to 'Go', :controller => 'vehicle', :action => 'show', :id => v.id %></p>
+        <% end %>
+        
     <% end %>
     <br />
-</div>
-
-<div id="user_projects">
-    <h3>Projects</h3>
+    <strong><u>Projects</u></strong>
     <% if @top_projects.blank? %>
-    <div>No projects.</div>
+    <p>No projects.</p>
     <% else %>
-    <% @top_projects.each do |p| %>
-    <div><%= h p.title %></div>
-    <% end %>
+        <% @top_projects.each do |p| %>
+        <p><strong><%= h p.title %></strong></p>
+        <% end %>
     <% end %>
     <br />
 </div>
 
-<div id="user_logs">
-    <h3>Service Logs</h3>
-    <% if @top_logs.blank? %>
-    <div>No service logs.</div>
-    <% else %>
-    <% @top_logs.each do |l| %>
-    <div><%= h l.service_log_type.name %> (<%= h l.created_at %>)</div>
-    <% end %>
-    <% end %>
-    <br />
-</div>
-
+<!--
 <div id="user_actions">
     <h3>Things for the User to Do:</h3>
     <ul>
@@ -66,4 +96,5 @@
     </ul>
     <br />
 </div>
-
+-->
+<% end %>

@@ -34,7 +34,7 @@ label
 	display:block;
 	margin: 10px 0 0 0;
 }
-li
+ul li
 {
 	list-style: none;
 }
@@ -392,7 +392,7 @@ div #checkList
 }
 .message_header_text
 {
-	margin: 0 0 5px 0;
+	
 }
 #message_header_label_to
 {

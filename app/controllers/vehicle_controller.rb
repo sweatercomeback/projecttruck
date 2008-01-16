@@ -9,18 +9,22 @@ include GeoKit::Geocoders
     @currUserID = session[:user_id]
     @vehicles = Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID])
     @service_logs = ServiceLog.find_by_sql(['select service_logs.* from service_logs inner join vehicles on vehicles.id = service_logs.vehicle_id and vehicles.user_id = ?', @currUserID])
-    @projects = Project.find_by_sql(['select projects.* from projects inner join vehicles on vehicles.id = projects.vehicle_id and vehicles.user_id = ?', @currUserID])
+    @projects = Project.find(:all, :conditions => { :vehicle_id => @vehicle.id })
     
   end
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @projects = Project.find(:all, :conditions => { :vehicle_id => @vehicle.id })
+
     
     respond_to do |format|
       format.html
       format.js
       format.xml { render :xml => @vehicle.to_xml }
     end
+    
+    
   end
 
   def new

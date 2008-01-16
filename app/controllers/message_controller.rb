@@ -3,16 +3,20 @@ layout 'standard'
 before_filter :login_required
 
   def list
-    @messages = Message.find(:all, :conditions => ['user_id = ?', session[:user_id]])
+    @messages = Message.find(:all, :conditions => {:user_id => session[:user_id]})
   end
 
   def show
     @message = Message.find(params[:id])
+    @message.unread = 0
+    @message.save
   end
 
   def new
     @message = Message.new
   end
+  
+
 
   def send_message
     if request.post?
