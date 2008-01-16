@@ -23,7 +23,9 @@ layout 'nustandard'
 
   def login
     if request.post?
-      session[:user_id] = User.authenticate(params[:user][:login], params[:user][:password])
+      user = User.authenticate(params[:user][:login], params[:user][:password])
+      session[:user_id] = user.id
+      session[:user_login] = user.login
       if !session[:user_id].nil?
         flash[:message]  = "Login successful"
         redirect_to :action => "home"
