@@ -28,10 +28,17 @@
 
 <div id="top">
 	<a href="/"><img src="/images/logo.jpg" alt="Project Truck Logo"/></a>
+<% if is_loggedIn %>
+<%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
+<% end %>
 </div>
 
 <div id="left">		
-
+<% if is_loggedIn %>
+<%= link_to 'User Home', :controller => 'user', :action =>'home'%>
+<%= link_to 'Inbox', :controller => 'message', :action =>'list'%>
+<% end %>
+&nbsp;
 </div> 
 
 <div id="right">

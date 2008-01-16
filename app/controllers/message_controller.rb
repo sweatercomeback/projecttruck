@@ -1,5 +1,5 @@
 class MessageController < ApplicationController
-layout 'standard'
+layout 'home'
 before_filter :login_required
 
   def list

@@ -1,5 +1,5 @@
 class VehicleController < ApplicationController
-layout 'standard'
+layout 'home'
 
 before_filter :login_required, :only=>['list', 'show', 'new', 'create', 'edit', 'update', 'delete']
 after_filter :update_user_activity
