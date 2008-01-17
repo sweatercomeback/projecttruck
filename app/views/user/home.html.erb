@@ -7,9 +7,8 @@
 </p>
 <% else %>
 
-<div id="user_messages">
+<div id="user_messages" style="float:right; margin-right:10%; padding:10px; background-color:#FFDFBF;border:solid 1px gray; height:90%">
     <h3>New Messages</h3>
-    <%= link_to 'Mailbox', {:controller=>'message', :action => 'list'} %>
     <% if @new_messages.blank? %>
         <p>No new messages.<br />
         <%= link_to 'Send one, maybe?', :controller => 'message', :action => 'new' %>
@@ -23,14 +22,13 @@
     <% end %>
     <br />
 </div>
-
 <div id="newz">
-    <h2>News</h2>
+    
 <% if @news_items.blank? %>
+    <h3>News</h3>
     <p>nothing to report</p>
 <% else %>
         <% @news_items.each do |n| %>
-            
                 <h3><%= n.title %></h3>
                 <p>
                 <%= n.summary %><br />
@@ -54,8 +52,8 @@
         <% end %>
         
     <% end %>
-    <br />
-    <strong><u>Projects</u></strong>
+ 
+    <h3>Projects</h3>
     <% if @top_projects.blank? %>
     <p>No projects.</p>
     <% else %>
@@ -65,6 +63,8 @@
     <% end %>
     <br />
 </div>
+
+
 
 <!--
 <div id="user_actions">

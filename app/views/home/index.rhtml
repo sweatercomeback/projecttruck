@@ -1,20 +1,19 @@
 
-<div id="news">
-<h2>News</h2>
+
+
 <% if @news_items.blank? %>
-    <p>nothing to report</p>
+    <h3>No News</h3>
+    <p>nothing's going on...what the hell?</p>
 <% else %>
-    <ul>
         <% @news_items.each do |n| %>
-            <li>
-                <h3><%= n.title %></h3>
-                <%= n.summary %><br />
-                <%= link_to 'read on...', {:controller=>"news_item", :action => "show", :id => n.id} %> 
-            </li>
+            <h3><%= n.title %></h3>
+            <p><%= n.article %></p>
+            <%= link_to 'read on...', {:controller=>"news_item", :action => "show", :id => n.id} %>
         <% end %>
-    </ul>
+     
+
 <% end %>
-</div>
+
 
 <% if session[:user_id].nil? %>
 <div id="login">
@@ -25,7 +24,7 @@
   	<%= form.text_field "login", :size => 20 %><br/>
 	
   	<label for="user_password">Password:</label>
-  	<%= form.password_field "password", :size => 20 %><br/>
+  	<%= form.password_field "password", :size => 20, :style => 'margin-left:20px;' %><br/>
 
 	<%= submit_tag "Submit" %>
 	
