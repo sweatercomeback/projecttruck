@@ -1,7 +1,5 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
-    #drops old photos table
-    drop_table :photos
     create_table :photos do |t|
       t.column "content_type", :string
       t.column "filename", :string     
