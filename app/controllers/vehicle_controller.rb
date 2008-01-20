@@ -9,7 +9,8 @@ include GeoKit::Geocoders
     @currUserID = session[:user_id]
     @vehicles = Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID])
     @service_logs = ServiceLog.find_by_sql(['select service_logs.* from service_logs inner join vehicles on vehicles.id = service_logs.vehicle_id and vehicles.user_id = ?', @currUserID])
-    @projects = Project.find(:all, :conditions => { :vehicle_id => @vehicle.id })
+    @projects = Project.find_by_sql(['select projects.* from projects inner join vehicles on vehicles.id = projects.vehicle_id and vehicles.user_id = ?', @currUserID])
+    #@projects = Project.find(:all, :conditions => { :vehicle_id => @vehicle.id })
     
   end
 
@@ -36,6 +37,8 @@ include GeoKit::Geocoders
 
   def create
     @vehicle = Vehicle.new(params[:vehicle])
+    @vehicle.user_id = session[:user_id]
+    breakpoint
     if params[:vehicle][:zipcode].blank?
       @vehicle.lat = @vehicle.user.lat
       @vehicle.lng = @vehicle.user.lng      
@@ -44,9 +47,9 @@ include GeoKit::Geocoders
       @vehicle.lat = geoloc.lat
       @vehicle.lng = geoloc.lng
     end
-    @vehicle.user_id = session[:user_id]
+    
     if @vehicle.save
-        redirect_to :action => 'list'
+        redirect_to :controller => 'user', :action => 'home'
     else
         render :action => 'new'
     end
