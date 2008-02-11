@@ -1,4 +1,5 @@
 <h1><%= @user.login %>'s Home</h1>
+<div id="menu"><a href="#">My Trucks</a> <a href="#">My Projects</a> <%= link_to 'Messages', :controller => 'message', :action =>'list'%> <a href="#">Profile</a></div>
 <% if !is_owner(@user.id) %>
    <h3>Public Profile</h3>
    <p>

@@ -15,24 +15,16 @@
         <span class="right">
      <% if is_loggedIn %>
      hello <%= session[:user_login] %> | <%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
+    <br />
+    <%= link_to 'User Home', :controller => 'user', :action =>'home'%>  
     <% end %>
     </span>
-     <a href="/"><img src="/images/logo.jpg" alt="Project Truck Logo"/></a>
+     <a href="/"><img src="/images/logo.png" alt="Project Truck Logo"/></a>
      
-     <br />
-      <hr />
+     <br /><br />
+  
     </div><!-- end header -->
 
-    <div id="left">
-    <% if is_loggedIn %>
-      <h3>Menu Items</h3>
-
-   
-        <p><%= link_to 'User Home', :controller => 'user', :action =>'home'%><br />
-        <%= link_to 'Inbox', :controller => 'message', :action =>'list'%></p>
-    <% end %>
-
-    </div><!-- end left division -->
 
     <div id="main">
         <%= yield -%> 
