@@ -6,6 +6,7 @@ class CreatePermissions < ActiveRecord::Migration
     end
     #Make sure the role migration file was generated first    
     Role.create(:rolename => 'administrator')
+    Role.create(:rolename => 'user')
     #Then, add default admin user
     #Be sure change the password later or in this migration file
     user = User.new

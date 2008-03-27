@@ -780,3 +780,260 @@ Rendering template within layouts/roles
 Rendering roles/index
   [4;36;1mRole Columns (0.003732)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
 Completed in 0.02971 (33 reqs/sec) | Rendering: 0.00926 (31%) | DB: 0.00445 (14%) | 200 OK [http://0.0.0.0/roles]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-03-27 18:02:41) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5%0AMTVmNmExYTA0YzE5N2M%3D--6835a75134e1781dd90764760b2199d42f15cf5d
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000387)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering sessions/new
+Completed in 0.15104 (6 reqs/sec) | Rendering: 0.00538 (3%) | DB: 0.00039 (0%) | 200 OK [http://0.0.0.0/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 18:02:59) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5MTVmNmExYTA0YzE5%0AN2MiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--82cdd9a5fd107c5b741024d46e8d3ebd535f15c4
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"67d2685ce62672cb757603f08a3d8e2a79311f64", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"administrator"}
+  [4;35;1mUser Load (0.049381)[0m   [0mSELECT * FROM `users` WHERE (login = 'administrator' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.05785 (17 reqs/sec) | Rendering: 0.00205 (3%) | DB: 0.04938 (85%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 18:06:25) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5MTVmNmExYTA0YzE5%0AN2M6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--4c660360538c424937c8268d99b2d9e58bd5a0cd
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"67d2685ce62672cb757603f08a3d8e2a79311f64", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;36;1mUser Load (0.004558)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'admin' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.01255 (79 reqs/sec) | Rendering: 0.00207 (16%) | DB: 0.00456 (36%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 18:06:41) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5MTVmNmExYTA0YzE5%0AN2M6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--4c660360538c424937c8268d99b2d9e58bd5a0cd
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"67d2685ce62672cb757603f08a3d8e2a79311f64", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;35;1mUser Load (0.006217)[0m   [0mSELECT * FROM `users` WHERE (login = 'admin' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.01404 (71 reqs/sec) | Rendering: 0.00217 (15%) | DB: 0.00622 (44%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-27 18:08:52) [GET]
+  Session ID: 32cb3f3f5f9d484116b441b622a3824b
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/activate/f1fa13d2722a5feaa4b13d3845d2689935a2245c" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-03-27 18:11:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"activate", "id"=>"f1fa13d2722a5feaa4b13d3845d2689935a2245c", "controller"=>"users"}
+  [4;36;1mUser Columns (0.002609)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001947)[0m   [0mSELECT * FROM `users` WHERE (`users`.`activation_code` = 'f1fa13d2722a5feaa4b13d3845d2689935a2245c') LIMIT 1[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+Redirected to http://localhost:3000/
+Completed in 0.01227 (81 reqs/sec) | DB: 0.00456 (37%) | 302 Found [http://localhost/activate/f1fa13d2722a5feaa4b13d3845d2689935a2245c]
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-03-27 18:13:11) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZDA6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--115faa0860c8d2e621a068f25bffa0844a5ca07b
+  Parameters: {"action"=>"activate", "id"=>"f1fa13d2722a5feaa4b13d3845d2689935a2245c", "controller"=>"users"}
+  [4;36;1mUser Columns (0.002772)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001743)[0m   [0mSELECT * FROM `users` WHERE (`users`.`activation_code` = 'f1fa13d2722a5feaa4b13d3845d2689935a2245c') LIMIT 1[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+Redirected to http://localhost:3000/
+Completed in 0.01205 (83 reqs/sec) | DB: 0.00451 (37%) | 302 Found [http://localhost/activate/f1fa13d2722a5feaa4b13d3845d2689935a2245c]
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-03-27 18:13:17) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZDA6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--115faa0860c8d2e621a068f25bffa0844a5ca07b
+  Parameters: {"action"=>"activate", "id"=>"37ba47276783eafc186ebb98436e605b1ddae3db", "controller"=>"users"}
+  [4;36;1mUser Columns (0.002748)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001672)[0m   [0mSELECT * FROM `users` WHERE (`users`.`activation_code` = '37ba47276783eafc186ebb98436e605b1ddae3db') LIMIT 1[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+  [4;36;1mSQL (0.000617)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.020903)[0m   [0mUPDATE `users` SET `created_at` = '2008-03-27 17:11:43', `login` = 'admin', `crypted_password` = '2fc7f4fab037c7ca7903fe514c2234a6d176c1d4', `activated_at` = '2008-03-27 23:13:17', `remember_token_expires_at` = NULL, `activation_code` = NULL, `salt` = '8c28d33f3355e09b966f1087aae988c3a029d3e6', `remember_token` = NULL, `email` = 'pt@projecttruck.net', `updated_at` = '2008-03-27 18:13:17' WHERE `id` = 1[0m
+Sent mail:
+ Date: Thu, 27 Mar 2008 18:13:17 -0500
+From: ADMINEMAIL
+To: pt@projecttruck.net
+Subject: [YOURSITE] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  You may now start adding your plugins:
+
+  http://YOURSITE/
+  [4;36;1mSQL (0.027561)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.39131 (2 reqs/sec) | DB: 0.05350 (13%) | 302 Found [http://localhost/activate/37ba47276783eafc186ebb98436e605b1ddae3db]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-03-27 18:13:34) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIVU2lnbnVw%0AIGNvbXBsZXRlIQY6CkB1c2VkewY7CFQ%3D--73c2b492086e73f9c6098cd102063a3c4ea607cd
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00681 (146 reqs/sec) | Rendering: 0.00294 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 18:13:39) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--4ad1bd9d7b6e953aa0c869c2ddc0e8b2f3a2a5cc
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"f9c0ee9509bce5c75caaece020b9ed30687e1121", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;35;1mUser Load (0.004674)[0m   [0mSELECT * FROM `users` WHERE (login = 'admin' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;36;1mUser Columns (0.002742)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/
+Completed in 0.01699 (58 reqs/sec) | DB: 0.00742 (43%) | 302 Found [http://localhost/session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-27 18:13:48) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBp%0AbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlU--607d6ee521cf12e2602907cdb12a4307403e5627
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.00809 (123 reqs/sec) | Rendering: 0.00445 (54%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-03-27 18:14:04) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--4ad1bd9d7b6e953aa0c869c2ddc0e8b2f3a2a5cc
+  Parameters: {"user"=>{"password_confirmation"=>"testing", "login"=>"josh", "password"=>"testing", "email"=>"josh@jschlesinger.net"}, "commit"=>"Sign up", "authenticity_token"=>"f9c0ee9509bce5c75caaece020b9ed30687e1121", "action"=>"create", "controller"=>"users"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;35;1mUser Columns (0.002704)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000330)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.020595)[0m   [0mSELECT * FROM `users` WHERE (LOWER(users.login) = 'josh') LIMIT 1[0m
+  [4;36;1mUser Load (0.006493)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(users.email) = 'josh@jschlesinger.net') LIMIT 1[0m
+  [4;35;1mUser Create (0.006538)[0m   [0mINSERT INTO `users` (`salt`, `activated_at`, `updated_at`, `crypted_password`, `activation_code`, `remember_token_expires_at`, `remember_token`, `login`, `created_at`, `email`) VALUES('ecb9be86de7df1711d14e69abd8d968f1d0c3f9c', NULL, '2008-03-27 18:14:04', '0f887b767b2fb7c61766672ace45bc1152190f9d', '3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1', NULL, NULL, 'josh', '2008-03-27 18:14:04', 'josh@jschlesinger.net')[0m
+Sent mail:
+ Date: Thu, 27 Mar 2008 18:14:04 -0500
+From: ADMINEMAIL
+To: josh@jschlesinger.net
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: josh
+  Password: testing
+
+Visit this url to activate your account:
+
+  http://YOURSITE/activate/3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1
+  [4;36;1mSQL (0.028741)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.37251 (2 reqs/sec) | DB: 0.06540 (17%) | 302 Found [http://localhost/users]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-03-27 18:14:08) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG1RoYW5rcyBm%0Ab3Igc2lnbmluZyB1cCEGOgpAdXNlZHsGOwlU--ec97ad0678f8744843030fa17c1c145f93221a33
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mRole Load (0.012653)[0m   [0mSELECT * FROM `roles` [0m
+Rendering template within layouts/roles
+Rendering roles/index
+  [4;36;1mRole Columns (0.002080)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+Completed in 0.03493 (28 reqs/sec) | Rendering: 0.00840 (24%) | DB: 0.01473 (42%) | 200 OK [http://localhost/roles]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2008-03-27 18:14:10) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--140d50c8b8eb1f56b5252f65ec3b355e1b1461af
+  Parameters: {"action"=>"new", "controller"=>"roles"}
+  [4;35;1mRole Columns (0.002979)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Rendering template within layouts/roles
+Rendering roles/new
+Completed in 0.02255 (44 reqs/sec) | Rendering: 0.00670 (29%) | DB: 0.00298 (13%) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#new (for 127.0.0.1 at 2008-03-27 18:14:18) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--140d50c8b8eb1f56b5252f65ec3b355e1b1461af
+  Parameters: {"action"=>"new", "controller"=>"roles"}
+  [4;36;1mRole Columns (0.003293)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+Rendering template within layouts/roles
+Rendering roles/new
+Completed in 0.02133 (46 reqs/sec) | Rendering: 0.00523 (24%) | DB: 0.00329 (15%) | 200 OK [http://localhost/roles/new]
+
+
+Processing RolesController#create (for 127.0.0.1 at 2008-03-27 18:14:25) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--140d50c8b8eb1f56b5252f65ec3b355e1b1461af
+  Parameters: {"commit"=>"Create", "role"=>{"rolename"=>"user"}, "authenticity_token"=>"f9c0ee9509bce5c75caaece020b9ed30687e1121", "action"=>"create", "controller"=>"roles"}
+  [4;35;1mRole Columns (0.005338)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.000624)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Create (0.001675)[0m   [0mINSERT INTO `roles` (`updated_at`, `rolename`, `created_at`) VALUES('2008-03-27 18:14:25', 'user', '2008-03-27 18:14:25')[0m
+  [4;36;1mSQL (0.005263)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/roles/2
+Completed in 0.16680 (5 reqs/sec) | DB: 0.01290 (7%) | 302 Found [http://localhost/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2008-03-27 18:14:25) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiI1JvbGUgd2Fz%0AIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgY6CkB1c2VkewY7CVQ%3D--aac9389542994502b032d796fa8325e5f87a4f5c
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"roles"}
+  [4;35;1mRole Columns (0.010937)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.001459)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendering template within layouts/roles
+Rendering roles/show
+Completed in 0.02945 (33 reqs/sec) | Rendering: 0.00424 (14%) | DB: 0.01240 (42%) | 200 OK [http://localhost/roles/2]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-03-27 18:14:27) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--140d50c8b8eb1f56b5252f65ec3b355e1b1461af
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mRole Load (0.003248)[0m   [0mSELECT * FROM `roles` [0m
+Rendering template within layouts/roles
+Rendering roles/index
+  [4;36;1mRole Columns (0.001995)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+Completed in 0.02441 (40 reqs/sec) | Rendering: 0.00739 (30%) | DB: 0.00524 (21%) | 200 OK [http://localhost/roles]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000241)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.003397)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001827)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'josh') LIMIT 1[0m
+  [4;35;1mRole Columns (0.002087)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.003016)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'user') LIMIT 1[0m
+  [4;35;1mPermission Columns (0.002124)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000776)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Create (0.001334)[0m   [0mINSERT INTO `permissions` (`updated_at`, `role_id`, `user_id`, `created_at`) VALUES('2008-03-27 18:16:41', 2, 2, '2008-03-27 18:16:41')[0m
+  [4;36;1mSQL (0.017093)[0m   [0;1mCOMMIT[0m
