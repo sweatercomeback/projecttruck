@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :trucks
+
   map.resources :roles
 
   map.resources :users

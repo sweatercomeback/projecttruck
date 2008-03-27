@@ -1,0 +1,18 @@
+<h1>Listing trucks</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for truck in @trucks %>
+  <tr>
+    <td><%= link_to 'Show', truck %></td>
+    <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
+    <td><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New truck', new_truck_path %>

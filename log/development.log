@@ -1037,3 +1037,30 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;36;1mSQL (0.000776)[0m   [0;1mBEGIN[0m
   [4;35;1mPermission Create (0.001334)[0m   [0mINSERT INTO `permissions` (`updated_at`, `role_id`, `user_id`, `created_at`) VALUES('2008-03-27 18:16:41', 2, 2, '2008-03-27 18:16:41')[0m
   [4;36;1mSQL (0.017093)[0m   [0;1mCOMMIT[0m
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-03-27 18:30:51) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZTlhYWNmZDYwOWRmMGM4ZTFmZmNjNzJlMjM4NjRi%0AYjY6DHVzZXJfaWRpBzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--140d50c8b8eb1f56b5252f65ec3b355e1b1461af
+  Parameters: {"action"=>"activate", "id"=>"3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1", "controller"=>"users"}
+  [4;35;1mUser Columns (0.033900)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.002704)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`activation_code` = '3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1') LIMIT 1[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+  [4;35;1mSQL (0.001417)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.001895)[0m   [0;1mUPDATE `users` SET `created_at` = '2008-03-27 18:14:04', `login` = 'josh', `crypted_password` = '0f887b767b2fb7c61766672ace45bc1152190f9d', `activated_at` = '2008-03-27 23:30:51', `remember_token_expires_at` = NULL, `activation_code` = NULL, `salt` = 'ecb9be86de7df1711d14e69abd8d968f1d0c3f9c', `remember_token` = NULL, `email` = 'josh@jschlesinger.net', `updated_at` = '2008-03-27 18:30:51' WHERE `id` = 2[0m
+Sent mail:
+ Date: Thu, 27 Mar 2008 18:30:51 -0500
+From: ADMINEMAIL
+To: josh@jschlesinger.net
+Subject: [YOURSITE] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+josh, your account has been activated.  You may now start adding your plugins:
+
+  http://YOURSITE/
+  [4;35;1mSQL (0.008878)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.24809 (4 reqs/sec) | DB: 0.04879 (19%) | 302 Found [http://localhost/activate/3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1]

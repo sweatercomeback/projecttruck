@@ -1,0 +1,12 @@
+<h1>Editing truck</h1>
+
+<%= error_messages_for :truck %>
+
+<% form_for(@truck) do |f| %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @truck %> |
+<%= link_to 'Back', trucks_path %>
