@@ -1,0 +1,782 @@
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-02-10 11:24:19) [GET]
+  Session ID: ae023bb71de69c20de26a2e52acf1046
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-02-10 11:24:19) [GET]
+  Session ID: ae023bb71de69c20de26a2e52acf1046
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+
+
+MissingSourceFile (no such file to load -- sqlite3):
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:101:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:149:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:99:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:77:in `process_each_request'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:76:in `process_each_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:50:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:24:in `process!'
+    /public/dispatch.fcgi:24
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000251)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000451)[0m   [0mCREATE DATABASE `pt2_dev` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-02-10 11:26:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000639)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Table 'pt2_dev.schema_info' doesn't exist: SELECT version FROM schema_info[0m
+Completed in 0.02405 (41 reqs/sec) | Rendering: 0.00168 (6%) | DB: 0.00064 (2%) | 200 OK [http://0.0.0.0/rails/info/properties]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000245)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.007788)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000639)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000759)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.004918)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL, `activation_code` varchar(40) DEFAULT NULL, `activated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000493)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000555)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;35;1mSQL (0.003553)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000501)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000503)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;36;1mSQL (0.003357)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mRole Columns (0.002186)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.000355)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Create (0.000637)[0m   [0mINSERT INTO `roles` (`updated_at`, `rolename`, `created_at`) VALUES('2008-02-10 21:33:15', 'administrator', '2008-02-10 21:33:15')[0m
+  [4;36;1mSQL (0.004860)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Columns (0.003005)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000348)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.000879)[0m   [0mINSERT INTO `users` (`salt`, `activated_at`, `updated_at`, `crypted_password`, `activation_code`, `remember_token_expires_at`, `remember_token`, `login`, `created_at`, `email`) VALUES('324a63eab3b67cb537f888b829e9c8c663dcc000', NULL, '2008-02-10 21:33:16', '76499b509629bbaaac529b7ffc1455c58fb75516', 'f1fa13d2722a5feaa4b13d3845d2689935a2245c', NULL, NULL, 'admin', '2008-02-10 21:33:16', 'pt@projecttruck.net')[0m
+Sent mail:
+ Date: Sun, 10 Feb 2008 21:33:16 -0600
+From: ADMINEMAIL
+To: pt@projecttruck.net
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: admin
+  Password: admin
+
+Visit this url to activate your account:
+
+  http://YOURSITE/activate/f1fa13d2722a5feaa4b13d3845d2689935a2245c
+  [4;36;1mSQL (0.001016)[0m   [0;1mCOMMIT[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000246)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000505)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000323)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000257)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000240)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000507)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000254)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000241)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000509)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000259)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000253)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000243)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000331)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000266)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000497)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000260)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;35;1mSQL (0.011088)[0m   [0mDROP TABLE `roles`[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000515)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.002247)[0m   [0;1mDROP TABLE `users`[0m
+  [4;35;1mSQL (0.000459)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000755)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000666)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002072)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002216)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001709)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000235)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000704)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S02Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.012082)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL, `activation_code` varchar(40) DEFAULT NULL, `activated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000465)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000454)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;36;1mSQL (0.003609)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000448)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000697)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-02-10 21:36:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000246)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.001190)[0m   [0mSELECT version FROM schema_info[0m
+Completed in 0.02618 (38 reqs/sec) | Rendering: 0.00169 (6%) | DB: 0.00144 (5%) | 200 OK [http://0.0.0.0/rails/info/properties]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2008-02-10 21:37:07) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"index", "controller"=>"sessions"}
+
+
+ActionController::UnknownAction (No action responded to index):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:101:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:149:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:99:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:77:in `process_each_request'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:76:in `process_each_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:50:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:24:in `process!'
+    /public/dispatch.fcgi:24
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-02-10 21:37:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.001748)[0m   [0;1mSELECT * FROM `users` WHERE (login = NULL and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.01017 (98 reqs/sec) | Rendering: 0.00371 (36%) | DB: 0.00175 (17%) | 200 OK [http://0.0.0.0/sessions/create]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-02-10 21:37:19) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--c4904ef560b6bb27c23c5d6c83b3ac2e286a686c
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00556 (179 reqs/sec) | Rendering: 0.00201 (36%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-02-10 21:37:26) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--c4904ef560b6bb27c23c5d6c83b3ac2e286a686c
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"9ea776e3da7e3f08a31a727e35836bc9009153c8", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;35;1mUser Load (0.001686)[0m   [0mSELECT * FROM `users` WHERE (login = 'admin' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.00916 (109 reqs/sec) | Rendering: 0.00198 (21%) | DB: 0.00169 (18%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-02-10 21:38:27) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--c4904ef560b6bb27c23c5d6c83b3ac2e286a686c
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.00889 (112 reqs/sec) | Rendering: 0.00410 (46%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-02-10 21:38:43) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--c4904ef560b6bb27c23c5d6c83b3ac2e286a686c
+  Parameters: {"user"=>{"password_confirmation"=>"thrice999", "login"=>"josh", "password"=>"thrice999", "email"=>"josh@jschlesinger.net"}, "commit"=>"Sign up", "authenticity_token"=>"9ea776e3da7e3f08a31a727e35836bc9009153c8", "action"=>"create", "controller"=>"users"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Columns (0.002761)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000352)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.065541)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(users.login) = 'josh') LIMIT 1[0m
+  [4;35;1mUser Load (0.001593)[0m   [0mSELECT * FROM `users` WHERE (LOWER(users.email) = 'josh@jschlesinger.net') LIMIT 1[0m
+  [4;36;1mUser Create (0.000725)[0m   [0;1mINSERT INTO `users` (`salt`, `activated_at`, `updated_at`, `crypted_password`, `activation_code`, `remember_token_expires_at`, `remember_token`, `login`, `created_at`, `email`) VALUES('4b6a639230bfbc8bd59cf14ba5d29b7c754fbd02', NULL, '2008-02-10 21:38:43', '2ef5a7446cd1f0e5038ba1b4cd4f4e21556b4b57', 'dbc6fe2ed22ef69436e2f097191bcca4299a4492', NULL, NULL, 'josh', '2008-02-10 21:38:43', 'josh@jschlesinger.net')[0m
+Sent mail:
+ Date: Sun, 10 Feb 2008 21:38:43 -0600
+From: ADMINEMAIL
+To: josh@jschlesinger.net
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: josh
+  Password: thrice999
+
+Visit this url to activate your account:
+
+  http://YOURSITE/activate/dbc6fe2ed22ef69436e2f097191bcca4299a4492
+  [4;35;1mSQL (0.006912)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 0.17229 (5 reqs/sec) | DB: 0.07788 (45%) | 302 Found [http://0.0.0.0/users]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-02-10 21:39:48) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG1RoYW5rcyBm%0Ab3Igc2lnbmluZyB1cCEGOgpAdXNlZHsGOwlU--09959a0fe0d0a7d5ee0b7999a12dd7318c3b6a7a
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/activate/dbc6fe2ed22ef69436e2f097191bcca4299a4492" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:101:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:149:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:99:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:77:in `process_each_request'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:76:in `process_each_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:50:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/fcgi_handler.rb:24:in `process!'
+    /public/dispatch.fcgi:24
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-02-10 21:39:55) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--163d962c8c2a61f33896feac32d58b076ab48907
+  Parameters: {"action"=>"activate", "id"=>"dbc6fe2ed22ef69436e2f097191bcca4299a4492", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/
+Completed in 0.00393 (254 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://0.0.0.0/users/activate/dbc6fe2ed22ef69436e2f097191bcca4299a4492]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-02-10 21:40:27) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--b53da893541ae4f5af81c2704233381c081ba29f
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00768 (130 reqs/sec) | Rendering: 0.00342 (44%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-02-10 21:40:33) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--b53da893541ae4f5af81c2704233381c081ba29f
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"9ea776e3da7e3f08a31a727e35836bc9009153c8", "action"=>"create", "controller"=>"sessions", "password"=>"thrice999", "login"=>"josh"}
+  [4;36;1mUser Load (0.001701)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'josh' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.00995 (100 reqs/sec) | Rendering: 0.00206 (20%) | DB: 0.00170 (17%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-02-10 21:40:43) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--b53da893541ae4f5af81c2704233381c081ba29f
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"9ea776e3da7e3f08a31a727e35836bc9009153c8", "action"=>"create", "controller"=>"sessions", "password"=>"thrice999", "login"=>"josh"}
+  [4;35;1mUser Load (0.001272)[0m   [0mSELECT * FROM `users` WHERE (login = 'josh' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.00942 (106 reqs/sec) | Rendering: 0.00198 (21%) | DB: 0.00127 (13%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-02-10 21:44:36) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMDZmZjQyOTQ2NTU1ZWQ1Zjk4MTU2MWI3MTAxYmE0%0AMDE6DnJldHVybl90bzA6DHVzZXJfaWQwIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--b53da893541ae4f5af81c2704233381c081ba29f
+  Parameters: {"action"=>"activate", "id"=>"dbc6fe2ed22ef69436e2f097191bcca4299a4492", "controller"=>"users"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000307)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+Redirected to http://0.0.0.0:3000/
+Completed in 103.34967 (0 reqs/sec) | DB: 0.00031 (0%) | 302 Found [http://0.0.0.0/users/activate/dbc6fe2ed22ef69436e2f097191bcca4299a4492]
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2008-02-10 21:46:36) [GET]
+  Session ID: BAh7CToMdXNlcl9pZDA6DnJldHVybl90bzA6DGNzcmZfaWQiJTA2ZmY0Mjk0%0ANjU1NWVkNWY5ODE1NjFiNzEwMWJhNDAxIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--5682772be754f66a550b131975d6cd6b4d673773
+  Parameters: {"action"=>"activate", "id"=>"dbc6fe2ed22ef69436e2f097191bcca4299a4492", "controller"=>"users"}
+  [4;35;1mUser Columns (0.066887)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.003848)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`activation_code` = 'dbc6fe2ed22ef69436e2f097191bcca4299a4492') LIMIT 1[0m
+
+***** The 'breakpoint' command has been renamed 'debugger' -- please change *****
+  [4;35;1mSQL (0.016720)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.001117)[0m   [0;1mUPDATE `users` SET `created_at` = '2008-02-10 21:38:43', `login` = 'josh', `crypted_password` = '2ef5a7446cd1f0e5038ba1b4cd4f4e21556b4b57', `activated_at` = '2008-02-11 03:47:04', `remember_token_expires_at` = NULL, `activation_code` = NULL, `salt` = '4b6a639230bfbc8bd59cf14ba5d29b7c754fbd02', `remember_token` = NULL, `email` = 'josh@jschlesinger.net', `updated_at` = '2008-02-10 21:47:04' WHERE `id` = 1[0m
+Sent mail:
+ Date: Sun, 10 Feb 2008 21:47:04 -0600
+From: ADMINEMAIL
+To: josh@jschlesinger.net
+Subject: [YOURSITE] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+josh, your account has been activated.  You may now start adding your plugins:
+
+  http://YOURSITE/
+  [4;35;1mSQL (0.103914)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 28.44085 (0 reqs/sec) | DB: 0.19249 (0%) | 302 Found [http://0.0.0.0/users/activate/dbc6fe2ed22ef69436e2f097191bcca4299a4492]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-02-10 21:47:21) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOg5yZXR1cm5fdG8wOgxjc3JmX2lkIiUwNmZmNDI5%0ANDY1NTVlZDVmOTgxNTYxYjcxMDFiYTQwMSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiFVNpZ251cCBj%0Ab21wbGV0ZSEGOgpAdXNlZHsGOwlU--3329afd3b5f1cddda5e4965c5a713dbbc7a3e389
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.01136 (88 reqs/sec) | Rendering: 0.00645 (56%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-02-10 21:47:29) [POST]
+  Session ID: BAh7CToMdXNlcl9pZGkGOg5yZXR1cm5fdG8wOgxjc3JmX2lkIiUwNmZmNDI5%0ANDY1NTVlZDVmOTgxNTYxYjcxMDFiYTQwMSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--198b232c008bb2c312cffdc9a0c00de45609d2aa
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"9ea776e3da7e3f08a31a727e35836bc9009153c8", "action"=>"create", "controller"=>"sessions", "password"=>"thrice999", "login"=>"josh"}
+  [4;36;1mUser Load (0.002961)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'josh' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;35;1mUser Columns (0.004067)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 0.20896 (4 reqs/sec) | DB: 0.00703 (3%) | 302 Found [http://0.0.0.0/session]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-03-27 17:05:32) [GET]
+  Session ID: 046799db49e961c26ecc3513e1a6224a
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000355)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering sessions/new
+Completed in 0.01022 (97 reqs/sec) | Rendering: 0.00585 (57%) | DB: 0.00036 (3%) | 200 OK [http://0.0.0.0/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 17:05:44) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJlYmZiNjRlNmMxMTcxMjk1OTg3MmJhNjc3MjM0%0ANWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--f4ffc6e45efa6b2ecf72a0a93bd251cf21d10ed2
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"a8425b29a0f4ad7a0850976d6199643e9afde14a", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"administrator"}
+  [4;35;1mUser Load (0.024634)[0m   [0mSELECT * FROM `users` WHERE (login = 'administrator' and activated_at IS NOT NULL) LIMIT 1[0m
+Rendering sessions/new
+Completed in 0.03283 (30 reqs/sec) | Rendering: 0.00224 (6%) | DB: 0.02463 (75%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 17:06:36) [POST]
+  Session ID: BAh7CDoMdXNlcl9pZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJWRiZWJmYjY0%0AZTZjMTE3MTI5NTk4NzJiYTY3NzIzNDVl--ed29139ca889b77e73ff0350313126202c899a62
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"a8425b29a0f4ad7a0850976d6199643e9afde14a", "action"=>"create", "controller"=>"sessions", "password"=>"testing", "login"=>"josh"}
+  [4;36;1mUser Load (0.001836)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'josh' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;35;1mUser Columns (0.002931)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering sessions/new
+Completed in 0.01754 (57 reqs/sec) | Rendering: 0.00216 (12%) | DB: 0.00477 (27%) | 200 OK [http://0.0.0.0/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-03-27 17:06:41) [POST]
+  Session ID: BAh7CDoMdXNlcl9pZDA6DGNzcmZfaWQiJWRiZWJmYjY0ZTZjMTE3MTI5NTk4%0ANzJiYTY3NzIzNDVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--4c4d16c35e475b5f8d4b1ca3b25d0a16640acdf3
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"a8425b29a0f4ad7a0850976d6199643e9afde14a", "action"=>"create", "controller"=>"sessions", "password"=>"thrice999", "login"=>"josh"}
+  [4;36;1mUser Load (0.001371)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'josh' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;35;1mUser Columns (0.002630)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 0.01390 (71 reqs/sec) | DB: 0.00400 (28%) | 302 Found [http://0.0.0.0/session]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000249)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.013717)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000307)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000255)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000246)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000269)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000474)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;35;1mSQL (0.050984)[0m   [0mDROP TABLE `roles`[0m
+  [4;36;1mSQL (0.000615)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000521)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.002439)[0m   [0;1mDROP TABLE `users`[0m
+  [4;35;1mSQL (0.000589)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000708)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000891)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002107)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002262)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001804)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000249)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000752)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S02Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.014167)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL, `activation_code` varchar(40) DEFAULT NULL, `activated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000545)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000501)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;36;1mSQL (0.003341)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000691)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000523)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000245)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000347)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000254)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000485)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000262)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;35;1mSQL (0.006621)[0m   [0mDROP TABLE `roles`[0m
+  [4;36;1mSQL (0.000482)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000488)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.002650)[0m   [0;1mDROP TABLE `users`[0m
+  [4;35;1mSQL (0.000459)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000710)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001550)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002132)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002294)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001711)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000240)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000815)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S02Unknown table 'users': DROP TABLE `users`[0m
+  [4;35;1mSQL (0.017000)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL, `activation_code` varchar(40) DEFAULT NULL, `activated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000526)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000484)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateRoles (2)
+  [4;36;1mSQL (0.004137)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000729)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000502)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePermissions (3)
+  [4;35;1mSQL (0.003824)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.002195)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000556)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000590)[0m   [0;1mINSERT INTO `roles` (`updated_at`, `rolename`, `created_at`) VALUES('2008-03-27 17:11:43', 'administrator', '2008-03-27 17:11:43')[0m
+  [4;35;1mSQL (0.014805)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.003518)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000581)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000775)[0m   [0;1mINSERT INTO `users` (`salt`, `activated_at`, `updated_at`, `crypted_password`, `activation_code`, `remember_token_expires_at`, `remember_token`, `login`, `created_at`, `email`) VALUES('8c28d33f3355e09b966f1087aae988c3a029d3e6', NULL, '2008-03-27 17:11:43', '2fc7f4fab037c7ca7903fe514c2234a6d176c1d4', '37ba47276783eafc186ebb98436e605b1ddae3db', NULL, NULL, 'admin', '2008-03-27 17:11:43', 'pt@projecttruck.net')[0m
+Sent mail:
+ Date: Thu, 27 Mar 2008 17:11:43 -0500
+From: ADMINEMAIL
+To: pt@projecttruck.net
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: admin
+  Password: admin
+
+Visit this url to activate your account:
+
+  http://YOURSITE/activate/37ba47276783eafc186ebb98436e605b1ddae3db
+  [4;35;1mSQL (0.062333)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (0.001154)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;35;1mUser Load (0.001891)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'admin') LIMIT 1[0m
+  [4;36;1mPermission Columns (0.003078)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000773)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Create (0.000672)[0m   [0;1mINSERT INTO `permissions` (`updated_at`, `role_id`, `user_id`, `created_at`) VALUES('2008-03-27 17:11:43', 1, 1, '2008-03-27 17:11:43')[0m
+  [4;35;1mSQL (0.000681)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000582)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.001255)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001127)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001976)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.003107)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.001963)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.001977)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.002346)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.002108)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.002788)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.004309)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.002685)[0m   [0mSHOW KEYS FROM `users`[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-03-27 17:16:30) [GET]
+  Session ID: 9396ceaf61beb527c40f69c0a3c883b2
+  Parameters: {"action"=>"index", "controller"=>"users"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-03-27 17:16:31) [GET]
+  Session ID: 9396ceaf61beb527c40f69c0a3c883b2
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+
+Mysql::Error (#28000Access denied for user 'root'@'localhost' (using password: YES)):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/vendor/mysql.rb:523:in `read'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/vendor/mysql.rb:153:in `real_connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-03-27 17:16:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-03-27 17:16:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+
+Mysql::Error (#28000Access denied for user 'root'@'localhost' (using password: YES)):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/vendor/mysql.rb:523:in `read'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/vendor/mysql.rb:153:in `real_connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-03-27 17:17:06) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"index", "controller"=>"users"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000234)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+ActionController::UnknownAction (No action responded to index):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-27 17:17:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7a1d4ace2d2adef1c1487fef68073136a48e6d8e
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.01039 (96 reqs/sec) | Rendering: 0.00665 (64%) | DB: 0.00023 (2%) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-03-27 17:18:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5MTVmNmExYTA0YzE5%0AN2MiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--82cdd9a5fd107c5b741024d46e8d3ebd535f15c4
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mRole Load (0.001069)[0m   [0mSELECT * FROM `roles` [0m
+Rendering template within layouts/roles
+Rendering roles/index
+  [4;36;1mRole Columns (0.002231)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+Completed in 0.05168 (19 reqs/sec) | Rendering: 0.03652 (70%) | DB: 0.00330 (6%) | 200 OK [http://0.0.0.0/roles]
+
+
+Processing RolesController#show (for 127.0.0.1 at 2008-03-27 17:18:17) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5%0AMTVmNmExYTA0YzE5N2M%3D--6835a75134e1781dd90764760b2199d42f15cf5d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"roles"}
+  [4;35;1mRole Columns (0.020448)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.001796)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+Rendering template within layouts/roles
+Rendering roles/show
+Completed in 0.06251 (15 reqs/sec) | Rendering: 0.02627 (42%) | DB: 0.02224 (35%) | 200 OK [http://0.0.0.0/roles/1]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-03-27 17:18:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNmJhM2I5NGM0ZjNkMTVjZjY5MTVmNmExYTA0YzE5%0AN2MiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--82cdd9a5fd107c5b741024d46e8d3ebd535f15c4
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;35;1mRole Load (0.000721)[0m   [0mSELECT * FROM `roles` [0m
+Rendering template within layouts/roles
+Rendering roles/index
+  [4;36;1mRole Columns (0.003732)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+Completed in 0.02971 (33 reqs/sec) | Rendering: 0.00926 (31%) | DB: 0.00445 (14%) | 200 OK [http://0.0.0.0/roles]

@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter: mysql
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+#  host: localhost
+
+development:
+  database: pt2_dev
+  <<: *defaults
+
+test:
+  database: pt2_test
+  <<: *defaults
+
+production:
+  database: pt2
+  <<: *defaults
