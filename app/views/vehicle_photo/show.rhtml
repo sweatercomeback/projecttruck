@@ -1,5 +1,0 @@
-<p><%= @vehicle_photo.filename %></p>
-<%= image_tag @vehicle_photo.public_filename, :size => @vehicle_photo.image_size %>
-<br/>
-<p><%= link_to 'Show Photos', :action => 'index', :vehicle_id => session[:vehicle_id] %></p>
-<a href="#" onclick="javascript:window.close();">Close</a>

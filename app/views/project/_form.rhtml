@@ -1,6 +1,0 @@
-<div><label for="title">Title</label>
-<%= text_field 'project', 'title' %>
-
-<label for="model">Vehicle</label>
-<%= collection_select("project", "vehicle_id" , Vehicle.find(:all, :conditions => ['user_id = ?', @currUserID], :order => "title"), "id", "title") %>
-</div>

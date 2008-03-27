@@ -1,7 +1,0 @@
-<% form_remote_tag(:update => 'list', 
-                    :complete => visual_effect(:highlight, 'list'),
-                    :url => { :action => :add } ) do %>
-  <%= text_area 'project_step', 'text' %>
-  <%= submit_tag "Add Tag" %>
-<% end %>
-

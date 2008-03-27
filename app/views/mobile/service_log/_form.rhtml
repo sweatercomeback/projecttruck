@@ -1,6 +1,0 @@
-<p><label for="trucks">My Trucks</label><br />
-<%= collection_select("service_log", "vehicle_id" , @my_trucks, "id", "title") %>
-<p><label for="type">Type</label><br />
-<%= collection_select("service_log", "service_log_type_id" , ServiceLogType.find(:all), "id", "name") %>
-<p><label for="comments">Comments</label><br />
-<%= text_area 'service_log', 'comments' %></p>
