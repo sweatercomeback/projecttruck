@@ -1,0 +1,2 @@
+class Drive < TruckAttribute
+end

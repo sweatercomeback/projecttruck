@@ -1,0 +1,13 @@
+<p>
+  <b>Truck:</b>
+  <%=h @project.truck_id %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%=h @project.photo_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

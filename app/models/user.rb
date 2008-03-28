@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 
   has_many :permissions
   has_many :roles, :through => :permissions
+  has_many :trucks, :dependent => :destroy
+  has_many :projects, :through => :trucks, :dependent => :destroy
+  has_many :service_logs, :through => :trucks, :dependent => :destroy
 
   # Activates the user in the database.
   def activate

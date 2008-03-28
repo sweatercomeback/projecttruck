@@ -1,0 +1,18 @@
+<p>
+  <b>Project:</b>
+  <%=h @project_step.project_id %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%=h @project_step.details %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%=h @project_step.photo_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_step_path(@project_step) %> |
+<%= link_to 'Back', project_steps_path %>

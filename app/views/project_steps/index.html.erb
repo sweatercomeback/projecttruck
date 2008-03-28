@@ -1,0 +1,24 @@
+<h1>Listing project_steps</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Details</th>
+    <th>Photo</th>
+  </tr>
+
+<% for project_step in @project_steps %>
+  <tr>
+    <td><%=h project_step.project_id %></td>
+    <td><%=h project_step.details %></td>
+    <td><%=h project_step.photo_id %></td>
+    <td><%= link_to 'Show', project_step %></td>
+    <td><%= link_to 'Edit', edit_project_step_path(project_step) %></td>
+    <td><%= link_to 'Destroy', project_step, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New project_step', new_project_step_path %>

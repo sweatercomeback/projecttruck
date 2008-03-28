@@ -1,8 +1,8 @@
 class CreateTruckAttributes < ActiveRecord::Migration
   def self.up
     create_table :truck_attributes do |t|
-      t.integer :type_id
-      t.string :value
+      t.string :type
+      t.string :name
       t.integer :parent_id
 
       t.timestamps

@@ -1064,3 +1064,1328 @@ josh, your account has been activated.  You may now start adding your plugins:
   [4;35;1mSQL (0.008878)[0m   [0mCOMMIT[0m
 Redirected to http://localhost:3000/
 Completed in 0.24809 (4 reqs/sec) | DB: 0.04879 (19%) | 302 Found [http://localhost/activate/3ace4ea7ff30844a5dbdd24a3bf4d4ff2df4d8e1]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000235)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.008868)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000420)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000250)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000348)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.064567)[0m   [0mCREATE TABLE `trucks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `model_other` varchar(255) DEFAULT NULL, `year` int(11) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `engine_comments` text DEFAULT NULL, `drive_comments` text DEFAULT NULL, `transmission_comments` text DEFAULT NULL, `doors` int(11) DEFAULT NULL, `ext_color_comments` text DEFAULT NULL, `int_color_comments` text DEFAULT NULL, `vehicle_condition_comments` text DEFAULT NULL, `street_legal` tinyint(1) DEFAULT NULL, `additional_comments` text DEFAULT NULL, `public` tinyint(1) DEFAULT NULL, `price` float DEFAULT NULL, `for_sale` tinyint(1) DEFAULT NULL, `engine_id` int(11) DEFAULT NULL, `drive_id` int(11) DEFAULT NULL, `transmission_id` int(11) DEFAULT NULL, `condition_id` int(11) DEFAULT NULL, `model_id` int(11) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001211)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000588)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.032340)[0m   [0;1mCREATE TABLE `truck_attributes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type_id` int(11) DEFAULT NULL, `value` varchar(255) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000453)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000581)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.004571)[0m   [0mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000462)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000466)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.024923)[0m   [0;1mCREATE TABLE `truck_photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000827)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000508)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.004255)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000553)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000468)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.003605)[0m   [0;1mCREATE TABLE `project_steps` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL, `details` text DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000599)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.000479)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.027166)[0m   [0mCREATE TABLE `service_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `service_log_type_id` int(11) DEFAULT NULL, `truck_id` int(11) DEFAULT NULL, `comments` varchar(4000) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000470)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+  [4;35;1mSQL (0.000575)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;36;1mSQL (0.004824)[0m   [0;1mCREATE TABLE `service_log_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mServiceLogType Columns (0.002014)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.000665)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000575)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Fluid Change', '2008-03-28 20:15:32', '2008-03-28 20:15:32')[0m
+  [4;36;1mSQL (0.000699)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000178)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000435)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Suspension Maintenance', '2008-03-28 20:15:32', '2008-03-28 20:15:32')[0m
+  [4;35;1mSQL (0.000723)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000470)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Transmission Maintenance', '2008-03-28 20:15:32', '2008-03-28 20:15:32')[0m
+  [4;36;1mSQL (0.001957)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000224)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000448)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Minor Maintenance', '2008-03-28 20:15:32', '2008-03-28 20:15:32')[0m
+  [4;35;1mSQL (0.000668)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000445)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Other Maintenance', '2008-03-28 20:15:32', '2008-03-28 20:15:32')[0m
+  [4;36;1mSQL (0.001214)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000448)[0m   [0mUPDATE schema_info SET version = 11[0m
+  [4;36;1mSQL (0.000775)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000970)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001854)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.136618)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.002235)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.003720)[0m   [0mSHOW FIELDS FROM `photos`[0m
+  [4;36;1mSQL (0.002557)[0m   [0;1mdescribe `photos`[0m
+  [4;35;1mSQL (0.001976)[0m   [0mSHOW KEYS FROM `photos`[0m
+  [4;36;1mSQL (0.002174)[0m   [0;1mSHOW FIELDS FROM `project_steps`[0m
+  [4;35;1mSQL (0.002277)[0m   [0mdescribe `project_steps`[0m
+  [4;36;1mSQL (0.001907)[0m   [0;1mSHOW KEYS FROM `project_steps`[0m
+  [4;35;1mSQL (0.003070)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.002106)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.001956)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.001856)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.001899)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.001834)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.001875)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.001988)[0m   [0;1mdescribe `service_log_types`[0m
+  [4;35;1mSQL (0.003004)[0m   [0mSHOW KEYS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.002431)[0m   [0;1mSHOW FIELDS FROM `service_logs`[0m
+  [4;35;1mSQL (0.002296)[0m   [0mdescribe `service_logs`[0m
+  [4;36;1mSQL (0.001960)[0m   [0;1mSHOW KEYS FROM `service_logs`[0m
+  [4;35;1mSQL (0.002228)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.002121)[0m   [0;1mdescribe `truck_attributes`[0m
+  [4;35;1mSQL (0.001865)[0m   [0mSHOW KEYS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.003153)[0m   [0;1mSHOW FIELDS FROM `truck_photos`[0m
+  [4;35;1mSQL (0.002100)[0m   [0mdescribe `truck_photos`[0m
+  [4;36;1mSQL (0.002065)[0m   [0;1mSHOW KEYS FROM `truck_photos`[0m
+  [4;35;1mSQL (0.004016)[0m   [0mSHOW FIELDS FROM `trucks`[0m
+  [4;36;1mSQL (0.004049)[0m   [0;1mdescribe `trucks`[0m
+  [4;35;1mSQL (0.002032)[0m   [0mSHOW KEYS FROM `trucks`[0m
+  [4;36;1mSQL (0.002474)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002864)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001926)[0m   [0;1mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000244)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000517)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000290)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000473)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;35;1mSQL (0.057917)[0m   [0mDROP TABLE `service_log_types`[0m
+  [4;36;1mSQL (0.000489)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+Reached target version: 10
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000239)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000660)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000281)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000569)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000265)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.015621)[0m   [0mDROP TABLE `service_logs`[0m
+  [4;36;1mSQL (0.000490)[0m   [0;1mUPDATE schema_info SET version = 9[0m
+  [4;35;1mSQL (0.000477)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.002101)[0m   [0;1mDROP TABLE `project_steps`[0m
+  [4;35;1mSQL (0.000443)[0m   [0mUPDATE schema_info SET version = 8[0m
+  [4;36;1mSQL (0.000472)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.015741)[0m   [0mDROP TABLE `projects`[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.000474)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.017927)[0m   [0;1mDROP TABLE `truck_photos`[0m
+  [4;35;1mSQL (0.000438)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.000491)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.002046)[0m   [0mDROP TABLE `photos`[0m
+  [4;36;1mSQL (0.000596)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.000512)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.015900)[0m   [0;1mDROP TABLE `truck_attributes`[0m
+  [4;35;1mSQL (0.000500)[0m   [0mUPDATE schema_info SET version = 4[0m
+Reached target version: 4
+  [4;36;1mSQL (0.000701)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001741)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002093)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002622)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001888)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.001982)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.002140)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001657)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.005104)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mSQL (0.004932)[0m   [0mdescribe `trucks`[0m
+  [4;36;1mSQL (0.002354)[0m   [0;1mSHOW KEYS FROM `trucks`[0m
+  [4;35;1mSQL (0.002697)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.002717)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.001677)[0m   [0mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000260)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000272)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000489)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000255)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000249)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000244)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.024031)[0m   [0mDROP TABLE `trucks`[0m
+  [4;36;1mSQL (0.001120)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+Reached target version: 3
+  [4;35;1mSQL (0.000689)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002644)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.002106)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.001710)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.002078)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.001907)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.001624)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.003425)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.003387)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.001711)[0m   [0mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000245)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000894)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.037643)[0m   [0mCREATE TABLE `trucks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `model_other` varchar(255) DEFAULT NULL, `year` int(11) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `engine_comments` text DEFAULT NULL, `drive_comments` text DEFAULT NULL, `transmission_comments` text DEFAULT NULL, `doors` int(11) DEFAULT NULL, `ext_color_comments` text DEFAULT NULL, `int_color_comments` text DEFAULT NULL, `vehicle_condition_comments` text DEFAULT NULL, `street_legal` tinyint(1) DEFAULT NULL, `additional_comments` text DEFAULT NULL, `public` tinyint(1) DEFAULT NULL, `price` float DEFAULT NULL, `for_sale` tinyint(1) DEFAULT NULL, `engine_id` int(11) DEFAULT NULL, `drive_id` int(11) DEFAULT NULL, `transmission_id` int(11) DEFAULT NULL, `condition_id` int(11) DEFAULT NULL, `model_id` int(11) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000484)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000465)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.004648)[0m   [0;1mCREATE TABLE `truck_attributes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type_id` int(11) DEFAULT NULL, `value` varchar(255) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000614)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000473)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.018140)[0m   [0mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000524)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.004380)[0m   [0;1mCREATE TABLE `truck_photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000489)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000467)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.003753)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000563)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000473)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.004124)[0m   [0;1mCREATE TABLE `project_steps` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL, `details` text DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000490)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.000475)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.003743)[0m   [0mCREATE TABLE `service_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `service_log_type_id` int(11) DEFAULT NULL, `truck_id` int(11) DEFAULT NULL, `comments` varchar(4000) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000572)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+  [4;35;1mSQL (0.000469)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;36;1mSQL (0.003651)[0m   [0;1mCREATE TABLE `service_log_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mServiceLogType Columns (0.002268)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.014232)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000633)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Fluid Change', '2008-03-28 20:18:13', '2008-03-28 20:18:13')[0m
+  [4;36;1mSQL (0.007888)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000196)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000484)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Suspension Maintenance', '2008-03-28 20:18:14', '2008-03-28 20:18:14')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000468)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Transmission Maintenance', '2008-03-28 20:18:14', '2008-03-28 20:18:14')[0m
+  [4;36;1mSQL (0.000910)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000467)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Minor Maintenance', '2008-03-28 20:18:14', '2008-03-28 20:18:14')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000573)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Other Maintenance', '2008-03-28 20:18:14', '2008-03-28 20:18:14')[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000433)[0m   [0mUPDATE schema_info SET version = 11[0m
+  [4;36;1mSQL (0.000708)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001108)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001985)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.128159)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001961)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.002646)[0m   [0mSHOW FIELDS FROM `photos`[0m
+  [4;36;1mSQL (0.003744)[0m   [0;1mdescribe `photos`[0m
+  [4;35;1mSQL (0.001899)[0m   [0mSHOW KEYS FROM `photos`[0m
+  [4;36;1mSQL (0.002259)[0m   [0;1mSHOW FIELDS FROM `project_steps`[0m
+  [4;35;1mSQL (0.002162)[0m   [0mdescribe `project_steps`[0m
+  [4;36;1mSQL (0.001700)[0m   [0;1mSHOW KEYS FROM `project_steps`[0m
+  [4;35;1mSQL (0.002234)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mSQL (0.002144)[0m   [0;1mdescribe `projects`[0m
+  [4;35;1mSQL (0.002531)[0m   [0mSHOW KEYS FROM `projects`[0m
+  [4;36;1mSQL (0.002025)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.001962)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.001700)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.001877)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.001994)[0m   [0;1mdescribe `service_log_types`[0m
+  [4;35;1mSQL (0.001713)[0m   [0mSHOW KEYS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.003152)[0m   [0;1mSHOW FIELDS FROM `service_logs`[0m
+  [4;35;1mSQL (0.002356)[0m   [0mdescribe `service_logs`[0m
+  [4;36;1mSQL (0.001817)[0m   [0;1mSHOW KEYS FROM `service_logs`[0m
+  [4;35;1mSQL (0.002232)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.002143)[0m   [0;1mdescribe `truck_attributes`[0m
+  [4;35;1mSQL (0.001869)[0m   [0mSHOW KEYS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.002163)[0m   [0;1mSHOW FIELDS FROM `truck_photos`[0m
+  [4;35;1mSQL (0.002762)[0m   [0mdescribe `truck_photos`[0m
+  [4;36;1mSQL (0.001734)[0m   [0;1mSHOW KEYS FROM `truck_photos`[0m
+  [4;35;1mSQL (0.004197)[0m   [0mSHOW FIELDS FROM `trucks`[0m
+  [4;36;1mSQL (0.003996)[0m   [0;1mdescribe `trucks`[0m
+  [4;35;1mSQL (0.001796)[0m   [0mSHOW KEYS FROM `trucks`[0m
+  [4;36;1mSQL (0.003681)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002670)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001712)[0m   [0;1mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000230)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mTruck Columns (0.004096)[0m   [0mSHOW FIELDS FROM `trucks`[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mBEGIN[0m
+  [4;35;1mTruck Create (0.000724)[0m   [0mINSERT INTO `trucks` (`int_color_comments`, `transmission_id`, `additional_comments`, `updated_at`, `condition_id`, `drive_comments`, `engine_id`, `price`, `public`, `title`, `ext_color_comments`, `transmission_comments`, `vehicle_condition_comments`, `drive_id`, `for_sale`, `street_legal`, `year`, `model_other`, `user_id`, `doors`, `created_at`, `engine_comments`, `mileage`, `model_id`) VALUES(NULL, NULL, NULL, '2008-03-28 20:19:55', NULL, NULL, NULL, NULL, NULL, 'test truck', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, '2008-03-28 20:19:55', NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.002848)[0m   [0;1mCOMMIT[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000236)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000727)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000286)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000244)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000240)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000240)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000349)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000241)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000237)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000240)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributeData (12)
+  [4;35;1mMake Columns (0.002325)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000238)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000321)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000246)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000501)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000259)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;35;1mSQL (0.021091)[0m   [0mDROP TABLE `service_log_types`[0m
+  [4;36;1mSQL (0.000467)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+  [4;35;1mSQL (0.000578)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;36;1mSQL (0.002156)[0m   [0;1mDROP TABLE `service_logs`[0m
+  [4;35;1mSQL (0.000564)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.000486)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;35;1mSQL (0.002090)[0m   [0mDROP TABLE `project_steps`[0m
+  [4;36;1mSQL (0.000451)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000470)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;36;1mSQL (0.003014)[0m   [0;1mDROP TABLE `projects`[0m
+  [4;35;1mSQL (0.000609)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000652)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;35;1mSQL (0.002540)[0m   [0mDROP TABLE `truck_photos`[0m
+  [4;36;1mSQL (0.000442)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000467)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;36;1mSQL (0.002046)[0m   [0;1mDROP TABLE `photos`[0m
+  [4;35;1mSQL (0.000542)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000543)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;35;1mSQL (0.002020)[0m   [0mDROP TABLE `truck_attributes`[0m
+  [4;36;1mSQL (0.000446)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000464)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;36;1mSQL (0.003190)[0m   [0;1mDROP TABLE `trucks`[0m
+  [4;35;1mSQL (0.000566)[0m   [0mUPDATE schema_info SET version = 3[0m
+Reached target version: 3
+  [4;36;1mSQL (0.000708)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000682)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003264)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002204)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.001901)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.002031)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.015178)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001841)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.002553)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002758)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.002596)[0m   [0;1mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000240)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000743)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000274)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000259)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.034224)[0m   [0mCREATE TABLE `trucks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `model_other` varchar(255) DEFAULT NULL, `year` int(11) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `engine_comments` text DEFAULT NULL, `drive_comments` text DEFAULT NULL, `transmission_comments` text DEFAULT NULL, `doors` int(11) DEFAULT NULL, `ext_color_comments` text DEFAULT NULL, `int_color_comments` text DEFAULT NULL, `vehicle_condition_comments` text DEFAULT NULL, `street_legal` tinyint(1) DEFAULT NULL, `additional_comments` text DEFAULT NULL, `public` tinyint(1) DEFAULT NULL, `price` float DEFAULT NULL, `for_sale` tinyint(1) DEFAULT NULL, `engine_id` int(11) DEFAULT NULL, `drive_id` int(11) DEFAULT NULL, `transmission_id` int(11) DEFAULT NULL, `condition_id` int(11) DEFAULT NULL, `model_id` int(11) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000500)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000482)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.003582)[0m   [0;1mCREATE TABLE `truck_attributes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type_id` int(11) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000461)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000529)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.004329)[0m   [0mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001361)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000626)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.004978)[0m   [0;1mCREATE TABLE `truck_photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000468)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000494)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.022241)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000770)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.003902)[0m   [0;1mCREATE TABLE `project_steps` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL, `details` text DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000550)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.000494)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.003829)[0m   [0mCREATE TABLE `service_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `service_log_type_id` int(11) DEFAULT NULL, `truck_id` int(11) DEFAULT NULL, `comments` varchar(4000) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000569)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+  [4;35;1mSQL (0.000479)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;36;1mSQL (0.031377)[0m   [0;1mCREATE TABLE `service_log_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mServiceLogType Columns (0.002860)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.000319)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000606)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Fluid Change', '2008-03-28 20:25:28', '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000657)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.119672)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000610)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Suspension Maintenance', '2008-03-28 20:25:28', '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.002149)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000655)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Transmission Maintenance', '2008-03-28 20:25:28', '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000684)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000299)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000663)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Minor Maintenance', '2008-03-28 20:25:28', '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000773)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000489)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Other Maintenance', '2008-03-28 20:25:28', '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000660)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000454)[0m   [0mUPDATE schema_info SET version = 11[0m
+  [4;36;1mSQL (0.000715)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributeData (12)
+  [4;35;1mMake Columns (0.002604)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000317)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000591)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ford', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.014181)[0m   [0;1mCOMMIT[0m
+  [4;35;1mModel Columns (0.003426)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000558)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Bronco', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.018819)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000223)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000535)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Bronco II', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000677)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000533)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Econoline', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000636)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000534)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Excursion', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000928)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000531)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Explorer', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000210)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000543)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Expedition', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000647)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000545)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('F-150', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000534)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('F-250', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000543)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('F-350', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.013519)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000234)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000625)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ranger', '2008-03-28 20:25:28', NULL, 1, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000712)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000232)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000530)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Dodge', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000652)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000319)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000529)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('D50 Pick Up', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000520)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Dakota', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000996)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000215)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000523)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Durango', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000647)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000212)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000537)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Power Wagon', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000526)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ram 1500', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000651)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000588)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ram 2500', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000925)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000194)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000572)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ram 3500', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000661)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000523)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ram SRT-10', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000646)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000197)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000516)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ram Van', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000660)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000188)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000552)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Ramcharger', '2008-03-28 20:25:28', NULL, 12, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000634)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000358)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000502)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('GMC', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.006331)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000552)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Jimmy', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000516)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('S15 Pick Up', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000708)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000602)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sierra C/K1500', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000668)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000514)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sierra C/K2500', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000639)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000199)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000521)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sierra C/K3500', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.006286)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000519)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Yukon', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000642)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000572)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Typhoon', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000521)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sonoma', '2008-03-28 20:25:28', NULL, 23, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000928)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000533)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Chevrolet', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000630)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000646)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Avalanche', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000634)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000548)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Blazer', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000653)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001658)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Colarado', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.005954)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000525)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('El Camino', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000524)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Express Van', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000743)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000524)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('S10 Blazer', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000636)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.001242)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000715)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('10 Pick Up', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000660)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000203)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000516)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Silverado (C/K1500)', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.006260)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000208)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000522)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Silverado (C/K2500)', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000662)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000516)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Silverado (C/K3500)', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.001339)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000214)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000523)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Suburban', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000655)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000523)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Tahoe', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.001125)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000529)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Trailblazer', '2008-03-28 20:25:28', NULL, 32, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000663)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000585)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Datsun', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000670)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000514)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 46, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000645)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000594)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Hummer', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000684)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000196)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000526)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('H1', '2008-03-28 20:25:28', NULL, 48, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.007325)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000520)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('H2', '2008-03-28 20:25:28', NULL, 48, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000640)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000660)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('H3', '2008-03-28 20:25:28', NULL, 48, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000665)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000515)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Isuzu', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000633)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000698)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 52, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000661)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000541)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Hombre', '2008-03-28 20:25:28', NULL, 52, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.007480)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000292)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000542)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Rodeo', '2008-03-28 20:25:28', NULL, 52, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000732)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000525)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Trooper', '2008-03-28 20:25:28', NULL, 52, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000753)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000196)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000513)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Trooper II', '2008-03-28 20:25:28', NULL, 52, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000916)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000491)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Land Rover', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000521)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Land Rover', '2008-03-28 20:25:28', NULL, 58, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000686)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000716)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Range Rover', '2008-03-28 20:25:28', NULL, 58, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000652)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000520)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Freelander', '2008-03-28 20:25:28', NULL, 58, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.006062)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000611)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Discovery', '2008-03-28 20:25:28', NULL, 58, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000643)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000193)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000489)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Mazda', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000668)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000307)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000550)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('B-Series Pick Up', '2008-03-28 20:25:28', NULL, 63, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000646)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000510)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Nissan', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000656)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000228)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000517)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Frontier', '2008-03-28 20:25:28', NULL, 65, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000518)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Murano', '2008-03-28 20:25:28', NULL, 65, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.003324)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000590)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pathfinder', '2008-03-28 20:25:28', NULL, 65, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000665)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000613)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 65, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000655)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000806)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Titan', '2008-03-28 20:25:28', NULL, 65, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000927)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000161)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000486)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Toyota', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000692)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000532)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('4Runner', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000658)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000186)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000610)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Tacoma', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000778)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000516)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('T100', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000641)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000183)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000511)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('FJ Cruiser', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.003190)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000201)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000634)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sequoia', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000194)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000527)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('RAV4', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000634)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000572)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 71, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000643)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000157)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000489)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('VW', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000550)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Touareg', '2008-03-28 20:25:28', NULL, 79, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000723)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000157)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000508)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Suzuki', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000649)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000528)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Sidekick', '2008-03-28 20:25:28', NULL, 81, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000694)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000188)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001632)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Samurai', '2008-03-28 20:25:28', NULL, 81, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.001044)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000530)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Mitsubishi', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000186)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000525)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 84, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000685)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000513)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Mighty Max', '2008-03-28 20:25:28', NULL, 84, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000660)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000155)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000485)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Jeep', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000630)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000530)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Comanche', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000662)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000323)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000525)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('CJ', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.006032)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000524)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Wrangler', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000675)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000530)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Cherokee', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000658)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.001306)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Grand Cherokee', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000757)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000534)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Wagoneer', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000657)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000514)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Grand Wagoneer', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.006396)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000553)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Liberty', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000632)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000577)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Commander', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.000913)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000222)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000516)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:25:28', NULL, 87, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000628)[0m   [0mCOMMIT[0m
+  [4;36;1mDrive Columns (0.002452)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000337)[0m   [0mBEGIN[0m
+  [4;36;1mDrive Create (0.000522)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('2WD', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.001143)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mBEGIN[0m
+  [4;35;1mDrive Create (0.000481)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('4WD', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.004009)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mDrive Create (0.000488)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('AWD', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000635)[0m   [0mCOMMIT[0m
+  [4;36;1mEngine Columns (0.002249)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000451)[0m   [0mBEGIN[0m
+  [4;36;1mEngine Create (0.000534)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('4-Cylinder', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000792)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mBEGIN[0m
+  [4;35;1mEngine Create (0.000666)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('6-Cylinder', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;36;1mSQL (0.004798)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mEngine Create (0.000614)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('8-Cylinder', '2008-03-28 20:25:28', NULL, NULL, '2008-03-28 20:25:28')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mTransmission Columns (0.002237)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000298)[0m   [0mBEGIN[0m
+  [4;36;1mTransmission Create (0.000555)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('Automatic', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000631)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mBEGIN[0m
+  [4;35;1mTransmission Create (0.000512)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('3-Speed Manual', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.005083)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000174)[0m   [0mBEGIN[0m
+  [4;36;1mTransmission Create (0.000596)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('4-Speed Manual', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000758)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mBEGIN[0m
+  [4;35;1mTransmission Create (0.000743)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('5-Speed Manual', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCondition Columns (0.002227)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000567)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('emaculate', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.005836)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000511)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('awesome', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000483)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('pretty good', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.000973)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000161)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000483)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('eh', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000647)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000520)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('some rust', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000150)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000517)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('looks nice, runs bad', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000636)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000948)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000575)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('runs nice, looks bad', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000154)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000485)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type_id`, `parent_id`, `created_at`) VALUES('tow job', '2008-03-28 20:25:29', NULL, NULL, '2008-03-28 20:25:29')[0m
+  [4;35;1mSQL (0.000632)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mUPDATE schema_info SET version = 12[0m
+  [4;35;1mSQL (0.000687)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000977)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002038)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.006636)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.001731)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.002568)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.002507)[0m   [0mdescribe `photos`[0m
+  [4;36;1mSQL (0.012012)[0m   [0;1mSHOW KEYS FROM `photos`[0m
+  [4;35;1mSQL (0.002328)[0m   [0mSHOW FIELDS FROM `project_steps`[0m
+  [4;36;1mSQL (0.002196)[0m   [0;1mdescribe `project_steps`[0m
+  [4;35;1mSQL (0.001701)[0m   [0mSHOW KEYS FROM `project_steps`[0m
+  [4;36;1mSQL (0.002056)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.001969)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.002814)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.001948)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.002063)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001658)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.002080)[0m   [0;1mSHOW FIELDS FROM `service_log_types`[0m
+  [4;35;1mSQL (0.001892)[0m   [0mdescribe `service_log_types`[0m
+  [4;36;1mSQL (0.001621)[0m   [0;1mSHOW KEYS FROM `service_log_types`[0m
+  [4;35;1mSQL (0.002366)[0m   [0mSHOW FIELDS FROM `service_logs`[0m
+  [4;36;1mSQL (0.003289)[0m   [0;1mdescribe `service_logs`[0m
+  [4;35;1mSQL (0.001713)[0m   [0mSHOW KEYS FROM `service_logs`[0m
+  [4;36;1mSQL (0.002052)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.002247)[0m   [0mdescribe `truck_attributes`[0m
+  [4;36;1mSQL (0.001784)[0m   [0;1mSHOW KEYS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.002204)[0m   [0mSHOW FIELDS FROM `truck_photos`[0m
+  [4;36;1mSQL (0.002110)[0m   [0;1mdescribe `truck_photos`[0m
+  [4;35;1mSQL (0.001619)[0m   [0mSHOW KEYS FROM `truck_photos`[0m
+  [4;36;1mSQL (0.005295)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mSQL (0.004176)[0m   [0mdescribe `trucks`[0m
+  [4;36;1mSQL (0.001866)[0m   [0;1mSHOW KEYS FROM `trucks`[0m
+  [4;35;1mSQL (0.002561)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.003722)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.001722)[0m   [0mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000243)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000562)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000271)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000474)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributeData (12)
+  [4;36;1mSQL (0.000472)[0m   [0;1mUPDATE schema_info SET version = 11[0m
+  [4;35;1mSQL (0.000599)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;36;1mSQL (0.013748)[0m   [0;1mDROP TABLE `service_log_types`[0m
+  [4;35;1mSQL (0.000507)[0m   [0mUPDATE schema_info SET version = 10[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.032444)[0m   [0mDROP TABLE `service_logs`[0m
+  [4;36;1mSQL (0.000519)[0m   [0;1mUPDATE schema_info SET version = 9[0m
+  [4;35;1mSQL (0.000492)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.002175)[0m   [0;1mDROP TABLE `project_steps`[0m
+  [4;35;1mSQL (0.000450)[0m   [0mUPDATE schema_info SET version = 8[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.002023)[0m   [0mDROP TABLE `projects`[0m
+  [4;36;1mSQL (0.000456)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.000485)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.002054)[0m   [0;1mDROP TABLE `truck_photos`[0m
+  [4;35;1mSQL (0.000448)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.001152)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.002526)[0m   [0mDROP TABLE `photos`[0m
+  [4;36;1mSQL (0.000579)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.000503)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.003147)[0m   [0;1mDROP TABLE `truck_attributes`[0m
+  [4;35;1mSQL (0.000454)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.000473)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.002526)[0m   [0mDROP TABLE `trucks`[0m
+  [4;36;1mSQL (0.000440)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+Reached target version: 3
+  [4;35;1mSQL (0.014451)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000844)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001956)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.001971)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.001800)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.002173)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.003085)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.001703)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.002711)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.002851)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.002998)[0m   [0mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000245)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.001131)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000292)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000252)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000260)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrucks (4)
+  [4;35;1mSQL (0.009836)[0m   [0mCREATE TABLE `trucks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL, `model_other` varchar(255) DEFAULT NULL, `year` int(11) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `engine_comments` text DEFAULT NULL, `drive_comments` text DEFAULT NULL, `transmission_comments` text DEFAULT NULL, `doors` int(11) DEFAULT NULL, `ext_color_comments` text DEFAULT NULL, `int_color_comments` text DEFAULT NULL, `vehicle_condition_comments` text DEFAULT NULL, `street_legal` tinyint(1) DEFAULT NULL, `additional_comments` text DEFAULT NULL, `public` tinyint(1) DEFAULT NULL, `price` float DEFAULT NULL, `for_sale` tinyint(1) DEFAULT NULL, `engine_id` int(11) DEFAULT NULL, `drive_id` int(11) DEFAULT NULL, `transmission_id` int(11) DEFAULT NULL, `condition_id` int(11) DEFAULT NULL, `model_id` int(11) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000531)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000485)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributes (5)
+  [4;36;1mSQL (0.003716)[0m   [0;1mCREATE TABLE `truck_attributes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000516)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (6)
+  [4;35;1mSQL (0.016869)[0m   [0mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000460)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000547)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTruckPhotos (7)
+  [4;36;1mSQL (0.005760)[0m   [0;1mCREATE TABLE `truck_photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000501)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000487)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.003883)[0m   [0mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `truck_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000467)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000482)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjectSteps (9)
+  [4;36;1mSQL (0.003680)[0m   [0;1mCREATE TABLE `project_steps` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `project_id` int(11) DEFAULT NULL, `details` text DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000487)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.001731)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogs (10)
+  [4;35;1mSQL (0.016401)[0m   [0mCREATE TABLE `service_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `service_log_type_id` int(11) DEFAULT NULL, `truck_id` int(11) DEFAULT NULL, `comments` varchar(4000) DEFAULT NULL, `mileage` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000584)[0m   [0;1mUPDATE schema_info SET version = 10[0m
+  [4;35;1mSQL (0.000483)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateServiceLogTypes (11)
+  [4;36;1mSQL (0.030262)[0m   [0;1mCREATE TABLE `service_log_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mServiceLogType Columns (0.003975)[0m   [0mSHOW FIELDS FROM `service_log_types`[0m
+  [4;36;1mSQL (0.000361)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000572)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Fluid Change', '2008-03-28 20:26:35', '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.017411)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.112087)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000586)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Suspension Maintenance', '2008-03-28 20:26:35', '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000862)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000509)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Transmission Maintenance', '2008-03-28 20:26:35', '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000690)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mServiceLogType Create (0.000670)[0m   [0;1mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Minor Maintenance', '2008-03-28 20:26:35', '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000671)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mServiceLogType Create (0.000485)[0m   [0mINSERT INTO `service_log_types` (`name`, `updated_at`, `created_at`) VALUES('Other Maintenance', '2008-03-28 20:26:35', '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000749)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000460)[0m   [0mUPDATE schema_info SET version = 11[0m
+  [4;36;1mSQL (0.000560)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTruckAttributeData (12)
+  [4;35;1mMake Columns (0.002497)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000645)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ford', '2008-03-28 20:26:35', 'Make', NULL, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000901)[0m   [0;1mCOMMIT[0m
+  [4;35;1mModel Columns (0.003300)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000319)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000558)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Bronco', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000795)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000193)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000545)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Bronco II', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000717)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000542)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Econoline', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000538)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Excursion', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.001705)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000220)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000539)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Explorer', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000536)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Expedition', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000649)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000553)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('F-150', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.008225)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000296)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000623)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('F-250', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000906)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000525)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('F-350', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000193)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000535)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ranger', '2008-03-28 20:26:35', 'Model', 1, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000656)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000603)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Dodge', '2008-03-28 20:26:35', 'Make', NULL, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000646)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000284)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001284)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('D50 Pick Up', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000740)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000520)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Dakota', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000751)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000520)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Durango', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000734)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000536)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Power Wagon', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000668)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000525)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ram 1500', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000645)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000587)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ram 2500', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000665)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000583)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ram 3500', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.005413)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000526)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ram SRT-10', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000671)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000186)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000512)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ram Van', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000717)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000572)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Ramcharger', '2008-03-28 20:26:35', 'Model', 12, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000909)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000487)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('GMC', '2008-03-28 20:26:35', 'Make', NULL, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000717)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000518)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Jimmy', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000670)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000526)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('S15 Pick Up', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000653)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000511)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sierra C/K1500', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000598)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sierra C/K2500', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.001623)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000201)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000627)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sierra C/K3500', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000513)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Yukon', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.000633)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000513)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Typhoon', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.001602)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000207)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000645)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sonoma', '2008-03-28 20:26:35', 'Model', 23, '2008-03-28 20:26:35')[0m
+  [4;35;1mSQL (0.001588)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000499)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Chevrolet', '2008-03-28 20:26:35', 'Make', NULL, '2008-03-28 20:26:35')[0m
+  [4;36;1mSQL (0.005414)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000549)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Avalanche', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000656)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000742)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Blazer', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000182)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000541)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Colarado', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.006820)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000213)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000617)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('El Camino', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000652)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000527)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Express Van', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000699)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000515)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('S10 Blazer', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000655)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001563)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('10 Pick Up', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000732)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000271)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000529)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Silverado (C/K1500)', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.004864)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000512)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Silverado (C/K2500)', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000669)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000515)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Silverado (C/K3500)', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000685)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000190)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000600)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Suburban', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000660)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000527)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Tahoe', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000662)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000509)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Trailblazer', '2008-03-28 20:26:36', 'Model', 32, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.006078)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000502)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Datsun', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000658)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000641)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 46, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000947)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000489)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Hummer', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000652)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000183)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000514)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('H1', '2008-03-28 20:26:36', 'Model', 48, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000812)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000517)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('H2', '2008-03-28 20:26:36', 'Model', 48, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000514)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('H3', '2008-03-28 20:26:36', 'Model', 48, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000651)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000182)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000610)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Isuzu', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.006508)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000518)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 52, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000645)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000616)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Hombre', '2008-03-28 20:26:36', 'Model', 52, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000267)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000542)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Rodeo', '2008-03-28 20:26:36', 'Model', 52, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000525)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Trooper', '2008-03-28 20:26:36', 'Model', 52, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000644)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000516)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Trooper II', '2008-03-28 20:26:36', 'Model', 52, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.005961)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000181)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000489)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Land Rover', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000631)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001166)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Land Rover', '2008-03-28 20:26:36', 'Model', 58, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000819)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000627)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Range Rover', '2008-03-28 20:26:36', 'Model', 58, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000964)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000190)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000512)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Freelander', '2008-03-28 20:26:36', 'Model', 58, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000644)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000221)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000516)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Discovery', '2008-03-28 20:26:36', 'Model', 58, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000636)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000158)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000504)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Mazda', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000646)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.001536)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('B-Series Pick Up', '2008-03-28 20:26:36', 'Model', 63, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000749)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000165)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000486)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Nissan', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.002866)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000510)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Frontier', '2008-03-28 20:26:36', 'Model', 65, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000756)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000528)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Murano', '2008-03-28 20:26:36', 'Model', 65, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000809)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000514)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pathfinder', '2008-03-28 20:26:36', 'Model', 65, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000591)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 65, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000892)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000575)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Titan', '2008-03-28 20:26:36', 'Model', 65, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000160)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000488)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Toyota', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000715)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000538)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('4Runner', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000632)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000526)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Tacoma', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.001038)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000533)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('T100', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000633)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000326)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000547)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('FJ Cruiser', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000648)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000182)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000736)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sequoia', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000614)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('RAV4', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000637)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000201)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000555)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 71, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.006258)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000221)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000486)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('VW', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000670)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000519)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Touareg', '2008-03-28 20:26:36', 'Model', 79, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000644)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000494)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Suzuki', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000547)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Sidekick', '2008-03-28 20:26:36', 'Model', 81, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000631)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000305)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000732)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Samurai', '2008-03-28 20:26:36', 'Model', 81, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.006716)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mBEGIN[0m
+  [4;35;1mMake Create (0.000493)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Mitsubishi', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000645)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000202)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000521)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 84, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000582)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Mighty Max', '2008-03-28 20:26:36', 'Model', 84, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000957)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000167)[0m   [0mBEGIN[0m
+  [4;36;1mMake Create (0.000496)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Jeep', '2008-03-28 20:26:36', 'Make', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000638)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000516)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Comanche', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000183)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000543)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('CJ', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000642)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000514)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Wrangler', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000738)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.001491)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Cherokee', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.002777)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000546)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Grand Cherokee', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000651)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000507)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Wagoneer', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000664)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000520)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Grand Wagoneer', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000719)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000182)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000513)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Liberty', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000665)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000182)[0m   [0;1mBEGIN[0m
+  [4;35;1mModel Create (0.000624)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Commander', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.005991)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000195)[0m   [0mBEGIN[0m
+  [4;36;1mModel Create (0.000537)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Pick Up', '2008-03-28 20:26:36', 'Model', 87, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000654)[0m   [0mCOMMIT[0m
+  [4;36;1mDrive Columns (0.002268)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000314)[0m   [0mBEGIN[0m
+  [4;36;1mDrive Create (0.000529)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('2WD', '2008-03-28 20:26:36', 'Drive', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000646)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mBEGIN[0m
+  [4;35;1mDrive Create (0.000487)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('4WD', '2008-03-28 20:26:36', 'Drive', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.005051)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mDrive Create (0.000488)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('AWD', '2008-03-28 20:26:36', 'Drive', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000644)[0m   [0mCOMMIT[0m
+  [4;36;1mEngine Columns (0.002264)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000300)[0m   [0mBEGIN[0m
+  [4;36;1mEngine Create (0.000530)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('4-Cylinder', '2008-03-28 20:26:36', 'Engine', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000648)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mBEGIN[0m
+  [4;35;1mEngine Create (0.000504)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('6-Cylinder', '2008-03-28 20:26:36', 'Engine', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.005769)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000186)[0m   [0mBEGIN[0m
+  [4;36;1mEngine Create (0.000577)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('8-Cylinder', '2008-03-28 20:26:36', 'Engine', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000675)[0m   [0mCOMMIT[0m
+  [4;36;1mTransmission Columns (0.002219)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.000304)[0m   [0mBEGIN[0m
+  [4;36;1mTransmission Create (0.000568)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('Automatic', '2008-03-28 20:26:36', 'Transmission', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mBEGIN[0m
+  [4;35;1mTransmission Create (0.000495)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('3-Speed Manual', '2008-03-28 20:26:36', 'Transmission', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.006144)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mTransmission Create (0.000525)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('4-Speed Manual', '2008-03-28 20:26:36', 'Transmission', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000694)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mBEGIN[0m
+  [4;35;1mTransmission Create (0.000638)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('5-Speed Manual', '2008-03-28 20:26:36', 'Transmission', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCondition Columns (0.002325)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mSQL (0.000800)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000602)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('emaculate', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.003978)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000160)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000528)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('awesome', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000640)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000861)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('pretty good', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.004424)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000285)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000514)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('eh', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000694)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000496)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('some rust', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.008638)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000489)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('looks nice, runs bad', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000659)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mCondition Create (0.000580)[0m   [0mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('runs nice, looks bad', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;36;1mSQL (0.000657)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000171)[0m   [0mBEGIN[0m
+  [4;36;1mCondition Create (0.000488)[0m   [0;1mINSERT INTO `truck_attributes` (`name`, `updated_at`, `type`, `parent_id`, `created_at`) VALUES('tow job', '2008-03-28 20:26:36', 'Condition', NULL, '2008-03-28 20:26:36')[0m
+  [4;35;1mSQL (0.000636)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000470)[0m   [0;1mUPDATE schema_info SET version = 12[0m
+  [4;35;1mSQL (0.000846)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000968)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001948)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.001973)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.006939)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.002819)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.002513)[0m   [0mdescribe `photos`[0m
+  [4;36;1mSQL (0.001686)[0m   [0;1mSHOW KEYS FROM `photos`[0m
+  [4;35;1mSQL (0.012636)[0m   [0mSHOW FIELDS FROM `project_steps`[0m
+  [4;36;1mSQL (0.002136)[0m   [0;1mdescribe `project_steps`[0m
+  [4;35;1mSQL (0.001762)[0m   [0mSHOW KEYS FROM `project_steps`[0m
+  [4;36;1mSQL (0.002053)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.001939)[0m   [0mdescribe `projects`[0m
+  [4;36;1mSQL (0.001639)[0m   [0;1mSHOW KEYS FROM `projects`[0m
+  [4;35;1mSQL (0.003039)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.002097)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001779)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.001876)[0m   [0;1mSHOW FIELDS FROM `service_log_types`[0m
+  [4;35;1mSQL (0.001857)[0m   [0mdescribe `service_log_types`[0m
+  [4;36;1mSQL (0.001735)[0m   [0;1mSHOW KEYS FROM `service_log_types`[0m
+  [4;35;1mSQL (0.002399)[0m   [0mSHOW FIELDS FROM `service_logs`[0m
+  [4;36;1mSQL (0.003398)[0m   [0;1mdescribe `service_logs`[0m
+  [4;35;1mSQL (0.001747)[0m   [0mSHOW KEYS FROM `service_logs`[0m
+  [4;36;1mSQL (0.002064)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.002140)[0m   [0mdescribe `truck_attributes`[0m
+  [4;36;1mSQL (0.001869)[0m   [0;1mSHOW KEYS FROM `truck_attributes`[0m
+  [4;35;1mSQL (0.002075)[0m   [0mSHOW FIELDS FROM `truck_photos`[0m
+  [4;36;1mSQL (0.002038)[0m   [0;1mdescribe `truck_photos`[0m
+  [4;35;1mSQL (0.003200)[0m   [0mSHOW KEYS FROM `truck_photos`[0m
+  [4;36;1mSQL (0.004333)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mSQL (0.003936)[0m   [0mdescribe `trucks`[0m
+  [4;36;1mSQL (0.001700)[0m   [0;1mSHOW KEYS FROM `trucks`[0m
+  [4;35;1mSQL (0.002551)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.003664)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.001698)[0m   [0mSHOW KEYS FROM `users`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000232)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mTruck Columns (0.004579)[0m   [0mSHOW FIELDS FROM `trucks`[0m
+  [4;36;1mSQL (0.001409)[0m   [0;1mBEGIN[0m
+  [4;35;1mTruck Create (0.000733)[0m   [0mINSERT INTO `trucks` (`int_color_comments`, `transmission_id`, `additional_comments`, `updated_at`, `condition_id`, `drive_comments`, `engine_id`, `price`, `public`, `title`, `ext_color_comments`, `transmission_comments`, `vehicle_condition_comments`, `drive_id`, `for_sale`, `street_legal`, `year`, `model_other`, `user_id`, `doors`, `created_at`, `engine_comments`, `mileage`, `model_id`) VALUES(NULL, NULL, NULL, '2008-03-28 20:27:24', NULL, NULL, NULL, NULL, NULL, 'test truck', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, '2008-03-28 20:27:24', NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.005766)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTruck Load (0.002604)[0m   [0mSELECT * FROM `trucks` LIMIT 1[0m
+  [4;36;1mTruck Columns (0.005538)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mModel Columns (0.002975)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mModel Load (0.030103)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`name` = 'Tacoma') AND ( (`truck_attributes`.`type` = 'Model' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000418)[0m   [0mBEGIN[0m
+  [4;36;1mTruck Update (0.000884)[0m   [0;1mUPDATE `trucks` SET `mileage` = NULL, `created_at` = '2008-03-28 20:27:24', `ext_color_comments` = NULL, `title` = 'test truck', `additional_comments` = NULL, `street_legal` = NULL, `for_sale` = NULL, `vehicle_condition_comments` = NULL, `transmission_id` = NULL, `engine_comments` = NULL, `int_color_comments` = NULL, `public` = NULL, `price` = NULL, `drive_comments` = NULL, `condition_id` = NULL, `user_id` = 2, `model_other` = NULL, `transmission_comments` = NULL, `year` = NULL, `model_id` = 73, `engine_id` = NULL, `doors` = NULL, `drive_id` = NULL, `updated_at` = '2008-03-28 20:30:12' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.027701)[0m   [0mCOMMIT[0m
+  [4;36;1mTruck Load (0.003461)[0m   [0;1mSELECT * FROM `trucks` WHERE (`trucks`.`id` = 1) [0m
+  [4;35;1mModel Load (0.002137)[0m   [0mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`id` = 73) AND ( (`truck_attributes`.`type` = 'Model' ) ) [0m
+  [4;36;1mMake Columns (0.002100)[0m   [0;1mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;35;1mMake Load (0.001446)[0m   [0mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`id` = 71) AND ( (`truck_attributes`.`type` = 'Make' ) ) [0m
+  [4;36;1mTruck Load (0.002227)[0m   [0;1mSELECT * FROM `trucks` WHERE (`trucks`.`id` = 1) [0m
+  [4;35;1mTruck Load (0.002588)[0m   [0mSELECT * FROM `trucks` LIMIT 1[0m
+  [4;36;1mTruck Columns (0.008036)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mMake Columns (0.002037)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mMake Load (0.002761)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`name` = 'Toyota') AND ( (`truck_attributes`.`type` = 'Make' ) ) LIMIT 1[0m
+  [4;35;1mModel Columns (0.002002)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mModel Load (0.000000)[0m   [0;1mMysql::Error: #42S22Unknown column 'truck_attributes.make_id' in 'where clause': SELECT * FROM `truck_attributes` WHERE (truck_attributes.make_id = 71) AND ( (`truck_attributes`.`type` = 'Model' ) ) [0m
+  [4;35;1mMake Columns (0.002075)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mMake Load (0.004410)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`name` = 'Toyota') AND ( (`truck_attributes`.`type` = 'Make' ) ) LIMIT 1[0m
+  [4;35;1mModel Columns (0.001972)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mModel Load (0.001984)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE (truck_attributes.parent_id = 71) AND ( (`truck_attributes`.`type` = 'Model' ) ) [0m
+  [4;35;1mMake Columns (0.002106)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mMake Load (0.001112)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE (`truck_attributes`.`name` = 'Toyota') AND ( (`truck_attributes`.`type` = 'Make' ) ) LIMIT 1[0m
+  [4;35;1mTruck Load (0.004083)[0m   [0mSELECT * FROM `trucks` LIMIT 1[0m
+  [4;36;1mTruck Columns (0.006277)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mModel Columns (0.002014)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mModel Load Including Associations (0.006306)[0m   [0;1mSELECT `truck_attributes`.`id` AS t0_r0, `truck_attributes`.`type` AS t0_r1, `truck_attributes`.`name` AS t0_r2, `truck_attributes`.`parent_id` AS t0_r3, `truck_attributes`.`created_at` AS t0_r4, `truck_attributes`.`updated_at` AS t0_r5, `makes_truck_attributes`.`id` AS t1_r0, `makes_truck_attributes`.`type` AS t1_r1, `makes_truck_attributes`.`name` AS t1_r2, `makes_truck_attributes`.`parent_id` AS t1_r3, `makes_truck_attributes`.`created_at` AS t1_r4, `makes_truck_attributes`.`updated_at` AS t1_r5 FROM `truck_attributes` LEFT OUTER JOIN `truck_attributes` makes_truck_attributes ON `makes_truck_attributes`.id = `truck_attributes`.parent_id AND `makes_truck_attributes`.`type` = 'Make' WHERE (`truck_attributes`.`id` = 73) AND ( (`truck_attributes`.`type` = 'Model' ) ) [0m
+  [4;35;1mTruck Load (0.005717)[0m   [0mSELECT * FROM `trucks` LIMIT 1[0m
+  [4;36;1mTruck Columns (0.004699)[0m   [0;1mSHOW FIELDS FROM `trucks`[0m
+  [4;35;1mEngine Columns (0.002240)[0m   [0mSHOW FIELDS FROM `truck_attributes`[0m
+  [4;36;1mEngine Load (0.002697)[0m   [0;1mSELECT * FROM `truck_attributes` WHERE ( (`truck_attributes`.`type` = 'Engine' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000295)[0m   [0mBEGIN[0m
+  [4;36;1mTruck Update (0.000865)[0m   [0;1mUPDATE `trucks` SET `mileage` = NULL, `created_at` = '2008-03-28 20:27:24', `ext_color_comments` = NULL, `title` = 'test truck', `additional_comments` = NULL, `street_legal` = NULL, `for_sale` = NULL, `vehicle_condition_comments` = NULL, `transmission_id` = NULL, `engine_comments` = NULL, `int_color_comments` = NULL, `public` = NULL, `price` = NULL, `drive_comments` = NULL, `condition_id` = NULL, `user_id` = 2, `model_other` = NULL, `transmission_comments` = NULL, `year` = NULL, `model_id` = 73, `engine_id` = 101, `doors` = NULL, `drive_id` = NULL, `updated_at` = '2008-03-28 20:39:42' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.006508)[0m   [0mCOMMIT[0m
+  [4;36;1mTruck Load (0.003333)[0m   [0;1mSELECT * FROM `trucks` WHERE (`trucks`.`id` = 1) [0m

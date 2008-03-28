@@ -1,0 +1,26 @@
+<h1>Listing service_logs</h1>
+
+<table>
+  <tr>
+    <th>Service log type</th>
+    <th>Truck</th>
+    <th>Comments</th>
+    <th>Mileage</th>
+  </tr>
+
+<% for service_log in @service_logs %>
+  <tr>
+    <td><%=h service_log.service_log_type_id %></td>
+    <td><%=h service_log.truck_id %></td>
+    <td><%=h service_log.comments %></td>
+    <td><%=h service_log.mileage %></td>
+    <td><%= link_to 'Show', service_log %></td>
+    <td><%= link_to 'Edit', edit_service_log_path(service_log) %></td>
+    <td><%= link_to 'Destroy', service_log, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New service_log', new_service_log_path %>

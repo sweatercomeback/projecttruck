@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  service_log_type_id: 1
+  truck_id: 1
+  comments: MyString
+  mileage: 1
+
+two:
+  service_log_type_id: 1
+  truck_id: 1
+  comments: MyString
+  mileage: 1

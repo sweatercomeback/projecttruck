@@ -1,0 +1,23 @@
+<p>
+  <b>Service log type:</b>
+  <%=h @service_log.service_log_type_id %>
+</p>
+
+<p>
+  <b>Truck:</b>
+  <%=h @service_log.truck_id %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%=h @service_log.comments %>
+</p>
+
+<p>
+  <b>Mileage:</b>
+  <%=h @service_log.mileage %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_log_path(@service_log) %> |
+<%= link_to 'Back', service_logs_path %>

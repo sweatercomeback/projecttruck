@@ -1,0 +1,2 @@
+class Transmission < TruckAttribute
+end

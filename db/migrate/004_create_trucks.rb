@@ -14,6 +14,9 @@ class CreateTrucks < ActiveRecord::Migration
       t.column :vehicle_condition_comments, :text
       t.column :street_legal, :boolean
       t.column :additional_comments, :text
+      t.column :public, :boolean
+      t.column :price, :float
+      t.column :for_sale, :boolean      
       t.column :engine_id, :integer
       t.column :drive_id, :integer
       t.column :transmission_id, :integer

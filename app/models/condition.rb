@@ -1,0 +1,2 @@
+class Condition < TruckAttribute
+end
