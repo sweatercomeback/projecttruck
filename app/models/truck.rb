@@ -9,4 +9,7 @@ class Truck < ActiveRecord::Base
   belongs_to :transmission
   belongs_to :condition
   belongs_to :model, :include => :make
+  
+  validates_presence_of :title
+  validates_presence_of :model_id
 end
