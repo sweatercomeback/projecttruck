@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 12) do
   end
 
   create_table "projects", :force => true do |t|
+    t.string   "title"
     t.integer  "truck_id"
     t.integer  "photo_id"
     t.datetime "created_at"

@@ -1,3 +1,3 @@
 class TruckAttribute < ActiveRecord::Base
-    validates_presence_of :value
+    validates_presence_of :name
 end
