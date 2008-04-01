@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
+  
+  skip_before_filter :login_required, :except => "index"
     
   #current logged in user
   def index
