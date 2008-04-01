@@ -5,25 +5,27 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
   <meta http-equiv="Content-Language" content="en-us" /> 
   <title>Project Truck</title>
-  <%= stylesheet_link_tag "nustyle" %> 
+  <%= stylesheet_link_tag "style" %> 
   <%= javascript_include_tag :defaults %>
 </head>
 
 <body>
-  <div id="container">
-    <div id="header">
+  <div id="headContainer">
+  <div id="header">
         <span class="right">
-     <% if is_loggedIn %>
-     hello <%= session[:user_login] %> | <%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
+     <% if logged_in? %>
+     hello <%= current_user.login %> | <%= link_to 'Logout', :controller => 'sessions', :action => 'destroy' %>
     <br />
-    <%= link_to 'User Home', :controller => 'user', :action =>'home'%>  
+    <%= link_to "#{current_user.login}  Home", :controller => 'users', :action =>'index'%>  
     <% end %>
     </span>
-     <a href="/"><img src="/images/logo.png" alt="Project Truck Logo"/></a>
-     
-     <br /><br />
+     <a href="/"><img src="/images/logo_mobile.png" alt="Project Truck Logo"/></a>
+     <h1>Project Truck .Net</h1>
   
     </div><!-- end header -->
+    </div>
+  <div id="container">
+    
 
 
     <div id="main">

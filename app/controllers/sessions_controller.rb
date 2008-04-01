@@ -1,5 +1,6 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
+  layout 'standard'
   skip_before_filter :login_required
 
   # render new.rhtml

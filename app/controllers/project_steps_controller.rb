@@ -1,4 +1,5 @@
 class ProjectStepsController < ApplicationController
+  layout 'standard'
   # GET /project_steps
   # GET /project_steps.xml
   def index

@@ -1,4 +1,5 @@
 class ServiceLogsController < ApplicationController
+  layout 'standard'
   # GET /service_logs
   # GET /service_logs.xml
   def index

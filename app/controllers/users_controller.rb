@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  layout 'standard'
   skip_before_filter :login_required, :except => "index"
     
   #current logged in user

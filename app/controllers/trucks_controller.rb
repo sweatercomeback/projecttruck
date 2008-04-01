@@ -1,4 +1,5 @@
 class TrucksController < ApplicationController
+  layout 'standard'
   # GET /trucks
   # GET /trucks.xml
   def index
