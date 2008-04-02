@@ -1,41 +1,45 @@
 class TrucksController < ApplicationController
   layout 'standard'
-  # GET /trucks
-  # GET /trucks.xml
+
   def index
-    @trucks = Truck.find(:all)
+    @trucks = Truck.find_all_by_user_id(session[:user_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @trucks }
+      format.xml  { render :xml => @trucks.to_xml }
+      format.js { render :json => @trucks.to_json }
     end
   end
 
-  # GET /trucks/1
-  # GET /trucks/1.xml
   def show
-    @truck = Truck.find(params[:id])
+    @truck = Truck.find_by_user_id_or_public(session[:user_id], params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @truck }
+      format.xml  { render :xml => @truck.to_xml }
+      format.js  { render :json => @truck.to_json }
     end
   end
 
-  # GET /trucks/new
-  # GET /trucks/new.xml
   def new
     @truck = Truck.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @truck }
+      format.xml  { render :xml => @truck.to_xml }
+      format.js  { render :json => @truck.to_json }
     end
   end
 
   # GET /trucks/1/edit
   def edit
-    @truck = Truck.find(params[:id])
+    @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @truck.to_xml }
+      format.js  { render :json => @truck.to_json }
+    end
   end
 
   # POST /trucks
@@ -47,10 +51,12 @@ class TrucksController < ApplicationController
       if @truck.save
         flash[:notice] = 'Truck was successfully created.'
         format.html { redirect_to(@truck) }
-        format.xml  { render :xml => @truck, :status => :created, :location => @truck }
+        format.xml  { render :xml => @truck.to_xml, :status => :created, :location => @truck }
+        format.js  { render :json => @truck.to_json, :status => :created, :location => @truck }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @truck.errors, :status => :unprocessable_entity }
+        format.js  { render :json => @truck.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -58,16 +64,18 @@ class TrucksController < ApplicationController
   # PUT /trucks/1
   # PUT /trucks/1.xml
   def update
-    @truck = Truck.find(params[:id])
+    @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
 
     respond_to do |format|
       if @truck.update_attributes(params[:truck])
         flash[:notice] = 'Truck was successfully updated.'
         format.html { redirect_to(@truck) }
         format.xml  { head :ok }
+        format.js  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @truck.errors, :status => :unprocessable_entity }
+        format.js  { render :json => @truck.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -75,12 +83,13 @@ class TrucksController < ApplicationController
   # DELETE /trucks/1
   # DELETE /trucks/1.xml
   def destroy
-    @truck = Truck.find(params[:id])
+    @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
     @truck.destroy
 
     respond_to do |format|
       format.html { redirect_to(trucks_url) }
       format.xml  { head :ok }
+      format.js  { head :ok }
     end
   end
 end

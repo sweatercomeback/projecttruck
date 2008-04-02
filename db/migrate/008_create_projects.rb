@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.integer :truck_id
       t.integer :photo_id
+      t.boolean :public, :default => false
 
       t.timestamps
     end

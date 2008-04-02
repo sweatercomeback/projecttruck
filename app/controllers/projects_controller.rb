@@ -1,24 +1,29 @@
 class ProjectsController < ApplicationController
   layout 'standard'
-  # GET /projects
-  # GET /projects.xml
+
   def index
-    @projects = Project.find(:all)
+    if params[:truck_id].nil?
+      @projects = Project.find_by_user_id(session[:user_id])
+    else
+      @projects = Project.find_by_truck_id_and_public(params[:truck_id])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.xml  { render :xml => @projects.to_xml }
+      format.js  { render :json => @projects.to_json }
     end
   end
 
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find_by_user_id_or_public(session[:user_id], params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.xml  { render :xml => @project.to_xml }
+      format.js  { render :json => @project.to_json }
     end
   end
 
@@ -29,13 +34,20 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @project }
+      format.xml  { render :xml => @project.to_xml }
+      format.js  { render :json => @project.to_json }
     end
   end
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])
+    @project = Project.find_by_user_id_and_id(session[:user_id], params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @project.to_xml }
+      format.js  { render :json => @project.to_json }
+    end
   end
 
   # POST /projects
@@ -58,7 +70,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.xml
   def update
-    @project = Project.find(params[:id])
+    @project = Project.find_by_user_id_and_id(session[:user_id], params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -75,7 +87,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.xml
   def destroy
-    @project = Project.find(params[:id])
+    @project = Project.find_by_user_id_and_id(session[:user_id], params[:id])
     @project.destroy
 
     respond_to do |format|
