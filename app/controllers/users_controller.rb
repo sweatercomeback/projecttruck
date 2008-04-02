@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save
     if @user.errors.empty?
+      #activate the user--comment this line out if using the activation workflow
+      @user.activate
       self.current_user = @user
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
