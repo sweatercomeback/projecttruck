@@ -1,0 +1,77 @@
+<div id="formGroup">
+<label for="title">give this truck a name</label>
+<%= text_field 'truck', 'title' %>
+
+<label for="make">make</label>
+<% if @truck.model != nil -%>
+<select id="makes" name="makes"><%= options_for_select(@makes.sort, @truck.model.parent_id) %></select>
+<% else -%>
+<select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
+<% end -%>
+
+<label for="make">model</label>
+<div id="div_model">
+<% if @models != nil -%>
+    <%= collection_select('truck', "model_id" , @models, "id", "name") %>
+<% else -%>    
+    <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>
+<% end -%>    
+</div>
+
+<label for="model_other">model other</label>
+<%= text_field 'truck', 'model_other' %>
+
+<label for="year">year</label>
+<%= text_field 'truck', 'year' %>
+
+<label for="mileage">mileage</label>
+<%= text_field 'truck', 'mileage' %>
+
+<label for="engine">engine</label>
+<%= collection_select('truck', "engine_id" , Engine.find(:all, :order => "name"), "id", "name") %>
+
+<label for="engine_comments">engine comments</label>
+<%= text_field 'truck', 'engine_comments' %>
+
+<label for="drive">drive</label>
+<%= collection_select('truck', "drive_id" , Drive.find(:all, :order => "name"), "id", "name") %>
+
+
+<label for="drive_comments">drive comments</label>
+<%= text_field 'truck', 'drive_comments' %>
+
+<label for="transmission">transmission</label>
+<%= collection_select('truck', "transmission_id" , Transmission.find(:all, :order => "name"), "id", "name") %>
+
+<label for="transmission_comments">transmission comments</label>
+<%= text_field 'truck', 'transmission_comments' %>
+
+<label for="doors">number of doors</label>
+<%= text_field 'truck', 'doors' %>
+
+<label for="ext_color_comments">exterior color</label>
+<%= text_field 'truck', 'ext_color_comments' %>
+
+<label for="int_color_comments">interior color</label>
+<%= text_field 'truck', 'int_color_comments' %>
+
+<label for="truck_condition">condition</label>
+<%= collection_select('truck', "condition_id" , Condition.find(:all), "id", "name") %>
+
+
+<label for="vehicle_condition_comments">vehicle condition comments</label>
+<%= text_field 'truck', 'vehicle_condition_comments' %>
+
+<label for="street_legal">street legal</label>&nbsp;
+<%= check_box 'truck', 'street_legal'  %>
+
+<label for="additional_comments">additional comments</label>
+<%= text_field 'truck', 'additional_comments' %>
+<div id="forSale">
+<label for="for_sale">for sale</label>
+<%= check_box 'truck', 'for_sale' %>
+
+<label for="price">price</label>
+$<%= text_field 'truck', 'price' %>
+</div>
+</div>
