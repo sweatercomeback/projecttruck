@@ -27,7 +27,7 @@ img {
 #headContainer {
 	width:100%;
 	text-align:left;
-	border-bottom: solid 3px orange;
+	border-bottom: solid 3px #a43131;
 	height:58px;
 	margin-bottom:16px;
 	background-image:url(/images/header_bg.png);
@@ -39,7 +39,7 @@ img {
 	margin-right: auto;
 	margin-left: auto;
 	padding-top:5px;
-	color:orange;
+	color:#a43131;
 	
 	
 	
@@ -60,7 +60,7 @@ img {
 }
 #header h1 {
 	font-size:28px;
-	color:orange;
+	color:#a43131;
 	background-color:transparent;
 	font-family:Arial, Verdana, Helvetica, sans-serif;
 	font-weight:300;
@@ -196,6 +196,10 @@ div #checkList
 {
 	margin:0;
 	padding:0;
+}
+#forSale
+{
+	display:none;
 }
 #vehicleFooter
 {

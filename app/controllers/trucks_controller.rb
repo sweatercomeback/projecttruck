@@ -36,7 +36,10 @@ class TrucksController < ApplicationController
   # GET /trucks/1/edit
   def edit
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
-
+    @makes = {}
+    Make.find(:all, :order => "name").collect { |m| @makes[m.name] = m.id }
+    @makes.store("<Select Make>",-1)
+    @models = Model.find(:all, :conditions => ['parent_id = ?', @truck.model.parent_id], :order => "name")
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @truck.to_xml }

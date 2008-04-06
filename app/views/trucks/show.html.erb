@@ -2,13 +2,13 @@
 <div id="info">
 <h2><%= @truck.year %> <%= @truck.model.make.name %> <%= @truck.model.name %> <%= @truck.model_other %></h2>
 <p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br />
-<strong>Mileage:</strong> <%= @truck.mileage %><br />
+<% if !@truck.mileage.blank? %><strong>Mileage:</strong> <%= @truck.mileage %><br /><% end %>
 <strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br />
 <strong>Drive:</strong> <%= @truck.drive.name %> <%= @truck.drive_comments %><br />
 <strong>Transmission:</strong> <%= @truck.transmission.name %> <%= @truck.transmission_comments %><br />
-<strong>Number of Doors:</strong> <%= @truck.doors %><br />
-<strong>Exterior Color:</strong> <%= @truck.ext_color_comments %><br />
-<strong>Interior Color:</strong> <%= @truck.int_color_comments %><br />
+<% if !@truck.doors.blank? %><strong>Number of Doors:</strong> <%= @truck.doors %><br /><% end %>
+<% if !@truck.ext_color_comments.blank? %><strong>Exterior Color:</strong> <%= @truck.ext_color_comments %><br /><% end %>
+<% if !@truck.int_color_comments.blank? %><strong>Interior Color:</strong> <%= @truck.int_color_comments %><br /><% end %>
 <p><%= @truck.additional_comments %></p>
 <br />
 <div id="projects">
