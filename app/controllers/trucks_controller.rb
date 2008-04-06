@@ -97,16 +97,4 @@ class TrucksController < ApplicationController
       format.js  { head :ok }
     end
   end
-  
-  def update_models
-    make_id = request.raw_post.chop.to_i
-    models = Model.find(:all, :conditions => ['parent_id = ?', make_id],:order => "name")
-    select_html = "<select id='model_id' name='truck[model_id]'>"
-    models.each do |m|
-      select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
-    end
-    select_html += "</select>"
-    render :text => select_html
-
-  end
 end

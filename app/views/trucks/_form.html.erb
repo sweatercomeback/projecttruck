@@ -75,3 +75,4 @@
 $<%= text_field 'truck', 'price' %>
 </div>
 </div>
+<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :controller => "models" }, :with => "make_id") %>
