@@ -1,3 +1,27 @@
+<h1><%= @truck.title %> </h1>
+<div id="info">
+<h2><%= @truck.year %> <%= @truck.model.make.name %> <%= @truck.model.name %> <%= @truck.model_other %></h2>
+<p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br />
+<strong>Mileage:</strong> <%= @truck.mileage %><br />
+<strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br />
+<strong>Drive:</strong> <%= @truck.drive.name %> <%= @truck.drive_comments %><br />
+<strong>Transmission:</strong> <%= @truck.transmission.name %> <%= @truck.transmission_comments %><br />
+<strong>Number of Doors:</strong> <%= @truck.doors %><br />
+<strong>Exterior Color:</strong> <%= @truck.ext_color_comments %><br />
+<strong>Interior Color:</strong> <%= @truck.int_color_comments %><br />
+<p><%= @truck.additional_comments %></p>
+<br />
+<div id="projects">
+<h3>Projects</h3>
+    <% if @projects.blank? %>
+    <p>No projects.</p>
+    <% else %>
+        <% @projects.each do |p| %>
+        <p><strong><%= h p.title %></strong></p>
+        <% end %>
+    <% end %>
+</div>
+</div>
 
 <%= link_to 'Edit', edit_truck_path(@truck) %> |
 <%= link_to 'Back', trucks_path %>

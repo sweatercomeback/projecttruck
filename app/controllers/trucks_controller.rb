@@ -23,7 +23,9 @@ class TrucksController < ApplicationController
 
   def new
     @truck = Truck.new
-
+    @makes = {}
+    Make.find(:all).collect { |m| @makes[m.name] = m.id }
+    @makes.store("<Select Make>",-1)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @truck.to_xml }
@@ -46,7 +48,7 @@ class TrucksController < ApplicationController
   # POST /trucks.xml
   def create
     @truck = Truck.new(params[:truck])
-
+    @truck.user_id = session[:user_id]
     respond_to do |format|
       if @truck.save
         flash[:notice] = 'Truck was successfully created.'
@@ -65,7 +67,7 @@ class TrucksController < ApplicationController
   # PUT /trucks/1.xml
   def update
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
-
+    
     respond_to do |format|
       if @truck.update_attributes(params[:truck])
         flash[:notice] = 'Truck was successfully updated.'
@@ -91,5 +93,17 @@ class TrucksController < ApplicationController
       format.xml  { head :ok }
       format.js  { head :ok }
     end
+  end
+  
+  def update_models
+    make_id = request.raw_post.chop.to_i
+    models = Model.find(:all, :conditions => ['parent_id = ?', make_id],:order => "name")
+    select_html = "<select id='model_id' name='truck[model_id]'>"
+    models.each do |m|
+      select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
+    end
+    select_html += "</select>"
+    render :text => select_html
+
   end
 end

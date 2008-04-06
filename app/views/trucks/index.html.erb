@@ -1,17 +1,19 @@
-<h1>Listing trucks</h1>
-
-<table>
-  <tr>
-  </tr>
-
+<div>
+  <h1>My Trucks</h1>
+<% if @trucks.blank? %>
+    <p>There are no trucks in your garage</p>
+<% else %>
+ <ul>               
 <% for truck in @trucks %>
-  <tr>
-    <td><%= link_to 'Show', truck %></td>
-    <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-    <td><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <li>
+         <%= link_to truck.title, truck %>
+        <small><%= link_to 'Edit', edit_truck_path(truck) %></small>
+        <small><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></small>
+    </li>
 <% end %>
-</table>
+</ul>
+<% end %>
+</div>
 
 <br />
 

@@ -107,6 +107,11 @@ label
 	display:block;
 	margin:0;
 }
+INPUT, Select
+{
+	margin-bottom:20px;
+	display:inline;
+}
 #left {
 	float:left;
 	width:150px;
