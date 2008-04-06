@@ -5,7 +5,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :projects
 
-  map.resources :trucks
+  map.resources :trucks do |truck|
+    truck.resources :projects
+  end
 
   map.resources :roles
 

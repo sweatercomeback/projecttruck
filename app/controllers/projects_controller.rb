@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
     if params[:truck_id].nil?
       @projects = Project.find_by_user_id(session[:user_id])
     else
-      @projects = Project.find_by_truck_id_and_public(params[:truck_id])
+      @projects = Project.find_by_truck_id_and_public(session[:user_id], params[:truck_id])
     end
 
     respond_to do |format|
