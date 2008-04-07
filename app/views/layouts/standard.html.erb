@@ -14,12 +14,12 @@
   <div id="header">
         <span class="right">
      <% if logged_in? %>
-     hello <%= current_user.login %> | <%= link_to 'Logout', :controller => 'sessions', :action => 'destroy' %>
+     hello <%= current_user.login %> | <%= link_to 'Logout', {:controller=>"sessions", :action=>"destroy"}, :method => :delete %>
     <br />
     <%= link_to "#{current_user.login}  Home", :controller => 'users', :action =>'index'%>  
     <% end %>
     </span>
-     <a href="/"><img src="/images/logo_mobile.png" alt="Project Truck Logo"/></a>
+     <a href="/"><img src="/images/logo_mobile.png" d-link="" alt="Project Truck Logo" longdesc="Project Truck Neat Truck Logo" /></a>
      <h1>Project Truck .Net</h1>
   
     </div><!-- end header -->

@@ -1,5 +1,22 @@
 <% if logged_in? %>
-<%= current_user.login %> logged in
+<h2 style="margin-bottom:20px;">Hello <%= current_user.login %></h2>
+<div style="float:left; width:33%; text-align:center; margin:0 auto; ">
+    <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' />", trucks_path %>
+    <h1>
+        <%= link_to "My Trucks", trucks_path %>
+    </h1>
+</div>
+<div style="float:left;width:33%;text-align:center; margin:0 auto;">
+    <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' />", projects_path %>
+    <h1>
+        <%= link_to "My Projects", projects_path %>
+    </h1>
+</div>
+<div style="float:left;width:33%; border-left: dashed 1px gray; padding-left:5px;">
+    <h1>Other Shit</h1>
+    <p>Not sure what the fuck is going to go here.  I want cool images for each of these divs.</p>
+</div>
+<div style="clear:both;height:10px;"></div>
 <% else %>
 not logged in
 <% end %>

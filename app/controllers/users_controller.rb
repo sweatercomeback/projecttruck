@@ -3,9 +3,16 @@ class UsersController < ApplicationController
   skip_before_filter :login_required, :except => "index"
     
   #current logged in user
-  def index
-    
+    def index
+    @trucks = Truck.find_all_by_user_id(session[:user_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @trucks.to_xml }
+      format.js { render :json => @trucks.to_json }
+    end
   end
+
 
   # render new.rhtml
   def new
