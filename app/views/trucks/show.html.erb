@@ -12,12 +12,22 @@
 <p><%= @truck.additional_comments %></p>
 <br />
 <div id="projects">
-<h3>Projects</h3>
-    <% if @projects.blank? %>
+<h3><%= link_to "Projects", truck_projects_path(@truck) %></h3>
+    <% if @truck.projects.blank? %>
     <p>No projects.</p>
     <% else %>
-        <% @projects.each do |p| %>
+        <% @truck.projects.each do |p| %>
         <p><strong><%= h p.title %></strong></p>
+        <% end %>
+    <% end %>
+</div>
+<div id="service_logs">
+<h3><%= link_to "Service Logs", truck_service_logs_path(@truck) %></h3>
+    <% if @truck.service_logs.blank? %>
+    <p>No service logs.</p>
+    <% else %>
+        <% @truck.service_logs.each do |log| %>
+        <p><strong><%= h "#{log.service_log_type} (#{log.created_at})" %></strong></p>
         <% end %>
     <% end %>
 </div>

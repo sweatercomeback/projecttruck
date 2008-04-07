@@ -3,7 +3,8 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs
   # GET /service_logs.xml
   def index
-    @service_logs = ServiceLog.find(:all)
+    @truck = Truck.find(params[:truck_id])
+    @service_logs = ServiceLog.find_by_truck_id(params[:truck_id])
 
     respond_to do |format|
       format.html # index.html.erb

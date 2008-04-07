@@ -8,6 +8,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :trucks do |truck|
     truck.resources :projects
   end
+  
+  map.resources :trucks do |truck|
+    truck.resources :service_logs
+  end  
 
   map.resources :roles
 
