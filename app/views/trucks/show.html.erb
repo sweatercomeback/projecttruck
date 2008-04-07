@@ -1,6 +1,8 @@
 <h1><%= @truck.title %> </h1>
-<div id="info">
+<div id="info" style="float:left; width:325px;">
 <h2><%= @truck.year %> <%= @truck.model.make.name %> <%= @truck.model.name %> <%= @truck.model_other %></h2>
+<%= link_to 'Edit', edit_truck_path(@truck) %> |
+<%= link_to 'Back', trucks_path %>
 <p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br />
 <% if !@truck.mileage.blank? %><strong>Mileage:</strong> <%= @truck.mileage %><br /><% end %>
 <strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br />
@@ -10,9 +12,9 @@
 <% if !@truck.ext_color_comments.blank? %><strong>Exterior Color:</strong> <%= @truck.ext_color_comments %><br /><% end %>
 <% if !@truck.int_color_comments.blank? %><strong>Interior Color:</strong> <%= @truck.int_color_comments %><br /><% end %>
 <p><%= @truck.additional_comments %></p>
-<br />
-<div id="projects">
-<h3><%= link_to "Projects", truck_projects_path(@truck) %></h3>
+</div>
+<div id="projects" style="float:left; width:20%;">
+<h2><%= link_to "Projects", truck_projects_path(@truck) %></h2>
     <% if @truck.projects.blank? %>
     <p>No projects.</p>
     <% else %>
@@ -21,8 +23,8 @@
         <% end %>
     <% end %>
 </div>
-<div id="service_logs">
-<h3><%= link_to "Service Logs", truck_service_logs_path(@truck) %></h3>
+<div id="service_logs" style="float:left; width:20%;">
+<h2><%= link_to "Service Logs", truck_service_logs_path(@truck) %></h2>
     <% if @truck.service_logs.blank? %>
     <p>No service logs.</p>
     <% else %>
@@ -31,7 +33,6 @@
         <% end %>
     <% end %>
 </div>
-</div>
 
-<%= link_to 'Edit', edit_truck_path(@truck) %> |
-<%= link_to 'Back', trucks_path %>
+
+
