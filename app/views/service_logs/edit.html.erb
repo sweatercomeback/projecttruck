@@ -3,30 +3,9 @@
 <%= error_messages_for :service_log %>
 
 <% form_for(@service_log) do |f| %>
-  <p>
-    <b>Service log type</b><br />
-    <%= f.text_field :service_log_type_id %>
-  </p>
-
-  <p>
-    <b>Truck</b><br />
-    <%= f.text_field :truck_id %>
-  </p>
-
-  <p>
-    <b>Comments</b><br />
-    <%= f.text_field :comments %>
-  </p>
-
-  <p>
-    <b>Mileage</b><br />
-    <%= f.text_field :mileage %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+  <%= render :partial => 'form' %>
+  <%= f.submit "Update" %>
 <% end %>
 
 <%= link_to 'Show', @service_log %> |
-<%= link_to 'Back', service_logs_path %>
+<%= link_to 'Back', truck_service_logs_path(params[:truck_id]) %>

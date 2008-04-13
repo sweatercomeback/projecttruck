@@ -1,23 +1,10 @@
-<p>
-  <b>Service log type:</b>
-  <%=h @service_log.service_log_type_id %>
-</p>
+service log type
+<div><%= @service_log.service_log_type.name %></div>
 
-<p>
-  <b>Truck:</b>
-  <%=h @service_log.truck_id %>
-</p>
+mileage
+<div><%= @service_log.mileage %></div>
 
-<p>
-  <b>Comments:</b>
-  <%=h @service_log.comments %>
-</p>
-
-<p>
-  <b>Mileage:</b>
-  <%=h @service_log.mileage %>
-</p>
-
-
+comments
+<div><%= @service_log.comments %></div>
 <%= link_to 'Edit', edit_service_log_path(@service_log) %> |
-<%= link_to 'Back', service_logs_path %>
+<%= link_to 'Back', truck_service_logs_path(@service_log.truck) %>

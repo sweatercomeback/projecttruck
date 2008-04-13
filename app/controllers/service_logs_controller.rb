@@ -4,7 +4,7 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs.xml
   def index
     @truck = Truck.find(params[:truck_id])
-    @service_logs = ServiceLog.find_by_truck_id(params[:truck_id])
+    @service_logs = ServiceLog.find_all_by_truck_id(params[:truck_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,6 +27,8 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs/new.xml
   def new
     @service_log = ServiceLog.new
+    @service_log_types = ServiceLogType.find(:all, :order => 'name')
+    @truck_id = params[:truck_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,17 +39,20 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs/1/edit
   def edit
     @service_log = ServiceLog.find(params[:id])
+    @service_log_types = ServiceLogType.find(:all, :order => 'name')
+    @truck_id = @service_log.truck.id
   end
 
   # POST /service_logs
   # POST /service_logs.xml
   def create
     @service_log = ServiceLog.new(params[:service_log])
-
+    @service_log_types = ServiceLogType.find(:all, :order => 'name')
+breakpoint
     respond_to do |format|
       if @service_log.save
         flash[:notice] = 'ServiceLog was successfully created.'
-        format.html { redirect_to(@service_log) }
+        format.html { redirect_to service_log_path(@service_log) }
         format.xml  { render :xml => @service_log, :status => :created, :location => @service_log }
       else
         format.html { render :action => "new" }
@@ -60,11 +65,12 @@ class ServiceLogsController < ApplicationController
   # PUT /service_logs/1.xml
   def update
     @service_log = ServiceLog.find(params[:id])
+    @service_log_types = ServiceLogType.find(:all, :order => 'name') 
 
     respond_to do |format|
       if @service_log.update_attributes(params[:service_log])
         flash[:notice] = 'ServiceLog was successfully updated.'
-        format.html { redirect_to(@service_log) }
+        format.html { redirect_to service_log_path(@service_log) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
