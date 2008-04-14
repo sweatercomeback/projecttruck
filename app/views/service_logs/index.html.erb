@@ -6,9 +6,9 @@
  <ul>               
 <% for log in @service_logs %>
     <li>
-         <%= link_to "#{log.service_log_type.name} (#{log.created_at})", log %>
-        <small><%= link_to 'Edit', edit_service_log_path(log) %></small>
-        <small><%= link_to 'Destroy', log, :confirm => 'Are you sure?', :method => :delete %></small>
+         <%= link_to "#{log.service_log_type.name} (#{log.created_at})", truck_service_log_path(:id => log, :truck_id => log.truck) %>
+        <small><%= link_to 'Edit', edit_truck_service_log_path(:id => log, :truck_id => log.truck) %></small>
+        <small><%= link_to 'Destroy', truck_service_log_path(:id => log, :truck_id => log.truck), :confirm => 'Are you sure?', :method => :delete %></small>
     </li>
 <% end %>
 </ul>

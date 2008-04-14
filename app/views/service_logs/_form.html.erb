@@ -8,5 +8,5 @@
     <label for="comments">comments</label>
     <%= text_area :service_log, 'comments' %>
     
-    <%= hidden_field :service_log, :truck_id, :value => @truck_id %>
+    <%= hidden_field :service_log, :truck_id, :value => @service_log.truck.id %>
 </div>

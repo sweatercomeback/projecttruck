@@ -1,5 +1,8 @@
 class ServiceLogsController < ApplicationController
   layout 'standard'
+  before_filter :verify_truck_owner
+  
+  
   # GET /service_logs
   # GET /service_logs.xml
   def index
@@ -27,8 +30,8 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs/new.xml
   def new
     @service_log = ServiceLog.new
+    @service_log.truck = Truck.find(params[:truck_id])
     @service_log_types = ServiceLogType.find(:all, :order => 'name')
-    @truck_id = params[:truck_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,8 +42,8 @@ class ServiceLogsController < ApplicationController
   # GET /service_logs/1/edit
   def edit
     @service_log = ServiceLog.find(params[:id])
+    @service_log.truck = Truck.find(params[:truck_id])
     @service_log_types = ServiceLogType.find(:all, :order => 'name')
-    @truck_id = @service_log.truck.id
   end
 
   # POST /service_logs
@@ -48,11 +51,11 @@ class ServiceLogsController < ApplicationController
   def create
     @service_log = ServiceLog.new(params[:service_log])
     @service_log_types = ServiceLogType.find(:all, :order => 'name')
-breakpoint
+
     respond_to do |format|
       if @service_log.save
         flash[:notice] = 'ServiceLog was successfully created.'
-        format.html { redirect_to service_log_path(@service_log) }
+        format.html { redirect_to truck_service_log_path(:id => @service_log, :truck_id => @service_log.truck) }
         format.xml  { render :xml => @service_log, :status => :created, :location => @service_log }
       else
         format.html { render :action => "new" }
@@ -70,7 +73,7 @@ breakpoint
     respond_to do |format|
       if @service_log.update_attributes(params[:service_log])
         flash[:notice] = 'ServiceLog was successfully updated.'
-        format.html { redirect_to service_log_path(@service_log) }
+        format.html { redirect_to truck_service_log_path(:id => @service_log, :truck_id => @service_log.truck) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -86,8 +89,15 @@ breakpoint
     @service_log.destroy
 
     respond_to do |format|
-      format.html { redirect_to(service_logs_url) }
+      format.html { redirect_to(truck_service_logs_path(params[:truck_id])) }
       format.xml  { head :ok }
     end
   end
+  
+protected
+
+  def verify_truck_owner
+    redirect_to "/" unless !Truck.find_by_user_id(session[:user_id]).nil?
+  end
+
 end

@@ -6,5 +6,5 @@ mileage
 
 comments
 <div><%= @service_log.comments %></div>
-<%= link_to 'Edit', edit_service_log_path(@service_log) %> |
+<%= link_to 'Edit', edit_truck_service_log_path(:id => @service_log, :truck_id => @service_log.truck) %> |
 <%= link_to 'Back', truck_service_logs_path(@service_log.truck) %>

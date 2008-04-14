@@ -36,6 +36,10 @@ class TrucksController < ApplicationController
   # GET /trucks/1/edit
   def edit
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
+    if @truck.nil?
+      redirect_to "/"
+      return
+    end
     @makes = {}
     Make.find(:all, :order => "name").collect { |m| @makes[m.name] = m.id }
     @makes.store("<Select Make>",-1)
@@ -70,6 +74,7 @@ class TrucksController < ApplicationController
   # PUT /trucks/1.xml
   def update
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
+    redirect_to "/" unless !@truck.nil?
     
     respond_to do |format|
       if @truck.update_attributes(params[:truck])
@@ -89,6 +94,7 @@ class TrucksController < ApplicationController
   # DELETE /trucks/1.xml
   def destroy
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
+    redirect_to "/" unless !@truck.nil?
     @truck.destroy
 
     respond_to do |format|

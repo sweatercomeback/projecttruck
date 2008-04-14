@@ -7,5 +7,5 @@
   <%= f.submit "Update" %>
 <% end %>
 
-<%= link_to 'Show', @service_log %> |
+<%= link_to 'Show', truck_service_log_path(:id => @service_log, :truck_id => @service_log.truck) %> |
 <%= link_to 'Back', truck_service_logs_path(params[:truck_id]) %>
