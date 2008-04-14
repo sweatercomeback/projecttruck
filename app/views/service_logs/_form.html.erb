@@ -1,0 +1,12 @@
+<div id="formGroup">
+    <label for="title">service log type</label>
+    <%= collection_select(:service_log, :service_log_type_id , @service_log_types, 'id', 'name') %>
+
+    <label for="mileage">mileage</label>
+    <%= text_field :service_log, 'mileage' %>
+
+    <label for="comments">comments</label>
+    <%= text_area :service_log, 'comments' %>
+    
+    <%= hidden_field :service_log, :truck_id, :value => @truck_id %>
+</div>
