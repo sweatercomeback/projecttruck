@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 13) do
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "public",     :default => false
   end
 
   create_table "roles", :force => true do |t|
