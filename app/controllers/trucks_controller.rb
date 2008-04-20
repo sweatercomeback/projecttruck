@@ -26,6 +26,7 @@ class TrucksController < ApplicationController
     @makes = {}
     Make.find(:all).collect { |m| @makes[m.name] = m.id }
     @makes.store("<Select Make>",-1)
+    @colors = Color.find(:all)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @truck.to_xml }
@@ -44,6 +45,7 @@ class TrucksController < ApplicationController
     Make.find(:all, :order => "name").collect { |m| @makes[m.name] = m.id }
     @makes.store("<Select Make>",-1)
     @models = Model.find(:all, :conditions => ['parent_id = ?', @truck.model.parent_id], :order => "name")
+    @colors = Color.find(:all)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @truck.to_xml }

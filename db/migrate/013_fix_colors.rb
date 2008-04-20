@@ -32,6 +32,9 @@ class FixColors < ActiveRecord::Migration
     @color.save
     @color = Color.new
     @color.name = "brown"
+    @color.save
+    @color = Color.new
+    @color.name = "custom"
     @color.save    
     
   end

@@ -49,10 +49,16 @@
 <label for="doors">number of doors</label>
 <%= text_field 'truck', 'doors' %>
 
-<label for="ext_color_comments">exterior color</label>
+<label for="ext_color_id">exterior color</label>
+<%= collection_select('truck', 'ext_color_id' , @colors, 'id', 'name', {:prompt => true}) %>
+
+<label for="ext_color_comments">exterior color comments</label>
 <%= text_field 'truck', 'ext_color_comments' %>
 
-<label for="int_color_comments">interior color</label>
+<label for="int_color_id">interior color</label>
+<%= collection_select('truck', 'int_color_id' , @colors, 'id', 'name', {:prompt => true}) %>
+
+<label for="int_color_comments">interior color comments</label>
 <%= text_field 'truck', 'int_color_comments' %>
 
 <label for="truck_condition">condition</label>

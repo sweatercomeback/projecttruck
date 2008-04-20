@@ -14,8 +14,8 @@ class Truck < ActiveRecord::Base
   
   validates_presence_of :title
   validates_presence_of :model_id
-  validates_numericality_of :mileage
-  validates_numericality_of :year
+  validates_numericality_of :mileage, :allow_nil => true
+  validates_numericality_of :year, :allow_nil => true
   
   def self.find_by_user_id_or_public(user_id, id)
     Truck.find(:first, :conditions => "(user_id = #{user_id} and id = #{id}) or (id = #{id} and public = 1)")
