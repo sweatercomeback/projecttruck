@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 12) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "permissions", :force => true do |t|
     t.integer  "role_id",    :null => false
@@ -19,107 +19,108 @@ ActiveRecord::Schema.define(:version => 12) do
   end
 
   create_table "photos", :force => true do |t|
-    t.integer  "parent_id",    :default => 0
-    t.string   "content_type", :default => "NULL"
-    t.string   "filename",     :default => "NULL"
-    t.string   "thumbnail",    :default => "NULL"
-    t.integer  "size",         :default => 0
-    t.integer  "width",        :default => 0
-    t.integer  "height",       :default => 0
+    t.integer  "parent_id"
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "project_steps", :force => true do |t|
-    t.integer  "project_id", :default => 0
-    t.text     "details",    :default => "NULL"
-    t.integer  "photo_id",   :default => 0
+    t.integer  "project_id"
+    t.text     "details"
+    t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "title",      :default => "NULL"
-    t.integer  "truck_id",   :default => 0
-    t.integer  "photo_id",   :default => 0
-    t.boolean  "public",     :default => false
+    t.string   "title"
+    t.integer  "truck_id"
+    t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|
-    t.string   "rolename",   :default => "NULL"
+    t.string   "rolename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "service_log_types", :force => true do |t|
-    t.string   "name",       :default => "NULL"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "service_logs", :force => true do |t|
-    t.integer  "service_log_type_id",                 :default => 0
-    t.integer  "truck_id",                            :default => 0
-    t.string   "comments",            :limit => 4000, :default => "NULL"
-    t.integer  "mileage",                             :default => 0
+    t.integer  "service_log_type_id"
+    t.integer  "truck_id"
+    t.string   "comments",            :limit => 4000
+    t.integer  "mileage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "truck_attributes", :force => true do |t|
-    t.string   "type",       :default => "NULL"
-    t.string   "name",       :default => "NULL"
-    t.integer  "parent_id",  :default => 0
+    t.string   "type"
+    t.string   "name"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "truck_photos", :force => true do |t|
-    t.integer  "truck_id",   :default => 0
-    t.integer  "photo_id",   :default => 0
+    t.integer  "truck_id"
+    t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "trucks", :force => true do |t|
-    t.string   "title",                      :default => "NULL"
-    t.string   "model_other",                :default => "NULL"
-    t.integer  "year",                       :default => 0
-    t.integer  "mileage",                    :default => 0
-    t.text     "engine_comments",            :default => "NULL"
-    t.text     "drive_comments",             :default => "NULL"
-    t.text     "transmission_comments",      :default => "NULL"
-    t.integer  "doors",                      :default => 0
-    t.text     "ext_color_comments",         :default => "NULL"
-    t.text     "int_color_comments",         :default => "NULL"
-    t.text     "vehicle_condition_comments", :default => "NULL"
-    t.boolean  "street_legal",               :default => false
-    t.text     "additional_comments",        :default => "NULL"
-    t.boolean  "public",                     :default => false
-    t.float    "price",                      :default => 0.0
-    t.boolean  "for_sale",                   :default => false
-    t.integer  "engine_id",                  :default => 0
-    t.integer  "drive_id",                   :default => 0
-    t.integer  "transmission_id",            :default => 0
-    t.integer  "condition_id",               :default => 0
-    t.integer  "model_id",                   :default => 0
-    t.integer  "user_id",                    :default => 0
+    t.string   "title"
+    t.string   "model_other"
+    t.integer  "year"
+    t.integer  "mileage"
+    t.text     "engine_comments"
+    t.text     "drive_comments"
+    t.text     "transmission_comments"
+    t.integer  "doors"
+    t.text     "ext_color_comments"
+    t.text     "int_color_comments"
+    t.text     "vehicle_condition_comments"
+    t.boolean  "street_legal"
+    t.text     "additional_comments"
+    t.boolean  "public"
+    t.float    "price"
+    t.boolean  "for_sale"
+    t.integer  "engine_id"
+    t.integer  "drive_id"
+    t.integer  "transmission_id"
+    t.integer  "condition_id"
+    t.integer  "model_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ext_color_id"
+    t.integer  "int_color_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                   :default => "NULL"
-    t.string   "email",                                   :default => "NULL"
-    t.string   "crypted_password",          :limit => 40, :default => "NULL"
-    t.string   "salt",                      :limit => 40, :default => "NULL"
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token",                          :default => "NULL"
+    t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.string   "activation_code",           :limit => 40, :default => "NULL"
+    t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
   end
 

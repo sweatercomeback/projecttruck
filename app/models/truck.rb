@@ -9,6 +9,8 @@ class Truck < ActiveRecord::Base
   belongs_to :transmission
   belongs_to :condition
   belongs_to :model, :include => :make
+  belongs_to :ext_color, :class_name => 'Color'
+  belongs_to :int_color, :class_name => 'Color'
   
   validates_presence_of :title
   validates_presence_of :model_id

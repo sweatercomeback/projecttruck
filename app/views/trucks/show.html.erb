@@ -29,7 +29,7 @@
     <p>No service logs.</p>
     <% else %>
         <% @truck.service_logs.each do |log| %>
-        <p><strong><%= h "#{log.service_log_type} (#{log.created_at})" %></strong></p>
+        <p><strong><%= h "#{log.service_log_type.name} (#{log.created_at.strftime('%m/%d/%Y')})" %></strong></p>
         <% end %>
     <% end %>
 </div>
