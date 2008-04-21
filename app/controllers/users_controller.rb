@@ -7,6 +7,9 @@ class UsersController < ApplicationController
       @makes = {}
       Make.find(:all).collect { |m| @makes[m.name] = m.id }
       @makes.store("Any Make",-1)
+      if logged_in?
+        @user = User.find(session[:user_id])
+      end
     end
 
 
