@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   layout 'standard'
-  skip_before_filter :login_required, :except => "index"
+  skip_before_filter :login_required
     
   #current logged in user
     def index
-
+      @makes = {}
+      Make.find(:all).collect { |m| @makes[m.name] = m.id }
+      @makes.store("Any Make",-1)
     end
 
 

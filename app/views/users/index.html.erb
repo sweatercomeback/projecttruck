@@ -1,22 +1,30 @@
 <% if logged_in? %>
-<h2 style="margin-bottom:20px;">Hello <%= current_user.login %></h2>
-<div style="float:left; width:33%; text-align:center; margin:0 auto; ">
-    <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' />", trucks_path %>
-    <h1>
-        <%= link_to "My Trucks", trucks_path %>
-    </h1>
+<h2>Hello <%= current_user.login %></h2>
+<div id="userBox">
+<%= link_to "My Trucks:", trucks_path %>
+<%= link_to "My Projects:", projects_path %>
+</div>
+<% else %>
+<h2>Welcome</h2>
+<% end %>
+<div style="float:left; width:33%; text-align:left; margin:0 auto; ">
+    <h1>Search Trucks</h1>
+
+    <label for="make">make</label>
+    <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
+                   
+    <label for="make">model</label>
+    <div id="div_model">   
+        <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>  
+    </div>
+     
 </div>
 <div style="float:left;width:33%;text-align:center; margin:0 auto;">
-    <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' />", projects_path %>
-    <h1>
-        <%= link_to "My Projects", projects_path %>
-    </h1>
+    <h1>Search Projects</h1>
 </div>
 <div style="float:left;width:33%; border-left: dashed 1px gray; padding-left:5px;">
     <h1>Other Shit</h1>
     <p>Not sure what the fuck is going to go here.  I want cool images for each of these divs.</p>
 </div>
 <div style="clear:both;height:10px;"></div>
-<% else %>
-not logged in
-<% end %>
+<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :controller => "models" }, :with => "'search=1&make_id=' + escape(value)") %>

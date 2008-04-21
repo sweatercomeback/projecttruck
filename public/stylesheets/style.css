@@ -102,23 +102,6 @@ h3 {
 	padding:5px;
 	margin-top:5px;
 }
-label
-{
-	display:block;
-	margin:0;
-}
-INPUT, Select
-{
-	margin-bottom:20px;
-	display:inline;
-}
-#left {
-	float:left;
-	width:150px;
-	background-color:#FFFFFF;
-	color:black;
-}
-
 #main {
 	margin: 5px 10px 5px 0;
 	padding: 0 15px 15px 15px;
@@ -159,6 +142,68 @@ ul li {
 	font-size:12px;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }
+#left {
+	float:left;
+	width:150px;
+	background-color:#FFFFFF;
+	color:black;
+}
+
+/* START home page */
+#userBox
+{
+	border: solid 1px gray;
+	width: 150px;
+	padding: 5px 10px;
+}
+#userBox a
+{
+	display:block;
+}
+/* END home page */
+
+/* START universal form shit */
+label
+{
+	display:block;
+	margin:0;
+}
+INPUT, Select
+{
+	margin-bottom:20px;
+	display:inline;
+}
+TEXTAREA
+{
+	height:150px;
+}
+/* END universal form shit */
+
+/* START truck form shit */
+#model_other
+{
+	clear:both;
+	display:none;
+}
+#truck .floatLeft
+{
+	margin-right:10px;
+}
+#truck_year, #truck_drive_id
+{
+	width:75px;
+}
+#makes, #truck_model_id, #truck_engine_id, #truck_transmission_id
+{
+	width:150px;
+}
+#truck_mileage
+{
+	width:100px;
+}
+/* END truck form shit */
+
+/* START Classes */
 .right {
 	
 	float:right;
@@ -171,6 +216,16 @@ ul li {
 	font-size:100%;
 	margin-top:5px;
 }
+.floatLeft
+{
+	float:left;
+}
+.clear
+{
+	clear:both;
+}
+/* END Classes */
+
 /* Vehicle Page */
 div #info
 {
@@ -197,10 +252,7 @@ div #checkList
 	margin:0;
 	padding:0;
 }
-#forSale
-{
-	display:none;
-}
+
 #vehicleFooter
 {
 	
@@ -312,3 +364,40 @@ div .project_step_text
 	padding: 10px 0 0 0;
 }
 /* END photos */
+
+/* START tabs */
+#tabs{
+        margin-left: 4px;
+        padding: 0;
+        background: transparent;
+        padding-left: 5px;
+	float:left;
+	
+
+    }
+    #tabs ul{
+        font: bold 11px Arial, Verdana, sans-serif;
+        margin:10px 0;
+        padding:0;
+	
+    }
+    #tabs li{
+        margin:0 2px 0 0;
+        padding:0;
+        text-transform:uppercase;
+    }
+    #tabs a{
+        padding:0;
+        text-decoration:none;
+    }
+    #tabs a:hover{color: #a43131;}
+    #tabHeaderActive a { background-color: #42577B; color:#fff;}
+    .tabContent {
+        border:2px solid #42577B;
+        padding:6px 10px;
+        background-color:#FFF;
+	float:left;
+	width:450px;
+    }
+
+/* END tabs */

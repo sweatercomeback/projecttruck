@@ -1,6 +1,6 @@
 class TrucksController < ApplicationController
   layout 'standard'
-
+ 
   def index
     @trucks = Truck.find_all_by_user_id(session[:user_id])
 

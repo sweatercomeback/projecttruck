@@ -6,7 +6,11 @@ class ModelsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(trucks_url) }
       format.js {
-        select_html = "<select id='model_id' name='truck[model_id]'>"
+  
+        select_html = "<select id='truck_model_id' name='truck[model_id]'>"
+        if (params[:search].nil? && params[:search] == "1")
+          select_html += "<option value='-1'>Any Model&nbsp;</option>"
+        end
         models.each do |m|
           select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
         end
