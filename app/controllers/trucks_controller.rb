@@ -2,13 +2,18 @@ class TrucksController < ApplicationController
   layout 'standard'
  
   def index
-    @trucks = Truck.find_all_by_user_id(session[:user_id])
-
+    #breakpoint
+    if params.include?(:commit)
+      @trucks = Truck.find(:all)
+    else
+      @trucks = Truck.find_all_by_user_id(session[:user_id])
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @trucks.to_xml }
       format.js { render :json => @trucks.to_json }
-    end
+    end    
   end
 
   def show

@@ -1,0 +1,22 @@
+<div>
+  <h1>My Trucks</h1>
+<% if @trucks.blank? %>
+    <p>There are no trucks in your garage</p>
+<% else %>
+ <ul>               
+<% for truck in @trucks %>
+    <li>
+        <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' style='vertical-align:middle;' />", truck %>
+        <strong><%= link_to truck.title, truck %></strong>
+        <small><%= link_to 'Edit', edit_truck_path(truck) %></small> |
+        <small><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></small>
+
+    </li>
+<% end %>
+</ul>
+<% end %>
+</div>
+
+<br />
+
+<%= link_to 'New truck', new_truck_path %>

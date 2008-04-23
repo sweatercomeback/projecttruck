@@ -7,12 +7,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :trucks do |truck|
     truck.resources :projects
+    truck.resources :service_logs
   end
   
-  map.resources :trucks do |truck|
-    truck.resources :service_logs
-  end  
-
   map.resources :roles
 
   map.resources :users
@@ -22,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :makes do |make|
     make.resources :models
   end
+  
+  map.resource :search
 
   # The priority is based upon order of creation: first created -> highest priority.
 

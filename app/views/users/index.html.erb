@@ -9,15 +9,17 @@
 <% end %>
 <div style="float:left; width:33%; text-align:left; margin:0 auto; ">
     <h1>Search Trucks</h1>
-
-    <label for="make">make</label>
-    <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
-                   
-    <label for="make">model</label>
-    <div id="div_model">   
-        <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>  
-    </div>
-     
+    
+    <% form_tag "/trucks?search=post", :method => :get do  %>
+        <label for="make">make</label>
+        <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
+                       
+        <label for="make">model</label>
+        <div id="div_model">   
+            <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>  
+        </div>
+         <%= submit_tag "Next" %>
+    <% end %>
 </div>
 <div style="float:left;width:33%;text-align:center; margin:0 auto;">
     <h1>Search Projects</h1>
