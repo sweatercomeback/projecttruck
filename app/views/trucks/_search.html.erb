@@ -4,8 +4,10 @@
 
 <% form_tag "/trucks?search=post", :method => :get do  %>
   <p>
-    
-    <br />
-    <%= submit_tag "Search" %>
+    <%= render :partial => '/models/model_select', :locals => {:search => 1,
+							       :make_id => params[:makes],
+							       :model_id => params[:model_id]} %>
+    <%= hidden_field_tag "as", "0" %>
+    <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>

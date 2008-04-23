@@ -18,6 +18,7 @@ class Truck < ActiveRecord::Base
   validates_numericality_of :year, :allow_nil => true
   
   def self.find_by_user_id_or_public(user_id, id)
+    user_id = -1 if user_id.nil?
     Truck.find(:first, :conditions => "(user_id = #{user_id} and id = #{id}) or (id = #{id} and public = 1)")
   end
   

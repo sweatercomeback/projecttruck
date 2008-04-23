@@ -1,0 +1,16 @@
+<label for="make">make</label>
+<select id="makes" name="makes"><%= options_for_select(@makes.sort, make_id.to_i) %></select>
+               
+<label for="make">model</label>
+<div id="div_model">
+    <% if @models != nil %>
+        <%= select_tag :model_id, options_from_collection_for_select(@models, "id", "name", model_id.to_i) %>
+    <% else
+        if search == 1 -%>
+            <select id="model_id"><option value="-1" selected="selected">Any Model&nbsp;</option></select>
+        <% else %>        
+            <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>
+        <% end %>
+    <% end -%>      
+</div>
+<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :controller => "models" }, :with => "'selected=#{model_id}&search=#{search}&make_id=' + escape(value)") %>

@@ -7,12 +7,19 @@ class ModelsController < ApplicationController
       format.html { redirect_to(trucks_url) }
       format.js {
   
-        select_html = "<select id='truck_model_id' name='truck[model_id]'>"
-        if (params[:search].nil? && params[:search] == "1")
+        if (!params[:search].nil? && params[:search] == "1")
+          select_html = "<select id='model_id' name='model_id'>"
           select_html += "<option value='-1'>Any Model&nbsp;</option>"
+        else
+          select_html = "<select id='truck_model_id' name='truck[model_id]'>"
         end
         models.each do |m|
-          select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
+          if !params[:model_id].nil? && !params[:model_id] != "-1"
+            select_html += "<option value='#{m.id}' selected='selected'>#{m.name}&nbsp;</option>"
+          else
+            select_html += "<option value='#{m.id}'>#{m.name}&nbsp;</option>"
+          end
+          
         end
         select_html += "</select>"
         render :text => select_html

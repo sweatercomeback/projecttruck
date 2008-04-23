@@ -10,15 +10,12 @@
 <div style="float:left; width:33%; text-align:left; margin:0 auto; ">
     <h1>Search Trucks</h1>
     
-    <% form_tag "/trucks?search=post", :method => :get do  %>
-        <label for="make">make</label>
-        <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
-                       
-        <label for="make">model</label>
-        <div id="div_model">   
-            <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>  
-        </div>
-         <%= submit_tag "Next" %>
+    <% form_tag "/trucks", :method => :get do  %>
+        <%= render :partial => '/models/model_select', :locals => {:search => 1,
+                                                                   :make_id => -1,
+                                                                   :model_id => -1} %>
+        <%= hidden_field_tag "as", "1" %>
+        <%= submit_tag "Next", :name => nil %>
     <% end %>
 </div>
 <div style="float:left;width:33%;text-align:center; margin:0 auto;">
@@ -29,4 +26,3 @@
     <p>Not sure what the fuck is going to go here.  I want cool images for each of these divs.</p>
 </div>
 <div style="clear:both;height:10px;"></div>
-<%= observe_field("makes", :frequency => 0.25, :update => "div_model", :url => { :controller => "models" }, :with => "'search=1&make_id=' + escape(value)") %>

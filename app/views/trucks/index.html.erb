@@ -1,6 +1,6 @@
-<% if logged_in? && !params.include?(:search) && !params.include?(:commit) %>
+<% if logged_in? && !params.include?(:search) && !params.include?(:as) %>
 <%= render :partial => 'garage' %>
-<% elsif params.include?(:search) %>
+<% elsif params.include?(:search) || params[:as] == "1" %>
 <%= render :partial => 'search' %>
 <% else %>
 <%= render :partial => 'results' %>

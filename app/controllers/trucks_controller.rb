@@ -2,9 +2,20 @@ class TrucksController < ApplicationController
   layout 'standard'
  
   def index
-    #breakpoint
-    if params.include?(:commit)
-      @trucks = Truck.find(:all)
+    if params[:as] == "1"
+      @makes = {}
+      Make.find(:all).collect { |m| @makes[m.name] = m.id }
+      @makes.store("Any Make",-1)
+      @models = Model.find(:all, :conditions => ['parent_id = ?', params[:makes]], :order => "name")
+    elsif params[:as] == "0"
+      finder = RecordFinder.new
+      finder.add "public = 1"
+      
+      if params[:model_id].to_i > 0
+        finder.add "model_id = ?", params[:model_id]
+      end
+      
+      @trucks = Truck.find(:all, :conditions => finder.to_conditions)
     else
       @trucks = Truck.find_all_by_user_id(session[:user_id])
     end
