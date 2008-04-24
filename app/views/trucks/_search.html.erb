@@ -1,13 +1,30 @@
-<h1>search trucks</h1>
+<div style="float:left; width:33%; text-align:left; margin:0 auto; ">
+    <% form_tag "/trucks?search=post", :method => :get do  %>
+        <%= hidden_field_tag :as, "0" %>
+        <h1>search trucks</h1>
+        <div id="search_make_model">
+            <%= render :partial => '/models/model_select', :locals => {:search => 1,
+                                                                       :make_id => params[:makes],
+                                                                       :model_id => params[:model_id]} %>
+            
+        </div>
+        <div style="float: left;">
+            <label for="start_year">start year</label>
+            <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "start_year", :discard_type => true, :include_blank => true) %>
+        </div>
+        <div style="float: left; margin-left: 10px;">
+            <label for="end_year">end year</label>
+            <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "end_year", :discard_type => true, :include_blank => true) %>
+        </div>
+        
+        <div style="clear:both;">
+            <label for="for_sale">for sale</label>
+            <%= check_box_tag :for_sale %>
+        </div>        
+        
+        <div id="search_submit" style="clear: both;">
+            <%= submit_tag "Search", :name => nil %>
+        </div>
+    <% end %>
 
-
-
-<% form_tag "/trucks?search=post", :method => :get do  %>
-  <p>
-    <%= render :partial => '/models/model_select', :locals => {:search => 1,
-							       :make_id => params[:makes],
-							       :model_id => params[:model_id]} %>
-    <%= hidden_field_tag "as", "0" %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+</div>

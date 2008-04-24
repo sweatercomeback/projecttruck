@@ -1,13 +1,13 @@
-<label for="make">make</label>
+<label for="makes">make</label>
 <select id="makes" name="makes"><%= options_for_select(@makes.sort, make_id.to_i) %></select>
                
-<label for="make">model</label>
+<label for="model_id">model</label>
 <div id="div_model">
-    <% if @models != nil %>
+    <% if @models != nil && @models.size > 0 %>
         <%= select_tag :model_id, options_from_collection_for_select(@models, "id", "name", model_id.to_i) %>
     <% else
         if search == 1 -%>
-            <select id="model_id"><option value="-1" selected="selected">Any Model&nbsp;</option></select>
+            <select id="model_id" name="model_id"><option value="-1" selected="selected">Any Model&nbsp;</option></select>
         <% else %>        
             <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>
         <% end %>
