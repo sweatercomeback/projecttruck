@@ -8,33 +8,28 @@ class TrucksController < ApplicationController
     if params[:as] == "1"
       @makes = {}
       Make.find(:all).collect { |m| @makes[m.name] = m.id }
-      @makes.store("Any Make",-1)
+      @makes.store("Any Make",nil)
       @models = Model.find(:all, :conditions => ['parent_id = ?', params[:makes]], :order => "name")
+      @transmissions = Transmission.find(:all)
+      @engines = Engine.find(:all)
+      @drives = Drive.find(:all)
+      #@fuels = Fuel.find(:all)
+      @last_zip = cookies[:last_zip]
     elsif params[:as] == "0"
-      finder = RecordFinder.new
-      finder.add "public = 1" #only search trucks with public flag
-      
-      if params[:makes].to_i > 0
-        finder.add "truck_attributes.parent_id = ?", params[:makes]
-      end
-      
-      if params[:model_id].to_i > 0
-        finder.add "model_id = ?", params[:model_id]
-      end
-      
-      if !params[:start_year].blank?
-        finder.add "year >= ?", params[:start_year]
-      end
-      
-      if !params[:end_year].blank?
-        finder.add "year <= ?", params[:end_year]
-      end
-      
-      if params.include?(:for_sale) && params[:for_sale] == "1"
-        finder.add "for_sale = 1"
-      end
-      
-      @trucks = Truck.find(:all, :include => 'model', :conditions => finder.to_conditions)
+      cookies[:last_zip] = { :value => params[:zip], :expires => Time.now.next_year }
+      @trucks = Truck.search(params[:makes],
+                             params[:model_id],
+                             params[:start_year],
+                             params[:end_year],
+                             params[:for_sale],
+                             params[:zip],
+                             params[:distance],
+                             params[:price_min],
+                             params[:price_max],
+                             params[:transmission_id],
+                             params[:engine_id],
+                             params[:drive_id],
+                             params[:fuel_id])
     else
       @trucks = Truck.find_all_by_user_id(session[:user_id])
     end

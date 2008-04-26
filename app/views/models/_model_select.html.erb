@@ -7,9 +7,9 @@
         <%= select_tag :model_id, options_from_collection_for_select(@models, "id", "name", model_id.to_i) %>
     <% else
         if search == 1 -%>
-            <select id="model_id" name="model_id"><option value="-1" selected="selected">Any Model&nbsp;</option></select>
+            <select id="model_id" name="model_id"><option value="" selected="selected">Any Model&nbsp;</option></select>
         <% else %>        
-            <select id="model_id" disabled="true"><option value="-1">----&nbsp;</option></select>
+            <select id="model_id" disabled="true"><option value="">----&nbsp;</option></select>
         <% end %>
     <% end -%>      
 </div>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     def index
       @makes = {}
       Make.find(:all).collect { |m| @makes[m.name] = m.id }
-      @makes.store("Any Make",-1)
+      @makes.store("Any Make",nil)
       if logged_in?
         @user = User.find(session[:user_id])
       end

@@ -2,27 +2,74 @@
     <% form_tag "/trucks?search=post", :method => :get do  %>
         <%= hidden_field_tag :as, "0" %>
         <h1>search trucks</h1>
-        <div id="search_make_model">
-            <%= render :partial => '/models/model_select', :locals => {:search => 1,
-                                                                       :make_id => params[:makes],
-                                                                       :model_id => params[:model_id]} %>
-            
-        </div>
-        <div style="float: left;">
-            <label for="start_year">start year</label>
-            <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "start_year", :discard_type => true, :include_blank => true) %>
-        </div>
-        <div style="float: left; margin-left: 10px;">
-            <label for="end_year">end year</label>
-            <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "end_year", :discard_type => true, :include_blank => true) %>
-        </div>
+	<div id="search_basic" style="border: solid 1px #000; overflow: auto; width: 100%; padding: 10px 10px 10px 10px;">
+	  <div id="search_make_model">
+	      <%= render :partial => '/models/model_select', :locals => {:search => 1,
+									 :make_id => params[:makes],
+									 :model_id => params[:model_id]} %>
+	      
+	  </div>
+	  <div style="float: left;">
+	      <label for="start_year">start year</label>
+	      <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "start_year", :discard_type => true, :include_blank => true) %>
+	  </div>
+	  <div style="float: left; margin-left: 10px;">
+	      <label for="end_year">end year</label>
+	      <%= select_year(nil, :start_year => Time.now.year + 1, :end_year => 1917, :prefix => "end_year", :discard_type => true, :include_blank => true) %>
+	  </div>
+	</div>
+
+	<div id="search_forsale" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
+	  <label for="for_sale">for sale</label>
+	  <%= check_box_tag :for_sale, 1, false, { :onclick => "if(!this.checked){$('forsale_fields').hide();}else{$('forsale_fields').show();}" } %>
+	  <div id="forsale_fields" style="display: none;">
+	    <label for="zip">zip</label>
+	    <%= text_field_tag :zip, @last_zip, :size => "5" %>
+	    <label for="distance">distance</label>
+	    <select name="distance" id="distance">
+	      <option value="10">10 Miles</option>
+	      <option value="25" selected="selected">25 Miles</option>
+	      <option value="50">50 Miles</option>
+	      <option value="75">75 Miles</option>
+	      <option value="100">100 Miles</option>
+	      <option value="200">200 Miles</option>
+	      <option value="300">300 Miles</option>
+	      <option value="500">500 Miles</option>
+	      <option value="0">Any Distance</option>
+	    </select>
+	    <label for="price_min">price range</label>
+	    <%= text_field_tag :price_min, nil, :size => "5" %>
+	    <%= text_field_tag :price_max, nil, :size => "5" %>
+	  </div>
+	</div>
+
+	<div id="search_specs" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
+	  <label for="transmission_id">transmission</label>
+	    <select name="transmission_id" id="transmission_id">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@transmissions, "id", "name") %>
+	    </select>
+	  <label for="engine_id">engine</label>
+	    <select name="engine_id" id="engine_id">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@engines, "id", "name") %>
+	    </select>
+	  <label for="drive_id">drive</label>
+	    <select name="drive_id" id="drive_id">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@drives, "id", "name") %>
+	    </select>
+	  <label for="fuel_id">fuel</label>
+	    <select name="fuel_id" id="fuel_id">
+	      <option value=""></option>
+	    </select>	
+	</div>
+
+	<div id="search_body" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
+
+	</div>
         
-        <div style="clear:both;">
-            <label for="for_sale">for sale</label>
-            <%= check_box_tag :for_sale %>
-        </div>        
-        
-        <div id="search_submit" style="clear: both;">
+        <div id="search_submit" style="margin-top: 10px;">
             <%= submit_tag "Search", :name => nil %>
         </div>
     <% end %>
