@@ -62,6 +62,7 @@
 	  <label for="fuel_id">fuel</label>
 	    <select name="fuel_id" id="fuel_id">
 	      <option value=""></option>
+	      <%= options_from_collection_for_select(@fuels, "id", "name") %>
 	    </select>	
 	</div>
 

@@ -1,0 +1,2 @@
+class Fuel < TruckAttribute
+end

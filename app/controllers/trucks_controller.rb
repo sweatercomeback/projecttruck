@@ -13,7 +13,7 @@ class TrucksController < ApplicationController
       @transmissions = Transmission.find(:all)
       @engines = Engine.find(:all)
       @drives = Drive.find(:all)
-      #@fuels = Fuel.find(:all)
+      @fuels = Fuel.find(:all)
       @last_zip = cookies[:last_zip]
     elsif params[:as] == "0"
       cookies[:last_zip] = { :value => params[:zip], :expires => Time.now.next_year }

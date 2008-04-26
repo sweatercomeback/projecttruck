@@ -11,6 +11,7 @@ class Truck < ActiveRecord::Base
   belongs_to :model, :include => :make
   belongs_to :ext_color, :class_name => 'Color'
   belongs_to :int_color, :class_name => 'Color'
+  belongs_to :fuel
   
   validates_presence_of :title
   validates_presence_of :model_id
@@ -72,7 +73,7 @@ class Truck < ActiveRecord::Base
         finder.add "drive_id = ?", drive_id
       end
       if !fuel_id.blank?
-        #finder.add "fuel_id = ?", fuel_id
+        finder.add "fuel_id = ?", fuel_id
       end          
       
       return Truck.find(:all, :include => 'model', :conditions => finder.to_conditions)
