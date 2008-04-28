@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "permissions", :force => true do |t|
     t.integer  "role_id",    :null => false
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "public",     :default => false
   end
 
   create_table "roles", :force => true do |t|
@@ -110,6 +109,9 @@ ActiveRecord::Schema.define(:version => 14) do
     t.datetime "updated_at"
     t.integer  "ext_color_id"
     t.integer  "int_color_id"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "zip"
   end
 
   create_table "users", :force => true do |t|

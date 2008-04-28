@@ -12,6 +12,7 @@ class Truck < ActiveRecord::Base
   belongs_to :ext_color, :class_name => 'Color'
   belongs_to :int_color, :class_name => 'Color'
   belongs_to :fuel
+  acts_as_mappable
   
   validates_presence_of :title
   validates_presence_of :model_id
@@ -31,6 +32,8 @@ class Truck < ActiveRecord::Base
                   price_min, price_max, transmission_id, engine_id, drive_id,
                   fuel_id)
       finder = RecordFinder.new
+      zip_origin = nil
+      zip_within = nil
       finder.add "public = 1" #only search trucks with public flag
       if !make_id.blank?
         finder.add "truck_attributes.parent_id = ?", make_id
@@ -44,24 +47,6 @@ class Truck < ActiveRecord::Base
       if !end_year.blank?
         finder.add "year <= ?", end_year
       end
-      if !for_sale.blank?
-        finder.add "for_sale = 1"
-        if !zip.blank?
-          #add zip field to model
-          #add geocode plugin
-          #finder.add "zip = ?", zip
-        end
-        if !distance.blank?
-          #add geocode plugin
-          #finder.add ""
-        end
-        if !price_min.blank?
-          finder.add "price >= ?", price_min.gsub(/[^0-9]/,"")
-        end
-        if !price_max.blank?
-          finder.add "price <= ?", price_max.gsub(/[^0-9]/,"")
-        end        
-      end
 
       if !transmission_id.blank?
         finder.add "transmission_id = ?", transmission_id
@@ -74,9 +59,35 @@ class Truck < ActiveRecord::Base
       end
       if !fuel_id.blank?
         finder.add "fuel_id = ?", fuel_id
-      end          
+      end
       
-      return Truck.find(:all, :include => 'model', :conditions => finder.to_conditions)
+      if !for_sale.blank?
+        finder.add "for_sale = 1"
+        if !price_min.blank?
+          finder.add "price >= ?", price_min.gsub(/[^0-9]/,"")
+        end
+        if !price_max.blank?
+          finder.add "price <= ?", price_max.gsub(/[^0-9]/,"")
+        end
+        if !zip.blank? && !distance.blank?
+          begin
+            trucks = Truck.find(:all, :include => 'model', :conditions => finder.to_conditions, :origin => zip, :within => distance)
+          rescue GeoKit::Geocoders::GeocodeError
+            #this error probably means that the provider(ie google) couldn't find the zip
+            #right now I'm just doing the search without the zip criteria but we should probably
+            #do some friendly validation to let the user know what is going on
+            #maybe some ajax when the zip field loses focus to validate it--or the onclick of the submit?
+            trucks = nil
+          end
+            
+        end
+      end
+      
+      if trucks.nil?
+        trucks = Truck.find(:all, :include => 'model', :conditions => finder.to_conditions)
+      end
+      
+      return trucks
   end
 
 end

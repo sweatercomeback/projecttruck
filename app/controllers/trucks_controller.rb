@@ -1,5 +1,7 @@
 class TrucksController < ApplicationController
   layout 'standard'
+  
+  include GeoKit::Geocoders
  
   def index
     #as stands for "Advanced Search" if this value is 1 then this request is coming
@@ -88,6 +90,12 @@ class TrucksController < ApplicationController
   def create
     @truck = Truck.new(params[:truck])
     @truck.user_id = session[:user_id]
+    unless @truck.zip.blank?
+      geoloc = MultiGeocoder.geocode(@truck.zip)
+      @truck.lat = geoloc.lat
+      @truck.lng = geoloc.lng  
+    end
+    
     respond_to do |format|
       if @truck.save
         flash[:notice] = 'Truck was successfully created.'
@@ -107,6 +115,11 @@ class TrucksController < ApplicationController
   def update
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
     redirect_to "/" unless !@truck.nil?
+    unless params[:truck][:zip].blank?
+      geoloc = MultiGeocoder.geocode(params[:truck][:zip])
+      params[:truck][:lat] = geoloc.lat
+      params[:truck][:lng ]= geoloc.lng
+    end
     
     respond_to do |format|
       if @truck.update_attributes(params[:truck])
