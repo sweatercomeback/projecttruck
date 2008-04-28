@@ -28,6 +28,7 @@ class TrucksController < ApplicationController
                              params[:distance],
                              params[:price_min],
                              params[:price_max],
+                             params[:only_price_listed],
                              params[:transmission_id],
                              params[:engine_id],
                              params[:drive_id],

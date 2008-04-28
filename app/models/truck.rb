@@ -29,7 +29,7 @@ class Truck < ActiveRecord::Base
   end
   
   def self.search(make_id, model_id, start_year, end_year, for_sale, zip, distance,
-                  price_min, price_max, transmission_id, engine_id, drive_id,
+                  price_min, price_max, only_price_listed, transmission_id, engine_id, drive_id,
                   fuel_id)
       finder = RecordFinder.new
       zip_origin = nil
@@ -69,16 +69,19 @@ class Truck < ActiveRecord::Base
         if !price_max.blank?
           finder.add "price <= ?", price_max.gsub(/[^0-9]/,"")
         end
+        if !only_price_listed.blank?
+          finder.add "price is not null"
+        end        
         if !zip.blank? && !distance.blank?
-          begin
+          #begin
             trucks = Truck.find(:all, :include => 'model', :conditions => finder.to_conditions, :origin => zip, :within => distance)
-          rescue GeoKit::Geocoders::GeocodeError
+          #rescue GeoKit::Geocoders::GeocodeError
             #this error probably means that the provider(ie google) couldn't find the zip
             #right now I'm just doing the search without the zip criteria but we should probably
             #do some friendly validation to let the user know what is going on
             #maybe some ajax when the zip field loses focus to validate it--or the onclick of the submit?
-            trucks = nil
-          end
+            #trucks = nil
+          #end
             
         end
       end
