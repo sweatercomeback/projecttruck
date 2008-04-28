@@ -30,49 +30,40 @@ class Truck < ActiveRecord::Base
   
   def self.search(make_id, model_id, start_year, end_year, for_sale, zip, distance,
                   price_min, price_max, only_price_listed, transmission_id, engine_id, drive_id,
-                  fuel_id)
+                  fuel_id, int_color_ids, ext_color_ids, doors, condition_id)
+      
       finder = RecordFinder.new
+      
       zip_origin = nil
       zip_within = nil
+      
       finder.add "public = 1" #only search trucks with public flag
-      if !make_id.blank?
-        finder.add "truck_attributes.parent_id = ?", make_id
-      end
-      if !model_id.blank?
-        finder.add "model_id = ?", model_id
-      end
-      if !start_year.blank?
-        finder.add "year >= ?", start_year
-      end
-      if !end_year.blank?
-        finder.add "year <= ?", end_year
-      end
-
-      if !transmission_id.blank?
-        finder.add "transmission_id = ?", transmission_id
-      end
-      if !engine_id.blank?
-        finder.add "engine_id = ?", engine_id
-      end
-      if !drive_id.blank?
-        finder.add "drive_id = ?", drive_id
-      end
-      if !fuel_id.blank?
-        finder.add "fuel_id = ?", fuel_id
+      finder.add("truck_attributes.parent_id = ?", make_id) unless make_id.blank?
+      finder.add("model_id = ?", model_id) unless model_id.blank?
+      finder.add("year >= ?", start_year) unless start_year.blank?
+      finder.add("year <= ?", end_year) unless end_year.blank?
+      finder.add("transmission_id = ?", transmission_id) unless transmission_id.blank?
+      finder.add("engine_id = ?", engine_id) unless engine_id.blank?
+      finder.add("drive_id = ?", drive_id) unless drive_id.blank?
+      finder.add("fuel_id = ?", fuel_id) unless fuel_id.blank?
+      finder.add("doors = ?", doors) unless doors.blank?
+      finder.add("condition_id = ?", condition_id) unless condition_id.blank?
+      
+      unless int_color_ids.nil?
+        int_color_ids.each{|key, value| finder.add("int_color_id = ?", value) unless value.blank?}
       end
       
-      if !for_sale.blank?
+      unless ext_color_ids.nil?
+        ext_color_ids.each{|key, value| finder.add("ext_color_id = ?", value) unless value.blank?}
+      end      
+      
+      unless for_sale.blank?
         finder.add "for_sale = 1"
-        if !price_min.blank?
-          finder.add "price >= ?", price_min.gsub(/[^0-9]/,"")
-        end
-        if !price_max.blank?
-          finder.add "price <= ?", price_max.gsub(/[^0-9]/,"")
-        end
-        if !only_price_listed.blank?
-          finder.add "price is not null"
-        end        
-        if !zip.blank? && !distance.blank?
+        finder.add("price >= ?", price_min.gsub(/[^0-9]/,"")) unless price_min.blank?
+        finder.add("price <= ?", price_max.gsub(/[^0-9]/,"")) unless price_max.blank?
+        finder.add("price is not null") unless only_price_listed.blank?
+        
+        unless zip.blank? && !distance.blank?
           #begin
             trucks = Truck.find(:all, :include => 'model', :conditions => finder.to_conditions, :origin => zip, :within => distance)
           #rescue GeoKit::Geocoders::GeocodeError

@@ -16,9 +16,12 @@ class TrucksController < ApplicationController
       @engines = Engine.find(:all)
       @drives = Drive.find(:all)
       @fuels = Fuel.find(:all)
+      @colors = Color.find(:all)
+      @conditions = Condition.find(:all)
       @last_zip = cookies[:last_zip]
     elsif params[:as] == "0"
       cookies[:last_zip] = { :value => params[:zip], :expires => Time.now.next_year }
+      
       @trucks = Truck.search(params[:makes],
                              params[:model_id],
                              params[:start_year],
@@ -32,7 +35,11 @@ class TrucksController < ApplicationController
                              params[:transmission_id],
                              params[:engine_id],
                              params[:drive_id],
-                             params[:fuel_id])
+                             params[:fuel_id],
+                             params[:int_color_ids],
+                             params[:ext_color_ids],
+                             params[:doors],
+                             params[:condition_id])
     else
       @trucks = Truck.find_all_by_user_id(session[:user_id])
     end

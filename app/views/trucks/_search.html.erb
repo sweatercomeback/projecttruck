@@ -46,30 +46,46 @@
 	</div>
 
 	<div id="search_specs" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
-	  <label for="transmission_id">transmission</label>
+            <label for="transmission_id">transmission</label>
 	    <select name="transmission_id" id="transmission_id">
 	      <option value=""></option>
 	      <%= options_from_collection_for_select(@transmissions, "id", "name") %>
 	    </select>
-	  <label for="engine_id">engine</label>
+            <label for="engine_id">engine</label>
 	    <select name="engine_id" id="engine_id">
 	      <option value=""></option>
 	      <%= options_from_collection_for_select(@engines, "id", "name") %>
 	    </select>
-	  <label for="drive_id">drive</label>
+            <label for="drive_id">drive</label>
 	    <select name="drive_id" id="drive_id">
 	      <option value=""></option>
 	      <%= options_from_collection_for_select(@drives, "id", "name") %>
 	    </select>
-	  <label for="fuel_id">fuel</label>
+            <label for="fuel_id">fuel</label>
 	    <select name="fuel_id" id="fuel_id">
 	      <option value=""></option>
 	      <%= options_from_collection_for_select(@fuels, "id", "name") %>
 	    </select>	
 	</div>
 
-	<div id="search_body" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
-
+	<div id="search_int_ext" style="border: solid 1px #000; overflow: auto; width: 100%; margin-top: 10px; padding: 10px 10px 10px 10px;">
+            <label for="int_color_id">interior color</label>
+	    <select name="int_color_ids[0]" id="int_color_ids_0">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@colors, "id", "name") %>
+	    </select>            
+            <label for="int_color_id">exterior color</label>
+	    <select name="ext_color_ids[0]" id="ext_color_ids_0">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@colors, "id", "name") %>
+	    </select>
+	    <label for="doors">doors</label>
+	    <%= text_field_tag :doors, nil, :size => "1" %>
+            <label for="condition_id">condition</label>
+	    <select name="condition_id" id="condition_id">
+	      <option value=""></option>
+	      <%= options_from_collection_for_select(@conditions, "id", "name") %>
+	    </select>            
 	</div>
         
         <div id="search_submit" style="margin-top: 10px;">
