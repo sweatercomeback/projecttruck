@@ -3,13 +3,27 @@
                
 <label for="model_id">model</label>
 <div id="div_model">
+    <% #breakpoint %>
     <% if @models != nil && @models.size > 0 %>
-        <%= select_tag :model_id, options_from_collection_for_select(@models, "id", "name", model_id.to_i) %>
+        <select id="model_id" name="model_id">
+            <% if model_id.blank? || model_id == "-1" %>
+                <option value="" selected="selected">Any Model&nbsp;</option>
+            <% else %>
+                <option value="">Any Model&nbsp;</option>
+            <% end %>
+            <% for m in @models %>
+                <% if m.id == model_id.to_i %>
+                    <option value="<%= m.id %>" selected="selected"><%= m.name %></option>
+                <% else %>
+                    <option value="<%= m.id %>"><%= m.name %></option>
+                <% end %>
+            <% end %>
+        </select>
     <% else
         if search == 1 -%>
             <select id="model_id" name="model_id"><option value="" selected="selected">Any Model&nbsp;</option></select>
         <% else %>        
-            <select id="model_id" disabled="true"><option value="">----&nbsp;</option></select>
+            <select id="model_id" disabled="disabled"><option value="">----&nbsp;</option></select>
         <% end %>
     <% end -%>      
 </div>
