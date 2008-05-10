@@ -14,9 +14,11 @@
         <%= render :partial => '/models/model_select', :locals => {:search => 1,
                                                                    :make_id => -1,
                                                                    :model_id => -1} %>
-        <%= hidden_field_tag "as", "1" %>
-        <%= submit_tag "Next", :name => nil %>
+        <%= hidden_field_tag "as", "0" %>
+        <%= submit_tag "Search", :name => nil %>
+        
     <% end %>
+    <%= link_to "Advanced Search", :controller => :trucks, :as=>1, :make_id=>1 %>
 </div>
 <div style="float:left;width:33%;text-align:center; margin:0 auto;">
     <h1>Search Projects</h1>

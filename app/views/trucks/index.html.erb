@@ -2,7 +2,6 @@
   <%= render :partial => 'garage' %>
 <% elsif params.include?(:search) || params[:as] == "1" %>
   <%= render :partial => 'search' %>
-  <%= link_to "back", :back %>
 <% else %>
   <%= render :partial => 'results' %>
   <%= link_to_function "back", "history.back()" %>

@@ -1,8 +1,6 @@
-<h1><%= @truck.title %> </h1>
+<h1><%= @truck.title %> <span class="small"><%= link_to 'Edit', edit_truck_path(@truck) %></small> </h1>
 <div id="info" style="float:left; width:325px;">
 <h2><%= @truck.year %> <%= @truck.model.make.name %> <%= @truck.model.name %> <%= @truck.model_other %></h2>
-<%= link_to 'Edit', edit_truck_path(@truck) %> |
-<%= link_to 'Back', trucks_path %>
 <% if !@truck..condition.blank? %><p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br /><% end %>
 <% if !@truck.mileage.blank? %><strong>Mileage:</strong> <%= @truck.mileage %><br /><% end %>
 <% if !@truck.engine.blank? %><strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br /><% end %>
