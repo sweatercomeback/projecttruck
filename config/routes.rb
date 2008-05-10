@@ -12,7 +12,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :roles
 
-  map.resources :users
+  map.resources :users do |user|
+    user.resources :trucks
+  end
+  
 
   map.resource :session
   

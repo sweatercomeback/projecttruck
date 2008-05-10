@@ -4,6 +4,7 @@ class TrucksController < ApplicationController
   include GeoKit::Geocoders
  
   def index
+    #breakpoint
     #as stands for "Advanced Search" if this value is 1 then this request is coming
     #from the user index page and we should show the advanced search screen.
     #If this value is 0 then it's a request coming from this action and we should show the results
@@ -40,6 +41,8 @@ class TrucksController < ApplicationController
                              params[:ext_color_ids],
                              params[:doors],
                              params[:condition_id])
+    elsif !params[:user_id].blank?
+      @trucks = Truck.find_all_by_user_id(params[:user_id])
     else
       @trucks = Truck.find_all_by_user_id(session[:user_id])
     end
