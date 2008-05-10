@@ -1,9 +1,11 @@
+<p>
+  <b>Service log type:</b>
+  <%=h @service_log.service_log_type.name %>
+</p>
 service log type
 <div><%= @service_log.service_log_type.name %></div>
-
 mileage
 <div><%= @service_log.mileage %></div>
-
 comments
 <div><%= @service_log.comments %></div>
 <%= link_to 'Edit', edit_truck_service_log_path(:id => @service_log, :truck_id => @service_log.truck) %> |

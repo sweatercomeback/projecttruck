@@ -36,11 +36,15 @@
                     <label for="mileage">mileage</label>
                     <%= text_field 'truck', 'mileage' %>
                     
-                    <label for="street_legal">street legal</label>&nbsp;
+                    <label for="street_legal">street legal</label>
                     <%= check_box 'truck', 'street_legal'  %>
+                    
+                    <label for="public">public</label>
+                    <%= check_box 'truck', 'public' %>                     
                     
                     <label for="additional_comments">comments</label>
                     <%= text_area 'truck', 'additional_comments' %>
+                                       
                     </div>
                 </div>
         </div>
