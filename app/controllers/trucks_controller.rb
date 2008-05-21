@@ -124,12 +124,18 @@ class TrucksController < ApplicationController
   # PUT /trucks/1
   # PUT /trucks/1.xml
   def update
+    #breakpoint
     @truck = Truck.find_by_user_id_and_id(session[:user_id], params[:id])
     redirect_to "/" unless !@truck.nil?
     unless params[:truck][:zip].blank?
       geoloc = MultiGeocoder.geocode(params[:truck][:zip])
       params[:truck][:lat] = geoloc.lat
       params[:truck][:lng ]= geoloc.lng
+    end
+    
+    unless params[:truck_photo_data].blank?
+      photo = Photo.create(:uploaded_data => params[:truck_photo_data])
+      truck_photo = TruckPhoto.create(:truck => @truck, :photo => photo)
     end
     
     respond_to do |format|

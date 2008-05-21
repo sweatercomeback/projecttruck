@@ -5,13 +5,13 @@
         <tr>
         <td rowspan="2">
             <div>
-              IMG
-          </div>
+              <%= image_tag truck.photos[0].public_filename(:thumb) unless truck.photos[0].nil? %>
+            </div>
         </td>
         <td><%= truck.model.make.name %></td>
         <td><%= truck.model.name %></td>
         <td><%= truck.year %></td> 
-        <td>USER</td>
+        <td><%= truck.user.login %></td>
         <td></td>
         <td></td>
       </tr>

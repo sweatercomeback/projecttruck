@@ -2,11 +2,11 @@
 
 <%= error_messages_for :truck %>
 
-<% form_for(@truck) do |f| %>
+<% form_for(@truck, :html => { :multipart => true }) do |f| %>
   <p>
     <%= render :partial => 'form' %>
-    <br />
-    <%= f.submit "Update" %>
+    <div><%= file_field_tag :truck_photo_data %></div>
+    <div><%= f.submit "Update" %></div>
   </p>
 <% end %>
 <%= link_to 'Show', @truck %> |
