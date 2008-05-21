@@ -1,8 +1,27 @@
 <div style="float:left; width:33%; text-align:left; margin:0 auto; ">
     <h1>search truck results</h1>
+    <table>
     <% for truck in @trucks %>
-        <li>
-            <strong><%= link_to truck.title, truck %></strong>
-        </li>
+        <tr>
+        <td rowspan="2">
+            <div>
+              IMG
+          </div>
+        </td>
+        <td><%= truck.model.make.name %></td>
+        <td><%= truck.model.name %></td>
+        <td><%= truck.year %></td> 
+        <td>USER</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <p>
+            <%= truck.additional_comments %>
+          </p>
+        </td>
+      </tr>
     <% end %>
+    </table>
 </div>
