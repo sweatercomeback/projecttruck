@@ -1,30 +1,54 @@
-<div style="float:left; width:50%; text-align:left; margin:0 auto; ">
+<div style="float:left; width:70%; text-align:left; margin:0 auto; ">
     <h1>search truck results</h1>
     <div id="results-container">
+        <div id="results-header" style="margin: 5px; 0 0 0; font-weight: bold; height: 25px;">
+            <div style="float:left; width: 75px;">
+                Photo
+            </div>
+            <div>
+                <div style="float:left; padding:0 0 0 5px; width: 70px;">
+                    Make
+                </div>
+                <div style="float:left; width: 70px;">
+                    Model
+                </div>
+                <div style="float:left; width: 70px;">
+                    Year
+                </div>
+                <div style="float:left; width: 70px;">
+                    Owner
+                </div>
+            </div>
+        </div>        
         <% for truck in @trucks %>
-            <div style="margin: 5px; 0 0 0; ">
+            <div style="margin: 5px; 0 0 0; clear: both;">
                 <div style="float:left;">
-                    <%= image_tag "/images/noimage.gif" if truck.photos[0].nil? %>  
-                    <%= image_tag truck.photos[0].public_filename(:thumb) unless truck.photos[0].nil? %>
+                    <% if truck.photos[0].nil? %>
+                        <%= image_tag "/images/noimage.gif" %>
+                    <% else %>
+                        <%= image_tag truck.photos[0].public_filename(:thumb) %>
+                    <% end %>
                 </div>
                 <div>
-                    <div style="float:left; margin:0 15px 0 5px">
+                    <div style="float:left; padding:0 0 0 5px; width: 70px;">
                         <%= truck.model.make.name %>
                     </div>
-                    <div style="float:left;; margin:0 15px 0 0">
+                    <div style="float:left; width: 70px;">
                         <%= truck.model.name %>
                     </div>
-                    <div style="float:left;; margin:0 15px 0 0">
-                        <%= truck.year %>
+                    <div style="float:left; width: 70px;">
+                        <% if truck.year.blank? %>
+                            ????
+                        <% else %>
+                            <%= truck.year %>
+                        <% end %>
                     </div>
-                    <div style="float:left;; margin:0 15px 0 0">
+                    <div style="float:left; width: 70px;">
                         <%= truck.user.login %>
                     </div>
-                    <div style="clear:both;">
-                        <p>
-                            <%= truck.additional_comments %>
-                        </p>
-                    </div>                   
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;<%= truck.additional_comments %>
                 </div>
             </div>
         <% end %>
