@@ -405,3 +405,33 @@ div .project_step_text
     }
 
 /* END tabs */
+
+/* truck show */
+#truck-photos
+{
+	clear: both;
+}
+
+#truck-photos div
+{
+	float:left;
+	margin:0 10px 0 0;
+}
+
+#truck-service_logs
+{
+	float:left;
+	width:20%;
+}
+
+#truck-projects
+{
+	float:left;
+	width:20%;
+}
+
+#truck-info
+{
+	float:left;
+	width:325px;
+}

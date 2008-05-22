@@ -133,9 +133,21 @@ class TrucksController < ApplicationController
       params[:truck][:lng ]= geoloc.lng
     end
     
-    unless params[:truck_photo_data].blank?
-      photo = Photo.create(:uploaded_data => params[:truck_photo_data])
-      truck_photo = TruckPhoto.create(:truck => @truck, :photo => photo)
+
+    #edit photos
+    params[:truck_photo_data].each do |tp|
+      #breakpoint
+      if tp[0] == "0"
+        #new photo
+        photo = Photo.create(:uploaded_data => tp[1])
+        truck_photo = TruckPhoto.create(:truck => @truck, :photo => photo)
+      elsif !tp[1].blank?
+        truck_photo = TruckPhoto.find(tp[0].to_i)
+        photo_id_to_destroy = truck_photo.photo.id
+        truck_photo.photo = Photo.create(:uploaded_data => tp[1])
+        truck_photo.save!
+        Photo.find(photo_id_to_destroy).destroy
+      end
     end
     
     respond_to do |format|
