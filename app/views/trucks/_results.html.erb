@@ -1,27 +1,32 @@
-<div style="float:left; width:33%; text-align:left; margin:0 auto; ">
+<div style="float:left; width:50%; text-align:left; margin:0 auto; ">
     <h1>search truck results</h1>
-    <table>
-    <% for truck in @trucks %>
-        <tr>
-        <td rowspan="2">
-            <div>
-              <%= image_tag truck.photos[0].public_filename(:thumb) unless truck.photos[0].nil? %>
+    <div id="results-container">
+        <% for truck in @trucks %>
+            <div style="margin: 5px; 0 0 0; ">
+                <div style="float:left;">
+                    <%= image_tag "/images/noimage.gif" if truck.photos[0].nil? %>  
+                    <%= image_tag truck.photos[0].public_filename(:thumb) unless truck.photos[0].nil? %>
+                </div>
+                <div>
+                    <div style="float:left; margin:0 15px 0 5px">
+                        <%= truck.model.make.name %>
+                    </div>
+                    <div style="float:left;; margin:0 15px 0 0">
+                        <%= truck.model.name %>
+                    </div>
+                    <div style="float:left;; margin:0 15px 0 0">
+                        <%= truck.year %>
+                    </div>
+                    <div style="float:left;; margin:0 15px 0 0">
+                        <%= truck.user.login %>
+                    </div>
+                    <div style="clear:both;">
+                        <p>
+                            <%= truck.additional_comments %>
+                        </p>
+                    </div>                   
+                </div>
             </div>
-        </td>
-        <td><%= truck.model.make.name %></td>
-        <td><%= truck.model.name %></td>
-        <td><%= truck.year %></td> 
-        <td><%= truck.user.login %></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td colspan="6">
-          <p>
-            <%= truck.additional_comments %>
-          </p>
-        </td>
-      </tr>
-    <% end %>
-    </table>
+        <% end %>
+    </div>
 </div>
