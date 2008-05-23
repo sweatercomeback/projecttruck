@@ -5,7 +5,7 @@
                     <%= text_field 'truck', 'title' %>
                     <div class="floatLeft">
                         <label for="year">year</label> 
-                        <%= select_year(@truck.year, :start_year => Time.now.year + 1, :end_year => 1917) %>
+                        <%= select_year(@truck.year, :prefix=>'truck', :start_year => Time.now.year + 1, :end_year => 1917) %>
                     </div>
                     <div class="floatLeft">
                         <label for="make">make</label>
