@@ -24,12 +24,12 @@
             </div>
         </div>        
         <% for truck in @trucks %>
-            <div style="margin: 5px; 0 0 0; clear: both; overflow: auto; width: 100%">
+            <div style="margin: 5px; 0 0 0; clear: both; overflow: none; width: 100%">
                 <div style="float:left;">
                     <% if truck.photos[0].nil? %>
-                        <%= image_tag "/images/noimage.gif" %>
+                        <%= link_to (image_tag "/images/noimage.gif"), truck %>
                     <% else %>
-                        <%= image_tag truck.photos[0].public_filename(:thumb) %>
+                        <%= link_to (image_tag truck.photos[0].public_filename(:thumb)), truck %>
                     <% end %>
                 </div>
                 <div style="float: left; width: 90%;">
