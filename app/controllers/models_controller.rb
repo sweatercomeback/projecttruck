@@ -9,7 +9,7 @@ class ModelsController < ApplicationController
   
         if (!params[:search].nil? && params[:search] == "1")
           select_html = "<select id='model_id' name='model_id'>"
-          select_html += "<option value='-1'>Any Model&nbsp;</option>"
+          select_html += "<option value=''>Any Model&nbsp;</option>"
         else
           select_html = "<select id='truck_model_id' name='truck[model_id]'>"
         end

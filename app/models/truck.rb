@@ -38,8 +38,8 @@ class Truck < ActiveRecord::Base
       zip_within = nil
       
       finder.add "public = 1" #only search trucks with public flag
-      finder.add("truck_attributes.parent_id = ?", make_id) unless make_id.blank?
-      finder.add("model_id = ?", model_id) unless model_id.blank?
+      finder.add("truck_attributes.parent_id = ?", make_id) unless (make_id.blank? || make_id == "-1")
+      finder.add("model_id = ?", model_id) unless (model_id.blank? || model_id == "-1")
       finder.add("year >= ?", start_year) unless start_year.blank?
       finder.add("year <= ?", end_year) unless end_year.blank?
       finder.add("transmission_id = ?", transmission_id) unless transmission_id.blank?
