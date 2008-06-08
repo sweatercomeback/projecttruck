@@ -5,27 +5,8 @@
 <% form_for(@truck, :html => { :multipart => true }) do |f| %>
   <p>
     <%= render :partial => 'form' %>
-    <div style="margin:25px 0 0 0">
-      <% @truck.truck_photos.each do |tp| %>
-        <div>
-          <a href="<%=tp.photo.public_filename%>" target="_blank"><%= image_tag tp.photo.public_filename(:thumb) %></a>
-        </div>
-        <div>
-          <%= file_field_tag "truck_photo_data[#{tp.id}]" %>
-        </div>
-      <% end %>
-      <div>
-        <label for="truck_photo_data[0]">New Photo:</label>
-      </div>
-      <div>
-        <%= file_field_tag 'truck_photo_data[0]' %>
-      </div>
-      
-    </div>
-    <div>
+    <br />
       <%= f.submit "Update" %>
-    </div>
   </p>
 <% end %>
-<%= link_to 'Show', @truck %> |
-<%= link_to 'Back', trucks_path %>
+<%= link_to 'Cancel, don\'t change anything', @truck %>

@@ -19,7 +19,11 @@ class TrucksController < ApplicationController
       @fuels = Fuel.find(:all)
       @colors = Color.find(:all)
       @conditions = Condition.find(:all)
-      @last_zip = cookies[:last_zip]
+      if(params[:zip].blank?)
+        @last_zip = cookies[:last_zip]
+      else
+        @last_zip = params[:zip]
+      end
     elsif params[:as] == "0"
       cookies[:last_zip] = { :value => params[:zip], :expires => Time.now.next_year }
       

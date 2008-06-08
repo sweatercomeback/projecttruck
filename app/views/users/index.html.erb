@@ -7,7 +7,7 @@
 <% else %>
 <h2>Welcome</h2>
 <% end %>
-<div style="float:left; width:33%; text-align:left; margin:0 auto; ">
+<div class="column">
     <h1>Search Trucks</h1>
     
     <% form_tag "/trucks", :method => :get do  %>
@@ -20,11 +20,24 @@
     <% end %>
     <%= link_to "Advanced Search", :controller => :trucks, :as=>1, :make_id=>1 %>
 </div>
-<div style="float:left;width:33%;text-align:center; margin:0 auto;">
+<div class="column">
     <h1>Search Projects</h1>
 </div>
-<div style="float:left;width:33%; border-left: dashed 1px gray; padding-left:5px;">
-    <h1>Other Shit</h1>
-    <p>Not sure what the fuck is going to go here.  I want cool images for each of these divs.</p>
+<div class="column">
+    <h1>For Sale</h1>
+    <p>Don't have a truck, Eric Stortz?  Find one to buy.  
+    that are for sale only.
+    </p>
+    <% form_tag "/trucks", :method => :get do  %>
+        <label for="make">make</label>
+        <select id="makes" name="makes"><%= options_for_select(@makes.sort) %></select>
+        <label for="zip">zip code</label>
+        <%= text_field_tag 'zip' %> 
+        <%= hidden_field_tag "as", "1" %>
+        <%= hidden_field_tag "for_sale", "1" %>
+        <%= submit_tag "Search", :name => nil %>
+        
+    <% end %>
+    <%= link_to "Advanced Search", :controller => :trucks, :as=>1, :make_id=>1 %>
 </div>
 <div style="clear:both;height:10px;"></div>

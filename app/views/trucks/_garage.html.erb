@@ -6,7 +6,11 @@
  <ul>               
 <% for truck in @trucks %>
     <li>
-        <%= link_to "<img src='/images/logo_mobile.png' alt='somthing' style='vertical-align:middle;' />", truck %>
+      <% if truck.photos[0].nil? %>
+            <%= link_to (image_tag "/images/logo_mobile.png"), truck %>
+        <% else %>
+            <%= link_to (image_tag truck.photos[0].public_filename(:thumb)), truck %>
+        <% end %>
         <strong><%= link_to truck.title, truck %></strong>
         <small><%= link_to 'Edit', edit_truck_path(truck) %></small> |
         <small><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></small>

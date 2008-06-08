@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 15) do
     t.string   "title"
     t.integer  "truck_id"
     t.integer  "photo_id"
+    t.boolean  "public",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,9 +97,9 @@ ActiveRecord::Schema.define(:version => 15) do
     t.text     "vehicle_condition_comments"
     t.boolean  "street_legal"
     t.text     "additional_comments"
-    t.boolean  "public"
+    t.boolean  "public",                     :default => false
     t.float    "price"
-    t.boolean  "for_sale"
+    t.boolean  "for_sale",                   :default => false
     t.integer  "engine_id"
     t.integer  "drive_id"
     t.integer  "transmission_id"
