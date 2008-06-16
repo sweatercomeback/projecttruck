@@ -114,22 +114,28 @@
             <div id="Photos">
                 <% @truck.truck_photos.each do |tp| %>
                     <%= link_to (image_tag tp.photo.public_filename(:thumb)), tp.photo.public_filename, :target=>'_blank' %><br />
-                    <%= file_field_tag "truck_photo_data[#{tp.id}]" %>
+                    <%= file_field_tag "truck_photo_data[#{tp.id}]" %><br />
                 <% end %>
                   <label for="truck_photo_data[0]">New Photo:</label>
                   <%= file_field_tag 'truck_photo_data[0]' %>
                     
             </div>
         </div>
+        <div id="tabContent6" class="tabContent" style="display:none;">
+           <h2>Destroy this truck</h2>
+           By clicking the link below you will be completely wiping this truck out.  Forever.<br />
+           <%= link_to 'Destroy', @truck, :confirm => 'Are you sure?', :method => :delete %>
+        </div>
 
 </div><!--End of tabscontent-->
 <div id="tabs">
     <ul>
-        <li id="tabHeader1" class="currenttab"><a href="javascript:void(0)" onClick="toggleTab(1,5,'',false)">Main</a></li>
-        <li id="tabHeader2"><a href="javascript:void(0)" onClick="toggleTab(2,5,'',false)" >Drivetrain</a></li>
-        <li id="tabHeader3"><a href="javascript:void(0)" onclick="toggleTab(3,5,'',false)">Interior/Exterior</a></li>
-        <li id="tabHeader4"><a href="javascript:void(0)" onClick="toggleTab(4,5,'',false)">For Sale</a></li>
-        <li id="tabHeader5"><a href="javascript:void(0)" onClick="toggleTab(5,5,'',false)">Photos</a></li>
+        <li id="tabHeader1" class="currenttab"><a href="javascript:void(0)" onClick="toggleTab(1,6,'',false)">Main</a></li>
+        <li id="tabHeader2"><a href="javascript:void(0)" onClick="toggleTab(2,6,'',false)" >Drivetrain</a></li>
+        <li id="tabHeader3"><a href="javascript:void(0)" onclick="toggleTab(3,6,'',false)">Interior/Exterior</a></li>
+        <li id="tabHeader4"><a href="javascript:void(0)" onClick="toggleTab(4,6,'',false)">For Sale</a></li>
+        <li id="tabHeader5"><a href="javascript:void(0)" onClick="toggleTab(5,6,'',false)">Photos</a></li>
+        <li id="tabHeader6"><a href="javascript:void(0)" onClick="toggleTab(6,6,'',false)">Settings</a></li>
     </ul>
 </div>
 <div class="clear"></div>

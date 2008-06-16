@@ -1,45 +1,46 @@
-<h1><%= @truck.title %> <span class="small"><%= link_to 'Edit', edit_truck_path(@truck) %></small> </h1>
+<h1><%= @truck.title %> <span class="small"><%= link_to 'Edit', edit_truck_path(@truck) %></span> </h1>
 <div id="truck-info">
 <h2><%= @truck.year %> <%= @truck.model.make.name %> <%= @truck.model.name %> <%= @truck.model_other %></h2>
-<% if !@truck..condition.blank? %><p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br /><% end %>
-<% if !@truck.mileage.blank? %><strong>Mileage:</strong> <%= @truck.mileage %><br /><% end %>
-<% if !@truck.engine.blank? %><strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br /><% end %>
-<% if !@truck.drive.blank? %><strong>Drive:</strong> <%= @truck.drive.name %> <%= @truck.drive_comments %><br /><% end %>
-<% if !@truck.transmission.blank? %><strong>Transmission:</strong> <%= @truck.transmission.name %> <%= @truck.transmission_comments %><br /><% end %>
-<% if !@truck.doors.blank? %><strong>Number of Doors:</strong> <%= @truck.doors %><br /><% end %>
-<% if !@truck.ext_color_comments.blank? %><strong>Exterior Color:</strong> <%= @truck.ext_color_comments %><br /><% end %>
-<% if !@truck.int_color_comments.blank? %><strong>Interior Color:</strong> <%= @truck.int_color_comments %><br /><% end %>
 <p><%= @truck.additional_comments %></p>
-</div>
-<div id="truck-projects">
-<h2><%= link_to "Projects", truck_projects_path(@truck) %></h2>
-    <% if @truck.projects.blank? %>
-    <p>No projects.</p>
-    <% else %>
-        <% @truck.projects.each do |p| %>
-        <p><strong><%= h p.title %></strong></p>
-        <% end %>
-    <% end %>
-</div>
-<div id="truck-service_logs">
-<h2><%= link_to "Service Logs", truck_service_logs_path(@truck) %></h2>
-    <% if @truck.service_logs.blank? %>
-    <p>No service logs.</p>
-    <% else %>
-        <% @truck.service_logs.each do |log| %>
-        <p><strong><%= h "#{log.service_log_type.name} (#{log.created_at.strftime('%m/%d/%Y')})" %></strong></p>
-        <% end %>
-    <% end %>
-</div>
+    <div id="truck-details">
+    <% if !@truck..condition.blank? %><p><strong>Condition:</strong> <%= @truck.condition.name %> <%= @truck.vehicle_condition_comments %><br /><% end %>
+    <% if !@truck.mileage.blank? %><strong>Mileage:</strong> <%= @truck.mileage %><br /><% end %>
+    <% if !@truck.engine.blank? %><strong>Engine:</strong> <%= @truck.engine.name %> <%= @truck.engine_comments %><br /><% end %>
+    <% if !@truck.drive.blank? %><strong>Drive:</strong> <%= @truck.drive.name %> <%= @truck.drive_comments %><br /><% end %>
+    <% if !@truck.transmission.blank? %><strong>Transmission:</strong> <%= @truck.transmission.name %> <%= @truck.transmission_comments %><br /><% end %>
+    <% if !@truck.doors.blank? %><strong>Number of Doors:</strong> <%= @truck.doors %><br /><% end %>
+    <% if !@truck.int_color_comments.blank? %><strong>Interior Color:</strong> <%= @truck.int_color_comments %><br /><% end %>
+    </div> <!--END Truck Details-->
+</div> <!--END Truck Info-->
 <div id="truck-photos">
-    <% if @truck.photos.blank? %>
-    <p>No photos.</p>
-    <% else %>
-        <% @truck.photos.each do |p| %>
-        <div><a href="<%=p.public_filename%>" target="_blank"><%= image_tag p.public_filename(:thumb) %></a></div>
+        <% if @truck.photos.blank? %>
+        <p>No photos.</p>
+        <% else %>
+            <% @truck.photos.each do |p| %>
+            <div><a href="<%=p.public_filename%>" target="_blank"><%= image_tag p.public_filename(:thumb) %></a></div>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
+<div class="truck-collateral">
+    <div id="truck-projects">
+    <h2><%= link_to "Projects", truck_projects_path(@truck) %></h2>
+        <% if @truck.projects.blank? %>
+        <p>No projects.</p>
+        <% else %>
+            <% @truck.projects.each do |p| %>
+            <p><strong><%= h p.title %></strong></p>
+            <% end %>
+        <% end %>
+    </div>
+    <div id="truck-service_logs">
+    <h2><%= link_to "Service Logs", truck_service_logs_path(@truck) %></h2>
+        <% if @truck.service_logs.blank? %>
+        <p>No service logs.</p>
+        <% else %>
+            <% @truck.service_logs.each do |log| %>
+            <p><strong><%= h "#{log.service_log_type.name} (#{log.created_at.strftime('%m/%d/%Y')})" %></strong></p>
+            <% end %>
+        <% end %>
+    </div>
 </div>
-
-
-
+<br class="clear" />

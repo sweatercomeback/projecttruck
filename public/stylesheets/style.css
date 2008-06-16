@@ -416,29 +416,39 @@ div .project_step_text
 /* truck show */
 #truck-photos
 {
-	clear: both;
+	float:left;
+	margin: 0 25px;
 }
 
 #truck-photos div
 {
-	float:left;
-	margin:0 10px 0 0;
+	
+
+	
 }
 
 #truck-service_logs
 {
-	float:left;
-	width:20%;
+	
 }
 
 #truck-projects
 {
-	float:left;
-	width:20%;
+	
+	
 }
 
 #truck-info
 {
 	float:left;
-	width:325px;
+	width:350px;
+}
+#truck-details
+{
+	margin: 0 10px 10px 10px;
+}
+#truck-collateral
+{
+	float:right;
+	
 }

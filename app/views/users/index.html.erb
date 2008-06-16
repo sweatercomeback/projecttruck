@@ -34,10 +34,9 @@
         <label for="zip">zip code</label>
         <%= text_field_tag 'zip' %> 
         <%= hidden_field_tag "as", "1" %>
-        <%= hidden_field_tag "for_sale", "1" %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= hidden_field_tag "for_sale", "1" %><br />
+        <%= submit_tag "Next", :name => nil %>
         
     <% end %>
-    <%= link_to "Advanced Search", :controller => :trucks, :as=>1, :make_id=>1 %>
 </div>
 <div style="clear:both;height:10px;"></div>
