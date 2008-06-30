@@ -11,8 +11,7 @@
     <% if !@truck.doors.blank? %><strong>Number of Doors:</strong> <%= @truck.doors %><br /><% end %>
     <% if !@truck.int_color_comments.blank? %><strong>Interior Color:</strong> <%= @truck.int_color_comments %><br /><% end %>
     </div> <!--END Truck Details-->
-</div> <!--END Truck Info-->
-<div id="truck-photos">
+    <div id="truck-photos">
         <% if @truck.photos.blank? %>
         <p>No photos.</p>
         <% else %>
@@ -21,6 +20,7 @@
             <% end %>
         <% end %>
     </div>
+</div> <!--END Truck Info-->
 <div class="truck-collateral">
     <div id="truck-projects">
     <h2><%= link_to "Projects", truck_projects_path(@truck) %></h2>

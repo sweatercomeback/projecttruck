@@ -441,11 +441,13 @@ div .project_step_text
 #truck-info
 {
 	float:left;
-	width:350px;
+	width:550px;
 }
 #truck-details
 {
 	margin: 0 10px 10px 10px;
+	width:250px;
+	float:left;
 }
 #truck-collateral
 {
